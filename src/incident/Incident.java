@@ -18,4 +18,5 @@ public class Incident {
     private String status;
     private Date closeDate;
 
+
 }
