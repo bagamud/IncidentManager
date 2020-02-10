@@ -10,7 +10,7 @@ public class SQLCon {
     private String url = "jdbc:mysql://localhost:3306/incidentManager";
     private String username = "user";
     private String password = "password";
-    private String maxPool = "250";
+//    private String maxPool = "250";
     private Connection connection;
     private Properties properties;
 
@@ -19,7 +19,7 @@ public class SQLCon {
             properties = new Properties();
             properties.setProperty("user", username);
             properties.setProperty("password", password);
-            properties.setProperty("MaxPooledStatements", maxPool);
+//            properties.setProperty("MaxPooledStatements", maxPool);
         }
         return properties;
     }

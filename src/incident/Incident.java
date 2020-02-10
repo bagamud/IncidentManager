@@ -1,10 +1,11 @@
 package incident;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Incident {
     private int id;
-    private Date incidentDate;
+    private /*Date*/ String incidentDate;
     private String incidentCategory;
     private Priority incidentPriority;
     private String requesterDepartment;
@@ -16,12 +17,13 @@ public class Incident {
     private String executor;
     private String operator;
     private String incidentStatus;
-    private Date incidentCloseDate;
+    private /*Date*/ String incidentCloseDate;
+    private SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
     public Incident(String incidentCategory, Priority incidentPriority, String requesterDepartment,
                     String requester, String requesterContacts, String incidentDescription, String operator,
                     String incidentStatus) {
-        this.incidentDate = new Date();
+        this.incidentDate = simpleDate.format(new Date());
         this.incidentCategory = incidentCategory;
         this.incidentPriority = incidentPriority;
         this.requesterDepartment = requesterDepartment;
@@ -40,11 +42,11 @@ public class Incident {
         this.id = id;
     }
 
-    public Date getIncidentDate() {
+    public /*Date*/ String getIncidentDate() {
         return incidentDate;
     }
 
-    public void setIncidentDate(Date incidentDate) {
+    public void setIncidentDate(/*Date*/ String incidentDate) {
         this.incidentDate = incidentDate;
     }
 
@@ -136,11 +138,11 @@ public class Incident {
         this.incidentStatus = incidentStatus;
     }
 
-    public Date getIncidentCloseDate() {
+    public /*Date*/ String getIncidentCloseDate() {
         return incidentCloseDate;
     }
 
-    public void setIncidentCloseDate(Date incidentCloseDate) {
+    public void setIncidentCloseDate(/*Date*/ String incidentCloseDate) {
         this.incidentCloseDate = incidentCloseDate;
     }
 }

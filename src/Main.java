@@ -16,7 +16,17 @@ public class Main {
                 "Филиппов Дмитрий", "182", "Не печатает принтер", "Гаврилова Н.С.",
                 "в работе");
 
-        sql = "";
+        sql = "INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
+                "REQUESTER, REQUESTER_CONTACTS, IP_ADDRESS, INCIDENT_DURATION, INCIDENT_DESCRIPTION, EXECUTOR, " +
+                "OPERATOR, INCIDENT_STATUS) VALUES (" + incident.getIncidentDate() + ", '" + incident.getIncidentCategory() +
+                "', '" + incident.getIncidentPriority().getDescription() + "', '" + incident.getRequesterDepartment() + "', '" + incident.getRequester() +
+                "', '" + incident.getRequesterContacts() + "', '" + incident.getIpAddress() + "', " + incident.getIncidentDuration() +
+                ", '" + incident.getIncidentDescription() + "', " + incident.getExecutor() + "', '" + incident.getOperator() + "', " +
+                incident.getIncidentStatus() + "')";
+
+        System.out.println(sql);
+
+
 
         System.out.println(incident.getIncidentDate() + " " + incident.getIncidentPriority().getDescription());
         SQLCon connection = new SQLCon();
