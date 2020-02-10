@@ -26,6 +26,7 @@
     <loaded-nodes>
       <connection connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d">
         <schema name="incidentmanager" object-types="table, index, column, function, view, constraint, procedure, dataset trigger" />
+        <schema name="information_schema" object-types="table, function, view, procedure" />
       </connection>
     </loaded-nodes>
   </component>
@@ -34,7 +35,7 @@
       <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main"><![CDATA[CREATE TABLE INCIDENT
 (
     ID INT PRIMARY KEY  AUTO_INCREMENT UNIQUE,
-    INCIDENT_DATE DATETIME NOT NULL,
+    INCIDENT_DATE VARCHAR(255) NOT NULL,
     INCIDENT_CATEGORY VARCHAR(255) NOT NULL,
     INCIDENT_PRIORITY VARCHAR(20) NOT NULL,
     REQUESTER_DEPARTMENT VARCHAR(255) NOT NULL,
@@ -46,7 +47,7 @@
     EXECUTOR VARCHAR(255),
     OPERATOR VARCHAR(255) NOT NULL,
     INCIDENT_STATUS VARCHAR(20) NOT NULL,
-    INCIDENT_CLOSEDATA DATETIME
+    INCIDENT_CLOSEDATA VARCHAR(255)
 )]]></console>
     </connection>
   </component>
