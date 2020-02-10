@@ -22,12 +22,12 @@ public class SQLCon {
         }
         return connection;
     }
-    public Connection disconnect() {
+    public void disconnect() {
         if (connection != null) {
             try {
                 connection.close();
                 connection = null;
-                System.out.println("Connection database closed.");
+                System.out.println("Database connection closed.");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
