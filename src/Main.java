@@ -13,7 +13,7 @@ public class Main {
         ResultSet rs;
 
         Incident incident = new Incident(
-                "category",
+                "ARM/HARDWARE/Printers",
                 new Priority(0,1),
                 "1 отдел УГИБДД",
                 "Филиппов Дмитрий",
@@ -42,6 +42,6 @@ public class Main {
         st = connection.connect().createStatement();
         st.executeUpdate(sql);
 
-
+        connection.disconnect();
     }
 }
