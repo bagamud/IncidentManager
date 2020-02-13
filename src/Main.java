@@ -22,26 +22,14 @@ public class Main {
                 "Гаврилова Н.С.",
                 "в работе");
 
-        sql = "INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
-                "REQUESTER, REQUESTER_CONTACTS, IP_ADDRESS, INCIDENT_DURATION, INCIDENT_DESCRIPTION, EXECUTOR, " +
-                "OPERATOR, INCIDENT_STATUS) VALUES ('" + incident.getIncidentDate() + "', '"
-                + incident.getIncidentCategory() + "', '" + incident.getIncidentPriority().getDescription() + "', '"
-                + incident.getRequesterDepartment() + "', '" + incident.getRequester() + "', '"
-                + incident.getRequesterContacts() + "', '" + incident.getIpAddress() + "', "
-                + incident.getIncidentDuration() + ", '" + incident.getIncidentDescription() + "', '"
-                + incident.getExecutor() + "', '" + incident.getOperator() + "', '" +
-                incident.getIncidentStatus() + "')";
-
-        System.out.println(sql);
-
-
-
-        System.out.println(incident.getIncidentDate() + " " + incident.getIncidentPriority().getDescription());
         SQLCon connection = new SQLCon();
         connection.connect();
         st = connection.connect().createStatement();
-        st.executeUpdate(sql);
-
+        st.executeUpdate(incident.writeToSQL());
+        rs = st.executeQuery("SELECT MAX(ID) FROM INCIDENT");
+        rs.next();
+        incident.setId(rs.getInt(1));
+        System.out.println(incident.getId());
         connection.disconnect();
     }
 }

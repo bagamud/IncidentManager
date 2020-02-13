@@ -14,7 +14,7 @@ public class Incident {
     private String ipAddress;
     private int incidentDuration;
     private String incidentDescription;
-    private String executor;
+    private String engineer;
     private String operator;
     private String incidentStatus;
     private /*Date*/ String incidentCloseDate;
@@ -33,6 +33,20 @@ public class Incident {
         this.operator = operator;
         this.incidentStatus = incidentStatus;
     }
+
+    public String writeToSQL() {
+        String sql = "INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
+                "REQUESTER, REQUESTER_CONTACTS, IP_ADDRESS, INCIDENT_DURATION, INCIDENT_DESCRIPTION, ENGINEER, " +
+                "OPERATOR, INCIDENT_STATUS) VALUES ('" + incidentDate + "', '" + incidentCategory + "', '"
+                + incidentPriority.getDescription() + "', '" + requesterDepartment + "', '" + requester + "', '"
+                + requesterContacts + "', '" + ipAddress + "', " + incidentDuration + ", '" + incidentDescription + "', '"
+                + engineer + "', '" + operator + "', '" + incidentStatus + "')";
+        return sql;
+    }
+
+//    public String getIDFromSQL() {
+//        return
+//    }
 
     public int getId() {
         return id;
@@ -114,12 +128,12 @@ public class Incident {
         this.incidentDescription = incidentDescription;
     }
 
-    public String getExecutor() {
-        return executor;
+    public String getEngineer() {
+        return engineer;
     }
 
-    public void setExecutor(String executor) {
-        this.executor = executor;
+    public void setEngineer(String engineer) {
+        this.engineer = engineer;
     }
 
     public String getOperator() {
