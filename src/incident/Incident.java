@@ -50,7 +50,13 @@ public class Incident {
 
         ResultSet rs = st.executeQuery("SELECT MAX(ID) FROM INCIDENT");
         rs.next();
-        this.id = rs.getInt(1);
+        id = rs.getInt(1);
+        System.out.println("Зарегистрирована заявка под номером: " + id);
+    }
+
+    public void isClosed(Date date) {
+        incidentCloseDate = simpleDate.format(date);
+        System.out.println("Заявка номер: " + id + " закрыта " + incidentCloseDate);
     }
 
     public int getId() {

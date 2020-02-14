@@ -3,6 +3,7 @@ import incident.Incident;
 import incident.Priority;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -19,7 +20,7 @@ public class Main {
         SQLCon connection = new SQLCon();
         connection.connect();
         incident.writeToSQL(connection);
-        System.out.println(incident.getId());
+        incident.isClosed(new Date());
         connection.disconnect();
     }
 }
