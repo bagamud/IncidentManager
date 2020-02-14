@@ -1,5 +1,10 @@
 package incident;
 
+import connection.SQLCon;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,19 +39,19 @@ public class Incident {
         this.incidentStatus = incidentStatus;
     }
 
-    public String writeToSQL() {
-        String sql = "INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
+    public void writeToSQL(SQLCon connection) throws SQLException {
+        Statement st = connection.connect().createStatement();
+        st.executeUpdate("INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
                 "REQUESTER, REQUESTER_CONTACTS, IP_ADDRESS, INCIDENT_DURATION, INCIDENT_DESCRIPTION, ENGINEER, " +
                 "OPERATOR, INCIDENT_STATUS) VALUES ('" + incidentDate + "', '" + incidentCategory + "', '"
                 + incidentPriority.getDescription() + "', '" + requesterDepartment + "', '" + requester + "', '"
                 + requesterContacts + "', '" + ipAddress + "', " + incidentDuration + ", '" + incidentDescription + "', '"
-                + engineer + "', '" + operator + "', '" + incidentStatus + "')";
-        return sql;
-    }
+                + engineer + "', '" + operator + "', '" + incidentStatus + "')");
 
-//    public String getIDFromSQL() {
-//        return
-//    }
+        ResultSet rs = st.executeQuery("SELECT MAX(ID) FROM INCIDENT");
+        rs.next();
+        this.id = rs.getInt(1);
+    }
 
     public int getId() {
         return id;

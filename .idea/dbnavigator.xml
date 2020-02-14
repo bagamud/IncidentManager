@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-        <schema name="incidentmanager" object-types="column, constraint, index, table, view, procedure, function, dataset trigger" />
+        <schema name="incidentmanager" object-types="view, constraint, procedure, table, column, index, dataset trigger, function" />
       </connection>
     </loaded-nodes>
   </component>
