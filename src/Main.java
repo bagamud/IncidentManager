@@ -1,12 +1,26 @@
+import connection.SQLCon;
 import incident.Incident;
 import incident.Priority;
 
+import java.sql.SQLException;
+import java.util.Date;
+
 public class Main {
-    public static void main(String[] args) {
-        Incident incident = new Incident("category", new Priority(0,1), "1 отдел УГИБДД",
-                "Филиппов Дмитрий", "182", "Не печатает принтер", "Гаврилова Н.С.",
+    public static void main(String[] args) throws SQLException {
+        Incident incident = new Incident(
+                "ARM/HARDWARE/Printers",
+                new Priority(0,1),
+                "1 отдел УГИБДД",
+                "Филиппов Дмитрий",
+                "182",
+                "Не печатает принтер",
+                "Гаврилова Н.С.",
                 "в работе");
 
-        System.out.println(incident.getDate() + " " + incident.getPriority().getDescription());
+        SQLCon connection = new SQLCon();
+        connection.connect();
+        incident.writeToSQL(connection);
+        incident.isClosed(new Date());
+        connection.disconnect();
     }
 }
