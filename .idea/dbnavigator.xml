@@ -16,7 +16,7 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="windows-1251" />
+      <charset value="UTF-8" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -25,29 +25,13 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-        <schema name="incidentmanager" object-types="view, constraint, procedure, table, column, index, dataset trigger, function" />
+        <schema name="IncidentManager" object-types="table, procedure, index, function, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main">CREATE TABLE INCIDENT
-(
-    ID INT PRIMARY KEY  AUTO_INCREMENT UNIQUE,
-    INCIDENT_DATE VARCHAR(255) NOT NULL,
-    INCIDENT_CATEGORY VARCHAR(255) NOT NULL,
-    INCIDENT_PRIORITY VARCHAR(20) NOT NULL,
-    REQUESTER_DEPARTMENT VARCHAR(255) NOT NULL,
-    REQUESTER VARCHAR(255) NOT NULL,
-    REQUESTER_CONTACTS VARCHAR(255) NOT NULL,
-    IP_ADDRESS VARCHAR(16),
-    INCIDENT_DURATION INT,
-    INCIDENT_DESCRIPTION VARCHAR(255),
-    EXECUTOR VARCHAR(255),
-    OPERATOR VARCHAR(255) NOT NULL,
-    INCIDENT_STATUS VARCHAR(20) NOT NULL,
-    INCIDENT_CLOSEDATA VARCHAR(255)
-)</console>
+      <console name="incidentManagerDB" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -60,7 +44,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/incidentManagerDB.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="incidentmanager" />
+    <mapping file-url="file://$PROJECT_DIR$/incidentManagerDB.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="IncidentManager" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
