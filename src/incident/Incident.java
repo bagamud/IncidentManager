@@ -2,15 +2,11 @@ package incident;
 
 import connection.SQLCon;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.*;
 
 public class Incident {
     private int id;
-    private /*Date*/ String incidentDate;
+    private Timestamp incidentDate;
     private String incidentCategory;
     private Priority incidentPriority;
     private String requesterDepartment;
@@ -22,13 +18,11 @@ public class Incident {
     private String engineer;
     private String operator;
     private String incidentStatus;
-    private /*Date*/ String incidentCloseDate;
-    private SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+    private Timestamp incidentCloseDate;
 
     public Incident(String incidentCategory, Priority incidentPriority, String requesterDepartment,
                     String requester, String requesterContacts, String incidentDescription, String operator,
                     String incidentStatus) {
-        this.incidentDate = simpleDate.format(new Date());
         this.incidentCategory = incidentCategory;
         this.incidentPriority = incidentPriority;
         this.requesterDepartment = requesterDepartment;
@@ -43,20 +37,24 @@ public class Incident {
         Statement st = connection.connect().createStatement();
         st.executeUpdate("INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
                 "REQUESTER, REQUESTER_CONTACTS, IP_ADDRESS, INCIDENT_DURATION, INCIDENT_DESCRIPTION, ENGINEER, " +
-                "OPERATOR, INCIDENT_STATUS) VALUES ('" + incidentDate + "', '" + incidentCategory + "', '"
+                "OPERATOR, INCIDENT_STATUS) VALUES (NOW(), '" + incidentCategory + "', '"
                 + incidentPriority.getDescription() + "', '" + requesterDepartment + "', '" + requester + "', '"
                 + requesterContacts + "', '" + ipAddress + "', " + incidentDuration + ", '" + incidentDescription + "', '"
                 + engineer + "', '" + operator + "', '" + incidentStatus + "')");
 
-        ResultSet rs = st.executeQuery("SELECT MAX(ID) FROM INCIDENT");
+        ResultSet rs = st.executeQuery("SELECT ID, INCIDENT_DATE FROM INCIDENT WHERE ID = (SELECT MAX(ID) FROM INCIDENT)");
         rs.next();
         id = rs.getInt(1);
-        System.out.println("Зарегистрирована заявка под номером: " + id);
+        incidentDate = rs.getTimestamp(2);
+        System.out.println(incidentDate.toLocaleString() + " зарегистрирована заявка под номером: " + id + ".");
     }
 
-    public void isClosed(Date date) {
-        incidentCloseDate = simpleDate.format(date);
-        System.out.println("Заявка номер: " + id + " закрыта " + incidentCloseDate);
+    public void isClosed(SQLCon connection, int id) throws SQLException {
+        Statement st = connection.connect().createStatement();
+        st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE ID = " + id);
+        ResultSet rs = st.executeQuery("SELECT INCIDENT_CLOSEDATE FROM INCIDENT WHERE ID = " + id);
+        rs.next();
+        System.out.println(rs.getTimestamp(1).toLocalDateTime() + " заявка номер: " + id + " закрыта.");
     }
 
     public int getId() {
@@ -67,11 +65,11 @@ public class Incident {
         this.id = id;
     }
 
-    public /*Date*/ String getIncidentDate() {
+    public Timestamp getIncidentDate() {
         return incidentDate;
     }
 
-    public void setIncidentDate(/*Date*/ String incidentDate) {
+    public void setIncidentDate(Timestamp incidentDate) {
         this.incidentDate = incidentDate;
     }
 
@@ -163,11 +161,11 @@ public class Incident {
         this.incidentStatus = incidentStatus;
     }
 
-    public /*Date*/ String getIncidentCloseDate() {
+    public Timestamp getIncidentCloseDate() {
         return incidentCloseDate;
     }
 
-    public void setIncidentCloseDate(/*Date*/ String incidentCloseDate) {
+    public void setIncidentCloseDate(Timestamp incidentCloseDate) {
         this.incidentCloseDate = incidentCloseDate;
     }
 }

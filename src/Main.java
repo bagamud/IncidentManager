@@ -19,8 +19,10 @@ public class Main {
 
         SQLCon connection = new SQLCon();
         connection.connect();
+
         incident.writeToSQL(connection);
-        incident.isClosed(new Date());
+        incident.isClosed(connection, 5);
+
         connection.disconnect();
     }
 }
