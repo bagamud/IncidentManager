@@ -1,7 +1,6 @@
 import connection.SQLCon;
 import incident.Incident;
 import incident.Priority;
-
 import java.sql.SQLException;
 
 public class Main {
@@ -18,10 +17,8 @@ public class Main {
 
         SQLCon connection = new SQLCon();
         connection.connect();
-
         incident.writeToSQL(connection);
         incident.isClosed(connection, 5);
-
         connection.disconnect();
     }
 }
