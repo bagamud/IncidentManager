@@ -1,9 +1,7 @@
 import connection.SQLCon;
 import incident.Incident;
 import incident.Priority;
-
 import java.sql.SQLException;
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -20,9 +18,7 @@ public class Main {
         SQLCon connection = new SQLCon();
         connection.connect();
         incident.writeToSQL(connection);
-        incident.isClosed(connection, 3);
-
-        System.out.println(incident.getIncidentCloseDate());
+        incident.isClosed(connection, 5);
         connection.disconnect();
     }
 }

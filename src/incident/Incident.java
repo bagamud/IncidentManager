@@ -2,16 +2,11 @@ package incident;
 
 import connection.SQLCon;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.*;
 
 public class Incident {
     private int id;
-    private Date incidentDate;
+    private Timestamp incidentDate;
     private String incidentCategory;
     private Priority incidentPriority;
     private String requesterDepartment;
@@ -23,13 +18,11 @@ public class Incident {
     private String engineer;
     private String operator;
     private String incidentStatus;
-    private /*Date*/ String incidentCloseDate;
-    private SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+    private Timestamp incidentCloseDate;
 
     public Incident(String incidentCategory, Priority incidentPriority, String requesterDepartment,
                     String requester, String requesterContacts, String incidentDescription, String operator,
                     String incidentStatus) {
-//        this.incidentDate = simpleDate.format(new Date());
         this.incidentCategory = incidentCategory;
         this.incidentPriority = incidentPriority;
         this.requesterDepartment = requesterDepartment;
@@ -49,19 +42,19 @@ public class Incident {
                 + requesterContacts + "', '" + ipAddress + "', " + incidentDuration + ", '" + incidentDescription + "', '"
                 + engineer + "', '" + operator + "', '" + incidentStatus + "')");
 
-        ResultSet rs = st.executeQuery("SELECT MAX(ID), MAX(INCIDENT_DATE) FROM INCIDENT");
+        ResultSet rs = st.executeQuery("SELECT ID, INCIDENT_DATE FROM INCIDENT WHERE ID = (SELECT MAX(ID) FROM INCIDENT)");
         rs.next();
         id = rs.getInt(1);
         incidentDate = rs.getTimestamp(2);
-        System.out.println(/*simpleDate.format(*/incidentDate/*)*/ + " Зарегистрирована заявка под номером: " + id);
+        System.out.println(incidentDate.toLocaleString() + " зарегистрирована заявка под номером: " + id + ".");
     }
 
     public void isClosed(SQLCon connection, int id) throws SQLException {
         Statement st = connection.connect().createStatement();
-        st.executeUpdate("INSERT INTO (SELECT * FROM INCEDENT WHERE ID = " + id + ") (INCIDENT_CLOSEDATA)  VALUES (NOW())");
-//        ResultSet rs = st.executeQuery()
-//        this.incidentCloseDate = simpleDate.format(date);
-//        System.out.println("Заявка номер: " + id + " закрыта " + incidentCloseDate);
+        st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE ID = " + id);
+        ResultSet rs = st.executeQuery("SELECT INCIDENT_CLOSEDATE FROM INCIDENT WHERE ID = " + id);
+        rs.next();
+        System.out.println(rs.getTimestamp(1).toLocalDateTime() + " заявка номер: " + id + " закрыта.");
     }
 
     public int getId() {
@@ -72,11 +65,11 @@ public class Incident {
         this.id = id;
     }
 
-    public Date getIncidentDate() {
+    public Timestamp getIncidentDate() {
         return incidentDate;
     }
 
-    public void setIncidentDate(Date incidentDate) {
+    public void setIncidentDate(Timestamp incidentDate) {
         this.incidentDate = incidentDate;
     }
 
@@ -168,11 +161,11 @@ public class Incident {
         this.incidentStatus = incidentStatus;
     }
 
-    public /*Date*/ String getIncidentCloseDate() {
+    public Timestamp getIncidentCloseDate() {
         return incidentCloseDate;
     }
 
-    public void setIncidentCloseDate(/*Date*/ String incidentCloseDate) {
+    public void setIncidentCloseDate(Timestamp incidentCloseDate) {
         this.incidentCloseDate = incidentCloseDate;
     }
 }
