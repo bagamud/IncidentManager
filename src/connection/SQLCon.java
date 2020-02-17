@@ -26,11 +26,11 @@ public class SQLCon {
 
     public Connection connect() {
         if (connection == null) {
-            System.out.println("Connecting database...");
+            System.out.print("Connecting database...");
             try {
                 Class.forName(databaseDriver);
                 connection = DriverManager.getConnection(url, username, password);
-                System.out.println("Connected!");
+                System.out.println("OK!");
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }
