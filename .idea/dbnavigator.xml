@@ -16,7 +16,7 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="UTF-8" />
+      <charset value="windows-1251" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -27,7 +27,23 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main" />
+      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main">CREATE TABLE INCIDENT
+(
+    ID INT PRIMARY KEY  AUTO_INCREMENT UNIQUE,
+    INCIDENT_DATE VARCHAR(255) NOT NULL,
+    INCIDENT_CATEGORY VARCHAR(255) NOT NULL,
+    INCIDENT_PRIORITY VARCHAR(20) NOT NULL,
+    REQUESTER_DEPARTMENT VARCHAR(255) NOT NULL,
+    REQUESTER VARCHAR(255) NOT NULL,
+    REQUESTER_CONTACTS VARCHAR(255) NOT NULL,
+    IP_ADDRESS VARCHAR(16),
+    INCIDENT_DURATION INT,
+    INCIDENT_DESCRIPTION VARCHAR(255),
+    EXECUTOR VARCHAR(255),
+    OPERATOR VARCHAR(255) NOT NULL,
+    INCIDENT_STATUS VARCHAR(20) NOT NULL,
+    INCIDENT_CLOSEDATA VARCHAR(255)
+)</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -40,7 +56,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/incidentManagerDB.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="incidentManager" />
+    <mapping file-url="file://$PROJECT_DIR$/incidentManagerDB.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="incidentmanager" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
