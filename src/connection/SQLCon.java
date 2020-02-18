@@ -6,11 +6,11 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class SQLCon {
-    private String databaseDriver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/incidentManager";
-    private String username = "user";
-    private String password = "password";
-    private String maxPool = "250";
+    private final String databaseDriver = "com.mysql.cj.jdbc.Driver";
+    private final String url = "jdbc:mysql://localhost:3306/incidentManager";
+    private final String username = "user";
+    private final String password = "password";
+    private final String maxPool = "250";
     private Connection connection;
     private Properties properties;
 

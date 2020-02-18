@@ -42,7 +42,7 @@ public class Incident {
                 + requesterContacts + "', '" + ipAddress + "', " + incidentDuration + ", '" + incidentDescription + "', '"
                 + engineer + "', '" + operator + "', '" + incidentStatus + "')");
 
-        ResultSet rs = st.executeQuery("SELECT ID, INCIDENT_DATE FROM INCIDENT WHERE ID = (SELECT MAX(ID) FROM INCIDENT)");
+        ResultSet rs = st.executeQuery("SELECT INCIDENT_ID, INCIDENT_DATE FROM INCIDENT WHERE INCIDENT_ID = (SELECT MAX(INCIDENT_ID) FROM INCIDENT)");
         rs.next();
         id = rs.getInt(1);
         incidentDate = rs.getTimestamp(2);
@@ -51,8 +51,8 @@ public class Incident {
 
     public void isClosed(SQLCon connection, int id) throws SQLException {
         Statement st = connection.connect().createStatement();
-        st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE ID = " + id);
-        ResultSet rs = st.executeQuery("SELECT INCIDENT_CLOSEDATE FROM INCIDENT WHERE ID = " + id);
+        st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE INCIDENT_ID = " + id);
+        ResultSet rs = st.executeQuery("SELECT INCIDENT_CLOSEDATE FROM INCIDENT WHERE INCIDENT_ID = " + id);
         rs.next();
         System.out.println(rs.getTimestamp(1).toLocalDateTime() + " заявка номер: " + id + " закрыта.");
     }
