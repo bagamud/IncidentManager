@@ -50,7 +50,7 @@ public class Incident {
         System.out.println(incidentDate.toLocalDateTime() + " зарегистрирована заявка под номером: " + id + ".");
     }
 
-    public void update(SQLCon connection, int id) throws SQLException {
+    public void update(@NotNull SQLCon connection, int id) throws SQLException {
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT" +
                 "SET INCIDENT_CATEGORY = " +
