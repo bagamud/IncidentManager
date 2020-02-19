@@ -53,15 +53,15 @@ public class Incident {
     public void update(@NotNull SQLCon connection, int id) throws SQLException {
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT" +
-                "SET INCIDENT_CATEGORY = " +
-                "SET REWUESTER_DEPARTMENT = " +
-                "SET REQUESTER = " +
-                "SET REQUESTER_CONTACTS = " +
-                "SET IP_ADDRESS = " +
-                "SET INCIDENT_DURATION = " +
-                "SET INCIDENT_DESCRIPTION = " +
-                "SET ENGINEER = " +
-                "WHERE INCIDENT_ID = " + id);
+                " SET INCIDENT_CATEGORY = " + incidentCategory +
+                " SET REQUESTER_DEPARTMENT = " + requesterDepartment +
+                " SET REQUESTER = " + requester +
+                " SET REQUESTER_CONTACTS = " + requesterContacts +
+                " SET IP_ADDRESS = " + ipAddress +
+                " SET INCIDENT_DURATION = " + incidentDuration +
+                " SET INCIDENT_DESCRIPTION = " + incidentDescription +
+                " SET ENGINEER = " + engineer +
+                " WHERE INCIDENT_ID = " + id);
     }
 
     public void isClosed(@NotNull SQLCon connection, int id) throws SQLException {
