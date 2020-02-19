@@ -50,6 +50,20 @@ public class Incident {
         System.out.println(incidentDate.toLocalDateTime() + " зарегистрирована заявка под номером: " + id + ".");
     }
 
+    public void update(SQLCon connection, int id) throws SQLException {
+        Statement st = connection.connect().createStatement();
+        st.execute("UPDATE INCIDENT" +
+                "SET INCIDENT_CATEGORY = " +
+                "SET REWUESTER_DEPARTMENT = " +
+                "SET REQUESTER = " +
+                "SET REQUESTER_CONTACTS = " +
+                "SET IP_ADDRESS = " +
+                "SET INCIDENT_DURATION = " +
+                "SET INCIDENT_DESCRIPTION = " +
+                "SET ENGINEER = " +
+                "WHERE INCIDENT_ID = " + id);
+    }
+
     public void isClosed(@NotNull SQLCon connection, int id) throws SQLException {
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE INCIDENT_ID = " + id);

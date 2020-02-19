@@ -60,7 +60,7 @@ INSERT INTO USERS
 VALUES
 (1, 'admin', 'admin', 'admins', 'K', null),
 (2, 'operator', 'operator', 'operators', 'N', null).
-(3, 'engeneer', 'engeneer', 'engeneers', 'E', null),
+(3, 'engineer', 'engineer', 'engineers', 'E', null),
 (4, 'manager', 'manager', 'managers', 'I', null),
 (5, 'user', 'user', 'users', 'U', null);
 
