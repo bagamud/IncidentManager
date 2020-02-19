@@ -54,3 +54,14 @@ VALUES
 (1, 'в работе'),
 (2, 'отложено'),
 (3, 'решено');
+
+INSERT INTO USERS
+(USER_ID, LOGIN, PASSWORD, USER_GROUP, USER_NAME, EMAIL)
+VALUES
+(1, 'admin', 'admin', 'admins', 'K', null),
+(2, 'operator', 'operator', 'operators', 'N', null).
+(3, 'engeneer', 'engeneer', 'engeneers', 'E', null),
+(4, 'manager', 'manager', 'managers', 'I', null),
+(5, 'user', 'user', 'users', 'U', null);
+
+
