@@ -27,7 +27,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main">CREATE TABLE INCIDENT
+      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main"><![CDATA[CREATE TABLE INCIDENT
 (
     ID INT PRIMARY KEY  AUTO_INCREMENT UNIQUE,
     INCIDENT_DATE VARCHAR(255) NOT NULL,
@@ -43,7 +43,7 @@
     OPERATOR VARCHAR(255) NOT NULL,
     INCIDENT_STATUS VARCHAR(20) NOT NULL,
     INCIDENT_CLOSEDATA VARCHAR(255)
-)</console>
+)]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
