@@ -16,7 +16,7 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="SQL" />
-      <charset value="windows-1251" />
+      <charset value="UTF-8" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -25,13 +25,60 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-        <schema name="incidentmanager" object-types="view, procedure, index, column, constraint, table, function, dataset trigger" />
+        <schema name="incidentManager" object-types="column, index, view, table, function, constraint, dataset trigger, procedure" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main" />
+      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main">INSERT INTO incidentManager.CATEGORY
+(CATEGORY_ID, CATEGORY_TITLE)
+VALUES
+(1, 'PC/HARDWARE/Printers');
+
+INSERT INTO incidentManager.DEPARTMENT
+(DEPARTMENT_ID, DEPARTMENT_TITLE)
+VALUES
+(1, '1 отдел УГИБДД'),
+(2, '2 отдел УГИБДД'),
+(3, '3 отдел УГИБДД'),
+(4, '4 отдел УГИБДД'),
+(5, '5 отдел УГИБДД'),
+(6, '6 отдел УГИБДД'),
+(7, '7 отдел УГИБДД'),
+(8, '8 отдел УГИБДД'),
+(9, '9 отдел УГИБДД'),
+(10, '10 отдел УГИБДД'),
+(11, '11 отдел УГИБДД'),
+(12, 'ЦАФАП ГИБДД'),
+(13, 'РОИО ГИБДД'),
+(14, 'ЦТУДТ ГИБДД'),
+(15, 'МРЭО ГИБДД'),
+(16, 'МРЭО ГИБДД № 1'),
+(17, 'МРЭО ГИБДД № 2'),
+(18, 'МРЭО ГИБДД № 3'),
+(19, 'МРЭО ГИБДД № 4'),
+(20, 'МРЭО ГИБДД № 5'),
+(21, 'МРЭО ГИБДД № 6'),
+(22, 'МОТНиРАС ГИБДД'),
+(23, 'МРЭО ГИБДД № 8'),
+(24, 'МРЭО ГИБДД № 9'),
+(25, 'МРЭО ГИБДД № 10'),
+(26, 'МРЭО ГИБДД № 11'),
+(27, 'МРЭО ГИБДД № 12'),
+(28, 'МРЭО ГИБДД № 13'),
+(29, 'МРЭО ГИБДД № 14'),
+(30, 'МРЭО ГИБДД № 15'),
+(31, 'МРЭО ГИБДД № 16'),
+(32, 'МРЭО ГИБДД № 17'),
+(33, 'МРЭО ГИБДД № 18'),
+(34, 'ОСБ ДПС ГИБДД'),
+(35, 'ОБ ДПС ГИБДД № 1'),
+(36, 'ОБ ДПС ГИБДД № 2'),
+(37, 'ОБ ДПС ГИБДД № 3'),
+(38, 'ОБ ДПС ГИБДД № 4'),
+(39, 'ОР ДПС ГИБДД № 1'),
+(40, 'ОР ДПС ГИБДД № 2');</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -54,10 +101,6 @@
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
-  </component>
-  <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/incidentManagerDB.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="incidentmanager" />
-    <mapping file-url="file://$PROJECT_DIR$/SQL_tables_data.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="incidentmanager" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
