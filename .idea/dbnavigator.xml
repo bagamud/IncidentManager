@@ -23,11 +23,15 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d">
+        <schema name="incidentManager" object-types="function, table, index, view, procedure" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="790247f1-67ba-469a-9b73-8b0d683ae37d">
-      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main"><![CDATA[INSERT INTO incidentManager.CATEGORY
+      <console name="incidentManagerDB" type="STANDARD" schema="incidentmanager" session="Main">INSERT INTO incidentManager.CATEGORY
 (CATEGORY_ID, CATEGORY_TITLE)
 VALUES
 (1, 'PC/HARDWARE/Printers');
@@ -74,7 +78,7 @@ VALUES
 (37, 'ОБ ДПС ГИБДД № 3'),
 (38, 'ОБ ДПС ГИБДД № 4'),
 (39, 'ОР ДПС ГИБДД № 1'),
-(40, 'ОР ДПС ГИБДД № 2');]]></console>
+(40, 'ОР ДПС ГИБДД № 2');</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -97,6 +101,9 @@ VALUES
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/SQL/incidentManagerDB.sql" connection-id="790247f1-67ba-469a-9b73-8b0d683ae37d" session-id="MAIN" current-schema="incidentManager" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />

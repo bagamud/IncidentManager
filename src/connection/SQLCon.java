@@ -7,9 +7,9 @@ import java.util.Properties;
 
 public class SQLCon {
     private final String databaseDriver = "com.mysql.cj.jdbc.Driver";
-    private final String url = "jdbc:mysql://localhost:3306/incidentManager";
-    private final String username = "user";
-    private final String password = "password";
+    private String url = "jdbc:mysql://localhost:3306/incidentManager";
+    private String username = "user";
+    private String password = "password";
     private final String maxPool = "250";
     private Connection connection;
     private Properties properties;
@@ -47,5 +47,29 @@ public class SQLCon {
                 e.printStackTrace();
             }
         }
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

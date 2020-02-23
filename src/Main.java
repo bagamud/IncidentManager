@@ -16,9 +16,9 @@ public class Main {
                 "в работе");
 
         SQLCon connection = new SQLCon();
-        connection.connect();
         incident.writeToSQL(connection);
         incident.isClosed(connection, 1);
-        connection.disconnect();
+        incident.update(connection, 1);
+
     }
 }

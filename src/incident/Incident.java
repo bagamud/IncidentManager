@@ -35,41 +35,51 @@ public class Incident {
     }
 
     public void writeToSQL(@NotNull SQLCon connection) throws SQLException {
+        connection.connect();
         Statement st = connection.connect().createStatement();
-        st.executeUpdate("INSERT INTO INCIDENT (INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
+        st.executeUpdate("INSERT INTO INCIDENT " +
+                "(INCIDENT_DATE, INCIDENT_CATEGORY, INCIDENT_PRIORITY, REQUESTER_DEPARTMENT, " +
                 "REQUESTER, REQUESTER_CONTACTS, IP_ADDRESS, INCIDENT_DURATION, INCIDENT_DESCRIPTION, ENGINEER, " +
-                "OPERATOR, INCIDENT_STATUS) VALUES (NOW(), '" + incidentCategory + "', '"
-                + incidentPriority.getDescription() + "', '" + requesterDepartment + "', '" + requester + "', '"
-                + requesterContacts + "', '" + ipAddress + "', " + incidentDuration + ", '" + incidentDescription + "', '"
-                + engineer + "', '" + operator + "', '" + incidentStatus + "')");
+                "OPERATOR, INCIDENT_STATUS)" +
+                "VALUES" +
+                "(NOW(), '" + incidentCategory + "', '" + incidentPriority.getDescription() + "', '"
+                + requesterDepartment + "', '" + requester + "', '" + requesterContacts + "', '" + ipAddress + "', "
+                + incidentDuration + ", '" + incidentDescription + "', '" + engineer + "', '" + operator + "', '"
+                + incidentStatus + "')");
 
-        ResultSet rs = st.executeQuery("SELECT INCIDENT_ID, INCIDENT_DATE FROM INCIDENT WHERE INCIDENT_ID = (SELECT MAX(INCIDENT_ID) FROM INCIDENT)");
+        ResultSet rs = st.executeQuery("SELECT INCIDENT_ID, INCIDENT_DATE FROM INCIDENT" +
+                " WHERE INCIDENT_ID = (SELECT MAX(INCIDENT_ID) FROM INCIDENT)");
         rs.next();
         id = rs.getInt(1);
         incidentDate = rs.getTimestamp(2);
         System.out.println(incidentDate.toLocalDateTime() + " зарегистрирована заявка под номером: " + id + ".");
+        connection.disconnect();
     }
 
     public void update(@NotNull SQLCon connection, int id) throws SQLException {
+        connection.connect();
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT" +
-                " SET INCIDENT_CATEGORY = " + incidentCategory +
-                " SET REQUESTER_DEPARTMENT = " + requesterDepartment +
-                " SET REQUESTER = " + requester +
-                " SET REQUESTER_CONTACTS = " + requesterContacts +
-                " SET IP_ADDRESS = " + ipAddress +
-                " SET INCIDENT_DURATION = " + incidentDuration +
-                " SET INCIDENT_DESCRIPTION = " + incidentDescription +
-                " SET ENGINEER = " + engineer +
-                " WHERE INCIDENT_ID = " + id);
+                " SET INCIDENT_CATEGORY = '" + incidentCategory +
+                "', REQUESTER_DEPARTMENT = '" + requesterDepartment +
+                "', REQUESTER = '" + requester +
+                "', REQUESTER_CONTACTS = '" + requesterContacts +
+                "', IP_ADDRESS = '" + ipAddress +
+                "', INCIDENT_DURATION = '" + incidentDuration +
+                "', INCIDENT_DESCRIPTION = '" + incidentDescription +
+                "', ENGINEER = '" + engineer +
+                "' WHERE INCIDENT_ID = " + id);
+        connection.disconnect();
     }
 
     public void isClosed(@NotNull SQLCon connection, int id) throws SQLException {
+        connection.connect();
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE INCIDENT_ID = " + id);
         ResultSet rs = st.executeQuery("SELECT INCIDENT_CLOSEDATE FROM INCIDENT WHERE INCIDENT_ID = " + id);
         rs.next();
         System.out.println(rs.getTimestamp(1).toLocalDateTime() + " заявка номер: " + id + " закрыта.");
+        connection.disconnect();
     }
 
     public int getId() {
