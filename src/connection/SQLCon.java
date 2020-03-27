@@ -7,12 +7,18 @@ import java.util.Properties;
 
 public class SQLCon {
     private final String databaseDriver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/incidentManager";
-    private String username = "user";
-    private String password = "password";
+    private String url;
+    private String username;
+    private String password;
     private final String maxPool = "250";
     private Connection connection;
     private Properties properties;
+
+    public SQLCon(String url, String username, String password) {
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
 
     private Properties getProperties() {
         if (properties == null) {

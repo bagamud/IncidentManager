@@ -1,10 +1,15 @@
 import connection.SQLCon;
 import incident.Incident;
 import incident.Priority;
+
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
+        Config config = new Config();
+
         Incident incident = new Incident(
                 "ARM/HARDWARE/Printers",
                 new Priority(0,1),
@@ -15,7 +20,7 @@ public class Main {
                 "Гаврилова Н.С.",
                 "в работе");
 
-        SQLCon connection = new SQLCon();
+        SQLCon connection = new SQLCon(config.getUrl(), config.getUsername(), config.getPassword());
         incident.writeToSQL(connection);
         incident.isClosed(connection, 1);
         incident.update(connection, 1);
