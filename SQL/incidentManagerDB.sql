@@ -15,7 +15,7 @@ CREATE TABLE incidentManager.USERS (
     USER_LOGIN VARCHAR(255) NOT NULL,
     USER_PASSWORD VARCHAR(255) NOT NULL,
     USER_NAME VARCHAR(255) NOT NULL,
-    USER_GROUP ENUM ('administrator', 'user'),
+    USER_GROUP ENUM ('administrator', 'operator', 'engineer', 'manager', 'user'),
     USER_EMAIL VARCHAR(255)
 );
 
