@@ -4,7 +4,7 @@ VALUES
 (1, 'PC/HARDWARE/Printers');
 
 INSERT INTO incidentManager.DEPARTMENT
-(DEPARTMENT_TITLE)
+(DEPARTMENT_ID, DEPARTMENT_TITLE)
 VALUES
 (1, '1 отдел УГИБДД'),
 (2, '2 отдел УГИБДД'),
@@ -56,12 +56,10 @@ VALUES
 (3, 'решено');
 
 INSERT INTO USERS
-(USER_ID, LOGIN, PASSWORD, USER_GROUP, USER_NAME, EMAIL)
+(USER_ID, USER_LOGIN, USER_PASSWORD, USER_NAME, USER_GROUP, USER_EMAIL)
 VALUES
-(1, 'admin', 'admin', 'administrator', 'K', null),
-(2, 'operator', 'operator', 'operator', 'N', null).
-(3, 'engineer', 'engineer', 'engineer', 'E', null),
-(4, 'manager', 'manager', 'manager', 'I', null),
-(5, 'user', 'user', 'user', 'U', null);
-
-
+(1, 'admin', 'admin', 'K', 'administrator', null),
+(2, 'operator', 'operator', 'N', 'operator', null),
+(3, 'engineer', 'engineer', 'E', 'engineer', null),
+(4, 'manager', 'manager', 'I', 'manager', null),
+(5, 'user', 'user','U', 'user', null)
