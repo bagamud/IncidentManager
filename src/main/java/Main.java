@@ -1,10 +1,5 @@
-import connection.SQLCon;
-import incident.Incident;
-import incident.Priority;
-
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException {

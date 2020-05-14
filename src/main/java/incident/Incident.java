@@ -1,11 +1,11 @@
 package incident;
 
 import connection.SQLCon;
-import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
 
-public class Incident {
+public class 
+Incident {
     private int id;
     private Timestamp incidentDate;
     private String incidentCategory;
@@ -34,7 +34,7 @@ public class Incident {
         this.incidentStatus = incidentStatus;
     }
 
-    public void writeToSQL(@NotNull SQLCon connection) throws SQLException {
+    public void writeToSQL(SQLCon connection) throws SQLException {
         connection.connect();
         Statement st = connection.connect().createStatement();
         st.executeUpdate("INSERT INTO INCIDENT " +
@@ -56,7 +56,7 @@ public class Incident {
         connection.disconnect();
     }
 
-    public void update(@NotNull SQLCon connection, int id) throws SQLException {
+    public void update(SQLCon connection, int id) throws SQLException {
         connection.connect();
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT" +
@@ -72,7 +72,7 @@ public class Incident {
         connection.disconnect();
     }
 
-    public void isClosed(@NotNull SQLCon connection, int id) throws SQLException {
+    public void isClosed(SQLCon connection, int id) throws SQLException {
         connection.connect();
         Statement st = connection.connect().createStatement();
         st.execute("UPDATE INCIDENT SET INCIDENT_CLOSEDATE = NOW() WHERE INCIDENT_ID = " + id);

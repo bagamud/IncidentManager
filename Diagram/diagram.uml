@@ -3,58 +3,22 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="353.0309523809524" y="0.0">connection.SQLCon</node>
-    <node x="33.10714285714283" y="45.0">incident.Priority</node>
-    <node x="262.0" y="1586.0">Main</node>
-    <node x="36.50000000000006" y="453.0">incident.Incident</node>
+    <node x="544.0" y="0.0">connection.SQLCon</node>
+    <node x="0.0" y="619.0">incident.Priority</node>
+    <node x="210.0" y="619.0">Main</node>
+    <node x="0.0" y="0.0">incident.Incident</node>
   </nodes>
   <notes />
-  <edges>
-    <edge source="Main" target="connection.SQLCon">
-      <point x="59.60000000000002" y="-26.5" />
-      <point x="396.1" y="1566.0" />
-      <point x="458.0" y="1566.0" />
-      <point x="458.0" y="428.0" />
-      <point x="505.5309523809524" y="428.0" />
-      <point x="61.0" y="201.5" />
-    </edge>
-    <edge source="Main" target="incident.Priority">
-      <point x="-59.60000000000002" y="-26.5" />
-      <point x="276.9" y="1566.0" />
-      <point x="26.0" y="1566.0" />
-      <point x="26.0" y="428.0" />
-      <point x="61.10714285714283" y="428.0" />
-      <point x="-56.0" y="156.5" />
-    </edge>
-    <edge source="incident.Incident" target="connection.SQLCon">
-      <point x="133.33333333333331" y="-541.5" />
-      <point x="369.83333333333337" y="428.0" />
-      <point x="383.5309523809524" y="428.0" />
-      <point x="-61.0" y="201.5" />
-    </edge>
-    <edge source="Main" target="incident.Incident">
-      <point x="0.0" y="-26.5" />
-      <point x="100.0" y="541.5" />
-    </edge>
-    <edge source="incident.Incident" target="incident.Priority">
-      <point x="-133.33333333333337" y="-541.5" />
-      <point x="103.16666666666669" y="428.0" />
-      <point x="117.10714285714283" y="428.0" />
-      <point x="0.0" y="156.5" />
-    </edge>
-  </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="339.0" y="428.5" />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.9502314814814815" x="402.0" y="422.0" />
   <SelectedNodes>
-    <node>connection.SQLCon</node>
-    <node>incident.Priority</node>
     <node>Main</node>
-    <node>incident.Incident</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
     <Category>Methods</Category>
-    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
