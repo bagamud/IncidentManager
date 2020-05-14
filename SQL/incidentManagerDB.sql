@@ -1,4 +1,3 @@
-CREATE SCHEMA INM DEFAULT CHARACTER SET utf8mb4;
 CREATE TABLE INM.CATEGORY (
                               CATEGORY_ID INT PRIMARY KEY,
                               CATEGORY_TITLE VARCHAR(255),
@@ -10,27 +9,33 @@ CREATE TABLE INM.DEPARTMENT (
                                 DEPARTMENT_TITLE VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE INM.USERS_CROUP (
+                                 GROUP_ID INT PRIMARY KEY,
+                                 GROUP_NAME VARCHAR(255)
+);
+
 CREATE TABLE INM.USERS (
-                           USER_ID INT AUTO_INCREMENT UNIQUE,
+                           USER_ID INT PRIMARY KEY,
                            USER_LOGIN VARCHAR(255) NOT NULL,
                            USER_PASSWORD VARCHAR(255) NOT NULL,
                            USER_NAME VARCHAR(255) NOT NULL,
-                           USER_GROUP ENUM ('administrator', 'operator', 'engineer', 'manager', 'user'),
+                           USER_GROUP INT(10),
+                           USER_CONTACTS VARCHAR(45),
                            USER_EMAIL VARCHAR(255)
 );
 
 CREATE TABLE INM.INC_STATUS (
                                 STATUS_ID INT PRIMARY KEY,
-                                STATUS_TITLE ENUM ('в работе', 'отложено', 'решено')
+                                STATUS_TITLE VARCHAR(255)
 );
 CREATE TABLE INM.INCIDENT (
                               INCIDENT_ID INT PRIMARY KEY AUTO_INCREMENT,
                               INCIDENT_DATE TIMESTAMP NOT NULL,
                               INCIDENT_CATEGORY INT(10) NOT NULL,
                               INCIDENT_PRIORITY VARCHAR(20) NOT NULL,
-                              REQUESTER_DEPARTMENT INT NOT NULL,
+                              REQUESTER_DEPARTMENT INT(10) NOT NULL,
                               REQUESTER VARCHAR(255) NOT NULL,
-                              REQUESTER_CONTACTS VARCHAR(255) NOT NULL,
+                              REQUESTER_CONTACTS VARCHAR(45) NOT NULL,
                               IP_ADDRESS VARCHAR(16),
                               INCIDENT_DURATION INT(10),
                               INCIDENT_DESCRIPTION VARCHAR(255),
