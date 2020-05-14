@@ -9,7 +9,7 @@ CREATE TABLE INM.DEPARTMENT (
                                 DEPARTMENT_TITLE VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE INM.USERS_CROUP (
+CREATE TABLE INM.USERS_GROUP (
                                  GROUP_ID INT PRIMARY KEY,
                                  GROUP_NAME VARCHAR(255)
 );
@@ -21,7 +21,9 @@ CREATE TABLE INM.USERS (
                            USER_NAME VARCHAR(255) NOT NULL,
                            USER_GROUP INT(10),
                            USER_CONTACTS VARCHAR(45),
-                           USER_EMAIL VARCHAR(255)
+                           USER_EMAIL VARCHAR(255),
+                           CONSTRAINT FK_USERGROUP FOREIGN KEY (USER_GROUP)
+                               REFERENCES USERS_GROUP (GROUP_ID)
 );
 
 CREATE TABLE INM.INC_STATUS (
