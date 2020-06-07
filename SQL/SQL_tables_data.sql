@@ -1,10 +1,10 @@
-INSERT INTO incidentManager.CATEGORY
-(CATEGORY_ID, CATEGORY_TITLE)
+INSERT INTO INM.CATEGORY
+(ID, TITLE)
 VALUES
 (1, 'PC/HARDWARE/Printers');
 
-INSERT INTO incidentManager.DEPARTMENT
-(DEPARTMENT_ID, DEPARTMENT_TITLE)
+INSERT INTO INM.DEPARTMENT
+(ID, TITLE)
 VALUES
 (1, '1 отдел УГИБДД'),
 (2, '2 отдел УГИБДД'),
@@ -48,18 +48,18 @@ VALUES
 (40, 'ОР ДПС ГИБДД № 1'),
 (41, 'ОР ДПС ГИБДД № 2');
 
-INSERT INTO incidentManager.INC_STATUS
-(STATUS_ID, STATUS_TITLE)
+INSERT INTO INM.INC_STATUS
+(ID, TITLE)
 VALUES
 (1, 'в работе'),
 (2, 'отложено'),
 (3, 'решено');
 
 INSERT INTO USERS
-(USER_ID, USER_LOGIN, USER_PASSWORD, USER_NAME, USER_GROUP, USER_EMAIL)
+(ID, LOGIN, PASSWORD, NAME, USER_GROUP, CONTACTS, EMAIL)
 VALUES
-(1, 'admin', 'admin', 'K', 'administrator', null),
-(2, 'operator', 'operator', 'N', 'operator', null),
-(3, 'engineer', 'engineer', 'E', 'engineer', null),
-(4, 'manager', 'manager', 'I', 'manager', null),
-(5, 'user', 'user','U', 'user', null)
+(1, 'admin', 'admin', 'K', 'administrator', null, null),
+(2, 'operator', 'operator', 'N', 'operator', null, null),
+(3, 'engineer', 'engineer', 'E', 'engineer', null, null),
+(4, 'manager', 'manager', 'I', 'manager', null, null),
+(5, 'user', 'user','U', 'user', null, null)
