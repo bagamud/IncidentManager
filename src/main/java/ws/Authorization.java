@@ -16,9 +16,9 @@ import java.util.List;
 public class Authorization {
 
     @GET
-    @Path("{login},{password}")
-    @Produces("text/plain")
-    public boolean logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
+    @Path("")
+    @Produces("text/html")
+    public String logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
         boolean isLogin = false;
 
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -31,6 +31,7 @@ public class Authorization {
             if (user.getLogin().equals(login)) {
                 if (user.getPassword().equals(password)) {
                     isLogin = true;
+                    break;
                 }
             } else isLogin = false;
         }
@@ -39,6 +40,6 @@ public class Authorization {
         session.close();
         sessionFactory.close();
 
-        return isLogin;
+        return String.valueOf(isLogin);
     }
 }

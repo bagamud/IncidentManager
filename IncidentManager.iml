@@ -60,6 +60,8 @@
     </orderEntry>
     <orderEntry type="library" name="org.apache.commons:commons-dbcp2:2.0.1" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.19" level="project" />
+    <orderEntry type="library" name="JAX-RS-2.1.1" level="project" />
+    <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.20" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.cxf:cxf-rt-frontend-jaxws:3.3.6" level="project" />
@@ -156,7 +158,5 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.3" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.2" level="project" />
-    <orderEntry type="library" name="JAX-RS-2.1.1" level="project" />
-    <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
   </component>
 </module>
