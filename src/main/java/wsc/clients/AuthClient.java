@@ -1,4 +1,4 @@
-package wsc;
+package wsc.clients;
 
 import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;

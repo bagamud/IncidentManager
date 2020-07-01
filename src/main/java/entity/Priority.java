@@ -8,8 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Priority {
     private int id;
-    private Integer influence;
-    private Integer urgency;
+    private int influence;
+    private int urgency;
     private String description;
     private String term;
 
@@ -25,21 +25,21 @@ public class Priority {
 
     @Basic
     @Column(name = "INFLUENCE")
-    public Integer getInfluence() {
+    public int getInfluence() {
         return influence;
     }
 
-    public void setInfluence(Integer influence) {
+    public void setInfluence(int influence) {
         this.influence = influence;
     }
 
     @Basic
     @Column(name = "URGENCY")
-    public Integer getUrgency() {
+    public int getUrgency() {
         return urgency;
     }
 
-    public void setUrgency(Integer urgency) {
+    public void setUrgency(int urgency) {
         this.urgency = urgency;
     }
 
@@ -71,8 +71,8 @@ public class Priority {
         Priority priority = (Priority) o;
 
         if (id != priority.id) return false;
-        if (influence != null ? !influence.equals(priority.influence) : priority.influence != null) return false;
-        if (urgency != null ? !urgency.equals(priority.urgency) : priority.urgency != null) return false;
+        if (influence != priority.influence) return false;
+        if (urgency != priority.urgency) return false;
         if (description != null ? !description.equals(priority.description) : priority.description != null)
             return false;
         if (term != null ? !term.equals(priority.term) : priority.term != null) return false;
@@ -83,8 +83,8 @@ public class Priority {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (influence != null ? influence.hashCode() : 0);
-        result = 31 * result + (urgency != null ? urgency.hashCode() : 0);
+        result = 31 * result + influence;
+        result = 31 * result + urgency;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (term != null ? term.hashCode() : 0);
         return result;

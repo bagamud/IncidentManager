@@ -16,9 +16,9 @@ public class Incident {
     private String requester;
     private String requesterContacts;
     private String ipAddress;
-    private Integer duration;
+    private int duration;
     private String description;
-    private Integer engineer;
+    private int engineer;
     private int operator;
     private int status;
     private Timestamp closeDate;
@@ -106,11 +106,11 @@ public class Incident {
 
     @Basic
     @Column(name = "DURATION")
-    public Integer getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Integer duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
@@ -126,11 +126,11 @@ public class Incident {
 
     @Basic
     @Column(name = "ENGINEER")
-    public Integer getEngineer() {
+    public int getEngineer() {
         return engineer;
     }
 
-    public void setEngineer(Integer engineer) {
+    public void setEngineer(int engineer) {
         this.engineer = engineer;
     }
 
@@ -192,10 +192,10 @@ public class Incident {
         if (requesterContacts != null ? !requesterContacts.equals(incident.requesterContacts) : incident.requesterContacts != null)
             return false;
         if (ipAddress != null ? !ipAddress.equals(incident.ipAddress) : incident.ipAddress != null) return false;
-        if (duration != null ? !duration.equals(incident.duration) : incident.duration != null) return false;
+        if (duration != incident.duration) return false;
         if (description != null ? !description.equals(incident.description) : incident.description != null)
             return false;
-        if (engineer != null ? !engineer.equals(incident.engineer) : incident.engineer != null) return false;
+        if (engineer != incident.engineer) return false;
         if (closeDate != null ? !closeDate.equals(incident.closeDate) : incident.closeDate != null) return false;
         if (journal != null ? !journal.equals(incident.journal) : incident.journal != null) return false;
 
@@ -212,9 +212,9 @@ public class Incident {
         result = 31 * result + (requester != null ? requester.hashCode() : 0);
         result = 31 * result + (requesterContacts != null ? requesterContacts.hashCode() : 0);
         result = 31 * result + (ipAddress != null ? ipAddress.hashCode() : 0);
-        result = 31 * result + (duration != null ? duration.hashCode() : 0);
+        result = 31 * result + duration;
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (engineer != null ? engineer.hashCode() : 0);
+        result = 31 * result + engineer;
         result = 31 * result + operator;
         result = 31 * result + status;
         result = 31 * result + (closeDate != null ? closeDate.hashCode() : 0);

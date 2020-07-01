@@ -1,4 +1,4 @@
-package wsc;
+package wsc.clients;
 
 import entity.Incident;
 
@@ -20,8 +20,9 @@ public class ManagerClient {
   public int addIncident(int category, int priority, int rd, String requester, String rc,
                          String ip, int duration, String description, int engineer, int operator, int status) {
     WebTarget resource = webTarget;
-    resource = resource.queryParam("category", category).queryParam("priority", priority).queryParam("rd", rd).queryParam("requester", requester)
-            .queryParam("rc", rc).queryParam("ip", ip).queryParam("duration", duration).queryParam("description", description)
+    resource = resource.queryParam("category", category).queryParam("priority", priority).queryParam("rd", rd)
+            .queryParam("requester", requester).queryParam("rc", rc).queryParam("ip", ip)
+            .queryParam("duration", duration).queryParam("description", description)
             .queryParam("engineer", engineer).queryParam("operator", operator).queryParam("status", status);
 
     return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Integer.class);
@@ -34,6 +35,17 @@ public class ManagerClient {
     return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Incident.class);
   }
 
+  public void updateIncident(int id, int category, int priority, int rd, String requester, String rc,
+                             String ip, int duration, String description, int engineer, int operator, int status) {
+    WebTarget resource = webTarget;
+    resource = resource.queryParam("id", id).queryParam("category", category).queryParam("priority", priority)
+            .queryParam("rd", rd).queryParam("requester", requester).queryParam("rc", rc)
+            .queryParam("ip", ip).queryParam("duration", duration).queryParam("description", description)
+            .queryParam("engineer", engineer).queryParam("operator", operator).queryParam("status", status);
+  }
 
+  public void close() {
+    client.close();
+  }
 
 }

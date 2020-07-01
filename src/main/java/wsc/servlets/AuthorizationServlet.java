@@ -1,6 +1,6 @@
-package servlets;
+package wsc.servlets;
 
-import wsc.AuthClient;
+import wsc.clients.AuthClient;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

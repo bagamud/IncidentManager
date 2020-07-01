@@ -11,7 +11,7 @@ public class Users {
     private String login;
     private String password;
     private String name;
-    private Integer userGroup;
+    private int userGroup;
     private String contacts;
     private String email;
 
@@ -57,11 +57,11 @@ public class Users {
 
     @Basic
     @Column(name = "USER_GROUP")
-    public Integer getUserGroup() {
+    public int getUserGroup() {
         return userGroup;
     }
 
-    public void setUserGroup(Integer userGroup) {
+    public void setUserGroup(int userGroup) {
         this.userGroup = userGroup;
     }
 
@@ -96,7 +96,7 @@ public class Users {
         if (login != null ? !login.equals(users.login) : users.login != null) return false;
         if (password != null ? !password.equals(users.password) : users.password != null) return false;
         if (name != null ? !name.equals(users.name) : users.name != null) return false;
-        if (userGroup != null ? !userGroup.equals(users.userGroup) : users.userGroup != null) return false;
+        if (userGroup != users.userGroup) return false;
         if (contacts != null ? !contacts.equals(users.contacts) : users.contacts != null) return false;
         if (email != null ? !email.equals(users.email) : users.email != null) return false;
 
@@ -109,7 +109,7 @@ public class Users {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (userGroup != null ? userGroup.hashCode() : 0);
+        result = 31 * result + userGroup;
         result = 31 * result + (contacts != null ? contacts.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
