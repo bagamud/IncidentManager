@@ -2,17 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
     <title>Авторизация</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="icon" href="img/favicons/favicon.ico">
-    <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#563d7c">
+    <link href="img/favicons/favicon.ico" rel="icon">
+    <meta content="/docs/4.5/assets/img/favicons/browserconfig.xml" name="msapplication-config">
+    <meta content="#563d7c" name="theme-color">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -32,13 +32,13 @@
     <link href="css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-<form class="form-signin" action="auth" method="GET">
-    <img src="./img/gibdd.png" alt="">
+<form action="auth" class="form-signin" method="GET">
+    <img alt="" src="./img/gibdd.png">
     <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
-    <label for="inputLogin" class="sr-only">Логин</label>
-    <input type="text" name="login" id="inputLogin" class="form-control" placeholder="Логин" required autofocus>
-    <label for="inputPassword" class="sr-only">Пароль</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+    <label class="sr-only" for="inputLogin">Логин</label>
+    <input autofocus class="form-control" id="inputLogin" name="login" placeholder="Логин" required type="text">
+    <label class="sr-only" for="inputPassword">Пароль</label>
+    <input class="form-control" id="inputPassword" name="password" placeholder="Пароль" required type="password">
     <div class="checkbox mb-3">
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>

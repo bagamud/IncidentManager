@@ -1,5 +1,5 @@
 /* Show it's not fixed to the top */
 body {
-  padding-left: 15px;
-  min-height: 75rem;
+    padding-left: 15px;
+    min-height: 75rem;
 }
