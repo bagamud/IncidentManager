@@ -11,7 +11,7 @@ public class Department {
     private Collection<Incident> incidentsById;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -21,7 +21,7 @@ public class Department {
     }
 
     @Basic
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", nullable = false, length = 255)
     public String getTitle() {
         return title;
     }

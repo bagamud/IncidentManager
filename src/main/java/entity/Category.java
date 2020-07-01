@@ -15,7 +15,7 @@ public class Category {
     private Collection<Incident> incidentsById;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -25,7 +25,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "LEVEL")
+    @Column(name = "LEVEL", nullable = false)
     public int getLevel() {
         return level;
     }
@@ -35,7 +35,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "LEFT_KEY")
+    @Column(name = "LEFT_KEY", nullable = false)
     public int getLeftKey() {
         return leftKey;
     }
@@ -45,7 +45,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "RIGHT_KEY")
+    @Column(name = "RIGHT_KEY", nullable = false)
     public int getRightKey() {
         return rightKey;
     }
@@ -55,7 +55,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", nullable = false, length = 45)
     public String getTitle() {
         return title;
     }
@@ -65,7 +65,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "PARENT_ID")
+    @Column(name = "PARENT_ID", nullable = false)
     public int getParentId() {
         return parentId;
     }

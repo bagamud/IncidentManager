@@ -8,8 +8,8 @@
           <element id="module-output" name="IncidentManager" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Hibernate 5.4.11-5.4.11" />
           <element id="library" level="project" name="mysql:mysql-connector-java:8.0.19" />
+          <element id="library" level="project" name="Hibernate 5.4.11-5.4.11" />
         </element>
       </element>
     </root>

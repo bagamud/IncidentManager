@@ -10,7 +10,7 @@ public class Users {
     private String login;
     private String password;
     private String name;
-    private Integer userGroup;
+    private int userGroup;
     private String contacts;
     private String email;
     private Collection<Incident> incidentsById;
@@ -18,7 +18,7 @@ public class Users {
     private UsersGroup usersGroupByUserGroup;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -28,7 +28,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "LOGIN")
+    @Column(name = "LOGIN", nullable = false, length = 255)
     public String getLogin() {
         return login;
     }
@@ -38,7 +38,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable = false, length = 255)
     public String getPassword() {
         return password;
     }
@@ -48,7 +48,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 255)
     public String getName() {
         return name;
     }
@@ -58,17 +58,17 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "USER_GROUP")
-    public Integer getUserGroup() {
+    @Column(name = "USER_GROUP", nullable = false)
+    public int getUserGroup() {
         return userGroup;
     }
 
-    public void setUserGroup(Integer userGroup) {
+    public void setUserGroup(int userGroup) {
         this.userGroup = userGroup;
     }
 
     @Basic
-    @Column(name = "CONTACTS")
+    @Column(name = "CONTACTS", nullable = true, length = 255)
     public String getContacts() {
         return contacts;
     }
@@ -78,7 +78,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = true, length = 255)
     public String getEmail() {
         return email;
     }
@@ -93,10 +93,10 @@ public class Users {
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
         return id == users.id &&
+                userGroup == users.userGroup &&
                 Objects.equals(login, users.login) &&
                 Objects.equals(password, users.password) &&
                 Objects.equals(name, users.name) &&
-                Objects.equals(userGroup, users.userGroup) &&
                 Objects.equals(contacts, users.contacts) &&
                 Objects.equals(email, users.email);
     }
@@ -125,7 +125,7 @@ public class Users {
     }
 
     @ManyToOne
-    @JoinColumn(name = "USER_GROUP", referencedColumnName = "ID")
+    @JoinColumn(name = "USER_GROUP", referencedColumnName = "ID", nullable = false)
     public UsersGroup getUsersGroupByUserGroup() {
         return usersGroupByUserGroup;
     }

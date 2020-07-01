@@ -12,7 +12,7 @@ public class UsersGroup {
     private Collection<Users> usersById;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -22,7 +22,7 @@ public class UsersGroup {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = true, length = 255)
     public String getName() {
         return name;
     }

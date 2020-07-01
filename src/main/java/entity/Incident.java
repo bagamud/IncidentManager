@@ -29,7 +29,7 @@ public class Incident {
     private IncStatus incStatusByStatus;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -39,7 +39,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DATE")
+    @Column(name = "DATE", nullable = false)
     public Timestamp getDate() {
         return date;
     }
@@ -49,7 +49,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "CATEGORY")
+    @Column(name = "CATEGORY", nullable = false)
     public int getCategory() {
         return category;
     }
@@ -59,7 +59,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "PRIORITY")
+    @Column(name = "PRIORITY", nullable = false)
     public int getPriority() {
         return priority;
     }
@@ -69,7 +69,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER_DEPARTMENT")
+    @Column(name = "REQUESTER_DEPARTMENT", nullable = false)
     public int getRequesterDepartment() {
         return requesterDepartment;
     }
@@ -79,7 +79,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER")
+    @Column(name = "REQUESTER", nullable = false, length = 255)
     public String getRequester() {
         return requester;
     }
@@ -89,7 +89,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER_CONTACTS")
+    @Column(name = "REQUESTER_CONTACTS", nullable = false, length = 45)
     public String getRequesterContacts() {
         return requesterContacts;
     }
@@ -99,7 +99,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "IP_ADDRESS")
+    @Column(name = "IP_ADDRESS", nullable = true, length = 16)
     public String getIpAddress() {
         return ipAddress;
     }
@@ -109,7 +109,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DURATION")
+    @Column(name = "DURATION", nullable = true)
     public Integer getDuration() {
         return duration;
     }
@@ -119,7 +119,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = true, length = 255)
     public String getDescription() {
         return description;
     }
@@ -129,7 +129,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "ENGINEER")
+    @Column(name = "ENGINEER", nullable = true)
     public Integer getEngineer() {
         return engineer;
     }
@@ -139,7 +139,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "OPERATOR")
+    @Column(name = "OPERATOR", nullable = false)
     public int getOperator() {
         return operator;
     }
@@ -149,7 +149,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "STATUS")
+    @Column(name = "STATUS", nullable = false)
     public int getStatus() {
         return status;
     }
@@ -159,7 +159,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "CLOSE_DATE")
+    @Column(name = "CLOSE_DATE", nullable = true)
     public Timestamp getCloseDate() {
         return closeDate;
     }
@@ -169,7 +169,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "JOURNAL")
+    @Column(name = "JOURNAL", nullable = true, length = -1)
     public String getJournal() {
         return journal;
     }

@@ -14,8 +14,8 @@
         <property name="format_sql">false</property>
         <property name="use_sql_comments">false</property>
         <property name="connection.autocommit">true</property>
-        <property name="connection.username">user</property>
-        <property name="connection.password">password</property>
+        <property name="connection.username">inm</property>
+        <property name="connection.password">inm</property>
 
         <mapping class="entity.Category"/>
         <mapping class="entity.Department"/>

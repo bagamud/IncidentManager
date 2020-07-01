@@ -7,14 +7,14 @@ import java.util.Objects;
 @Entity
 public class Priority {
     private int id;
-    private Integer influence;
-    private Integer urgency;
+    private int influence;
+    private int urgency;
     private String description;
-    private Integer term;
+    private int term;
     private Collection<Incident> incidentsById;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -24,27 +24,27 @@ public class Priority {
     }
 
     @Basic
-    @Column(name = "INFLUENCE")
-    public Integer getInfluence() {
+    @Column(name = "INFLUENCE", nullable = false)
+    public int getInfluence() {
         return influence;
     }
 
-    public void setInfluence(Integer influence) {
+    public void setInfluence(int influence) {
         this.influence = influence;
     }
 
     @Basic
-    @Column(name = "URGENCY")
-    public Integer getUrgency() {
+    @Column(name = "URGENCY", nullable = false)
+    public int getUrgency() {
         return urgency;
     }
 
-    public void setUrgency(Integer urgency) {
+    public void setUrgency(int urgency) {
         this.urgency = urgency;
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = false, length = 100)
     public String getDescription() {
         return description;
     }
@@ -54,12 +54,12 @@ public class Priority {
     }
 
     @Basic
-    @Column(name = "TERM")
-    public Integer getTerm() {
+    @Column(name = "TERM", nullable = false)
+    public int getTerm() {
         return term;
     }
 
-    public void setTerm(Integer term) {
+    public void setTerm(int term) {
         this.term = term;
     }
 
@@ -69,10 +69,10 @@ public class Priority {
         if (o == null || getClass() != o.getClass()) return false;
         Priority priority = (Priority) o;
         return id == priority.id &&
-                Objects.equals(influence, priority.influence) &&
-                Objects.equals(urgency, priority.urgency) &&
-                Objects.equals(description, priority.description) &&
-                Objects.equals(term, priority.term);
+                influence == priority.influence &&
+                urgency == priority.urgency &&
+                term == priority.term &&
+                Objects.equals(description, priority.description);
     }
 
     @Override
