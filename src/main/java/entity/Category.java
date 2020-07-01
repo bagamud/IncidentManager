@@ -1,17 +1,18 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Category {
     private int id;
-    private String first;
-    private String second;
-    private String third;
-    private String description;
+    private int level;
+    private int leftKey;
+    private int rightKey;
+    private String title;
+    private int parentId;
+    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID")
@@ -24,69 +25,79 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "FIRST")
-    public String getFirst() {
-        return first;
+    @Column(name = "LEVEL")
+    public int getLevel() {
+        return level;
     }
 
-    public void setFirst(String first) {
-        this.first = first;
-    }
-
-    @Basic
-    @Column(name = "SECOND")
-    public String getSecond() {
-        return second;
-    }
-
-    public void setSecond(String second) {
-        this.second = second;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     @Basic
-    @Column(name = "THIRD")
-    public String getThird() {
-        return third;
+    @Column(name = "LEFT_KEY")
+    public int getLeftKey() {
+        return leftKey;
     }
 
-    public void setThird(String third) {
-        this.third = third;
+    public void setLeftKey(int leftKey) {
+        this.leftKey = leftKey;
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
-    public String getDescription() {
-        return description;
+    @Column(name = "RIGHT_KEY")
+    public int getRightKey() {
+        return rightKey;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRightKey(int rightKey) {
+        this.rightKey = rightKey;
+    }
+
+    @Basic
+    @Column(name = "TITLE")
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Basic
+    @Column(name = "PARENT_ID")
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Category category = (Category) o;
-
-        if (id != category.id) return false;
-        if (first != null ? !first.equals(category.first) : category.first != null) return false;
-        if (second != null ? !second.equals(category.second) : category.second != null) return false;
-        if (third != null ? !third.equals(category.third) : category.third != null) return false;
-        if (description != null ? !description.equals(category.description) : category.description != null)
-            return false;
-
-        return true;
+        return id == category.id &&
+                level == category.level &&
+                leftKey == category.leftKey &&
+                rightKey == category.rightKey &&
+                parentId == category.parentId &&
+                Objects.equals(title, category.title);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (first != null ? first.hashCode() : 0);
-        result = 31 * result + (second != null ? second.hashCode() : 0);
-        result = 31 * result + (third != null ? third.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+        return Objects.hash(id, level, leftKey, rightKey, title, parentId);
+    }
+
+    @OneToMany(mappedBy = "categoryByCategory")
+    public Collection<Incident> getIncidentsById() {
+        return incidentsById;
+    }
+
+    public void setIncidentsById(Collection<Incident> incidentsById) {
+        this.incidentsById = incidentsById;
     }
 }

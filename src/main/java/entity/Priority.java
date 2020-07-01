@@ -1,17 +1,17 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Priority {
     private int id;
-    private int influence;
-    private int urgency;
+    private Integer influence;
+    private Integer urgency;
     private String description;
-    private String term;
+    private Integer term;
+    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID")
@@ -25,21 +25,21 @@ public class Priority {
 
     @Basic
     @Column(name = "INFLUENCE")
-    public int getInfluence() {
+    public Integer getInfluence() {
         return influence;
     }
 
-    public void setInfluence(int influence) {
+    public void setInfluence(Integer influence) {
         this.influence = influence;
     }
 
     @Basic
     @Column(name = "URGENCY")
-    public int getUrgency() {
+    public Integer getUrgency() {
         return urgency;
     }
 
-    public void setUrgency(int urgency) {
+    public void setUrgency(Integer urgency) {
         this.urgency = urgency;
     }
 
@@ -55,11 +55,11 @@ public class Priority {
 
     @Basic
     @Column(name = "TERM")
-    public String getTerm() {
+    public Integer getTerm() {
         return term;
     }
 
-    public void setTerm(String term) {
+    public void setTerm(Integer term) {
         this.term = term;
     }
 
@@ -67,26 +67,25 @@ public class Priority {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Priority priority = (Priority) o;
-
-        if (id != priority.id) return false;
-        if (influence != priority.influence) return false;
-        if (urgency != priority.urgency) return false;
-        if (description != null ? !description.equals(priority.description) : priority.description != null)
-            return false;
-        if (term != null ? !term.equals(priority.term) : priority.term != null) return false;
-
-        return true;
+        return id == priority.id &&
+                Objects.equals(influence, priority.influence) &&
+                Objects.equals(urgency, priority.urgency) &&
+                Objects.equals(description, priority.description) &&
+                Objects.equals(term, priority.term);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + influence;
-        result = 31 * result + urgency;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (term != null ? term.hashCode() : 0);
-        return result;
+        return Objects.hash(id, influence, urgency, description, term);
+    }
+
+    @OneToMany(mappedBy = "priorityByPriority")
+    public Collection<Incident> getIncidentsById() {
+        return incidentsById;
+    }
+
+    public void setIncidentsById(Collection<Incident> incidentsById) {
+        this.incidentsById = incidentsById;
     }
 }

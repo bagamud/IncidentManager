@@ -1,14 +1,14 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Department {
     private int id;
     private String title;
+    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID")
@@ -34,19 +34,22 @@ public class Department {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Department that = (Department) o;
-
-        if (id != that.id) return false;
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(title, that.title);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        return result;
+        return Objects.hash(id, title);
+    }
+
+    @OneToMany(mappedBy = "departmentByRequesterDepartment")
+    public Collection<Incident> getIncidentsById() {
+        return incidentsById;
+    }
+
+    public void setIncidentsById(Collection<Incident> incidentsById) {
+        this.incidentsById = incidentsById;
     }
 }

@@ -1,12 +1,15 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
-@Table(name = "inc_status", schema = "inm", catalog = "")
+@Table(name = "INC_STATUS", schema = "INM", catalog = "")
 public class IncStatus {
     private int id;
     private String title;
+    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID")
@@ -32,19 +35,22 @@ public class IncStatus {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         IncStatus incStatus = (IncStatus) o;
-
-        if (id != incStatus.id) return false;
-        if (title != null ? !title.equals(incStatus.title) : incStatus.title != null) return false;
-
-        return true;
+        return id == incStatus.id &&
+                Objects.equals(title, incStatus.title);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        return result;
+        return Objects.hash(id, title);
+    }
+
+    @OneToMany(mappedBy = "incStatusByStatus")
+    public Collection<Incident> getIncidentsById() {
+        return incidentsById;
+    }
+
+    public void setIncidentsById(Collection<Incident> incidentsById) {
+        this.incidentsById = incidentsById;
     }
 }

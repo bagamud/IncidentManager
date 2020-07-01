@@ -33,7 +33,7 @@ public class Authorization {
                     isLogin = true;
                     break;
                 }
-            } else isLogin = false;
+            }
         }
 
         session.getTransaction().commit();

@@ -1,10 +1,8 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
 public class Incident {
@@ -16,13 +14,19 @@ public class Incident {
     private String requester;
     private String requesterContacts;
     private String ipAddress;
-    private int duration;
+    private Integer duration;
     private String description;
-    private int engineer;
+    private Integer engineer;
     private int operator;
     private int status;
     private Timestamp closeDate;
     private String journal;
+    private Category categoryByCategory;
+    private Priority priorityByPriority;
+    private Department departmentByRequesterDepartment;
+    private Users usersByEngineer;
+    private Users usersByOperator;
+    private IncStatus incStatusByStatus;
 
     @Id
     @Column(name = "ID")
@@ -106,11 +110,11 @@ public class Incident {
 
     @Basic
     @Column(name = "DURATION")
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
@@ -126,11 +130,11 @@ public class Incident {
 
     @Basic
     @Column(name = "ENGINEER")
-    public int getEngineer() {
+    public Integer getEngineer() {
         return engineer;
     }
 
-    public void setEngineer(int engineer) {
+    public void setEngineer(Integer engineer) {
         this.engineer = engineer;
     }
 
@@ -178,47 +182,86 @@ public class Incident {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Incident incident = (Incident) o;
-
-        if (id != incident.id) return false;
-        if (category != incident.category) return false;
-        if (priority != incident.priority) return false;
-        if (requesterDepartment != incident.requesterDepartment) return false;
-        if (operator != incident.operator) return false;
-        if (status != incident.status) return false;
-        if (date != null ? !date.equals(incident.date) : incident.date != null) return false;
-        if (requester != null ? !requester.equals(incident.requester) : incident.requester != null) return false;
-        if (requesterContacts != null ? !requesterContacts.equals(incident.requesterContacts) : incident.requesterContacts != null)
-            return false;
-        if (ipAddress != null ? !ipAddress.equals(incident.ipAddress) : incident.ipAddress != null) return false;
-        if (duration != incident.duration) return false;
-        if (description != null ? !description.equals(incident.description) : incident.description != null)
-            return false;
-        if (engineer != incident.engineer) return false;
-        if (closeDate != null ? !closeDate.equals(incident.closeDate) : incident.closeDate != null) return false;
-        if (journal != null ? !journal.equals(incident.journal) : incident.journal != null) return false;
-
-        return true;
+        return id == incident.id &&
+                category == incident.category &&
+                priority == incident.priority &&
+                requesterDepartment == incident.requesterDepartment &&
+                operator == incident.operator &&
+                status == incident.status &&
+                Objects.equals(date, incident.date) &&
+                Objects.equals(requester, incident.requester) &&
+                Objects.equals(requesterContacts, incident.requesterContacts) &&
+                Objects.equals(ipAddress, incident.ipAddress) &&
+                Objects.equals(duration, incident.duration) &&
+                Objects.equals(description, incident.description) &&
+                Objects.equals(engineer, incident.engineer) &&
+                Objects.equals(closeDate, incident.closeDate) &&
+                Objects.equals(journal, incident.journal);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + category;
-        result = 31 * result + priority;
-        result = 31 * result + requesterDepartment;
-        result = 31 * result + (requester != null ? requester.hashCode() : 0);
-        result = 31 * result + (requesterContacts != null ? requesterContacts.hashCode() : 0);
-        result = 31 * result + (ipAddress != null ? ipAddress.hashCode() : 0);
-        result = 31 * result + duration;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + engineer;
-        result = 31 * result + operator;
-        result = 31 * result + status;
-        result = 31 * result + (closeDate != null ? closeDate.hashCode() : 0);
-        result = 31 * result + (journal != null ? journal.hashCode() : 0);
-        return result;
+        return Objects.hash(id, date, category, priority, requesterDepartment, requester, requesterContacts, ipAddress, duration, description, engineer, operator, status, closeDate, journal);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY", referencedColumnName = "ID", nullable = false)
+    public Category getCategoryByCategory() {
+        return categoryByCategory;
+    }
+
+    public void setCategoryByCategory(Category categoryByCategory) {
+        this.categoryByCategory = categoryByCategory;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "PRIORITY", referencedColumnName = "ID", nullable = false)
+    public Priority getPriorityByPriority() {
+        return priorityByPriority;
+    }
+
+    public void setPriorityByPriority(Priority priorityByPriority) {
+        this.priorityByPriority = priorityByPriority;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "REQUESTER_DEPARTMENT", referencedColumnName = "ID", nullable = false)
+    public Department getDepartmentByRequesterDepartment() {
+        return departmentByRequesterDepartment;
+    }
+
+    public void setDepartmentByRequesterDepartment(Department departmentByRequesterDepartment) {
+        this.departmentByRequesterDepartment = departmentByRequesterDepartment;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "ENGINEER", referencedColumnName = "ID")
+    public Users getUsersByEngineer() {
+        return usersByEngineer;
+    }
+
+    public void setUsersByEngineer(Users usersByEngineer) {
+        this.usersByEngineer = usersByEngineer;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "OPERATOR", referencedColumnName = "ID", nullable = false)
+    public Users getUsersByOperator() {
+        return usersByOperator;
+    }
+
+    public void setUsersByOperator(Users usersByOperator) {
+        this.usersByOperator = usersByOperator;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "STATUS", referencedColumnName = "ID", nullable = false)
+    public IncStatus getIncStatusByStatus() {
+        return incStatusByStatus;
+    }
+
+    public void setIncStatusByStatus(IncStatus incStatusByStatus) {
+        this.incStatusByStatus = incStatusByStatus;
     }
 }

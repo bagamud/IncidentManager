@@ -1,9 +1,8 @@
 package entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Users {
@@ -11,9 +10,12 @@ public class Users {
     private String login;
     private String password;
     private String name;
-    private int userGroup;
+    private Integer userGroup;
     private String contacts;
     private String email;
+    private Collection<Incident> incidentsById;
+    private Collection<Incident> incidentsById_0;
+    private UsersGroup usersGroupByUserGroup;
 
     @Id
     @Column(name = "ID")
@@ -57,11 +59,11 @@ public class Users {
 
     @Basic
     @Column(name = "USER_GROUP")
-    public int getUserGroup() {
+    public Integer getUserGroup() {
         return userGroup;
     }
 
-    public void setUserGroup(int userGroup) {
+    public void setUserGroup(Integer userGroup) {
         this.userGroup = userGroup;
     }
 
@@ -89,29 +91,46 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Users users = (Users) o;
-
-        if (id != users.id) return false;
-        if (login != null ? !login.equals(users.login) : users.login != null) return false;
-        if (password != null ? !password.equals(users.password) : users.password != null) return false;
-        if (name != null ? !name.equals(users.name) : users.name != null) return false;
-        if (userGroup != users.userGroup) return false;
-        if (contacts != null ? !contacts.equals(users.contacts) : users.contacts != null) return false;
-        if (email != null ? !email.equals(users.email) : users.email != null) return false;
-
-        return true;
+        return id == users.id &&
+                Objects.equals(login, users.login) &&
+                Objects.equals(password, users.password) &&
+                Objects.equals(name, users.name) &&
+                Objects.equals(userGroup, users.userGroup) &&
+                Objects.equals(contacts, users.contacts) &&
+                Objects.equals(email, users.email);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + userGroup;
-        result = 31 * result + (contacts != null ? contacts.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        return result;
+        return Objects.hash(id, login, password, name, userGroup, contacts, email);
+    }
+
+    @OneToMany(mappedBy = "usersByEngineer")
+    public Collection<Incident> getIncidentsById() {
+        return incidentsById;
+    }
+
+    public void setIncidentsById(Collection<Incident> incidentsById) {
+        this.incidentsById = incidentsById;
+    }
+
+    @OneToMany(mappedBy = "usersByOperator")
+    public Collection<Incident> getIncidentsById_0() {
+        return incidentsById_0;
+    }
+
+    public void setIncidentsById_0(Collection<Incident> incidentsById_0) {
+        this.incidentsById_0 = incidentsById_0;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "USER_GROUP", referencedColumnName = "ID")
+    public UsersGroup getUsersGroupByUserGroup() {
+        return usersGroupByUserGroup;
+    }
+
+    public void setUsersGroupByUserGroup(UsersGroup usersGroupByUserGroup) {
+        this.usersGroupByUserGroup = usersGroupByUserGroup;
     }
 }

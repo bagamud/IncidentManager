@@ -1,12 +1,15 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
-@Table(name = "users_group", schema = "inm", catalog = "")
+@Table(name = "USERS_GROUP", schema = "INM", catalog = "")
 public class UsersGroup {
     private int id;
     private String name;
+    private Collection<Users> usersById;
 
     @Id
     @Column(name = "ID")
@@ -32,19 +35,22 @@ public class UsersGroup {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         UsersGroup that = (UsersGroup) o;
-
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name);
+    }
+
+    @OneToMany(mappedBy = "usersGroupByUserGroup")
+    public Collection<Users> getUsersById() {
+        return usersById;
+    }
+
+    public void setUsersById(Collection<Users> usersById) {
+        this.usersById = usersById;
     }
 }
