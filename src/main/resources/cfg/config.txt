@@ -1,0 +1,5 @@
+Database connection setting's:
+
+url=jdbc:mysql://localhost:3306/incidentManager
+username=user
+password=password

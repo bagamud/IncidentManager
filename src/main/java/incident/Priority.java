@@ -1,9 +1,9 @@
 package incident;
 
 public class Priority {
-    private int priorityCode;
-    private int influence;
-    private int urgency;
+    private final int priorityCode;
+    private final int influence;
+    private final int urgency;
     private String description;
     private int deadline;
 
