@@ -1,10 +1,10 @@
-import java.io.IOException;
-import java.sql.SQLException;
-
-public class Main {
-    public static void main(String[] args) throws SQLException, IOException {
-        Config config = new Config();
-        Users user = new Users();
+//import java.io.IOException;
+//import java.sql.SQLException;
+//
+//public class Main {
+//    public static void main(String[] args) throws SQLException, IOException {
+//        Config config = new Config();
+//        Users user = new Users();
 
 //        Incident incident = new Incident(
 //                "ARM/HARDWARE/Printers",
@@ -21,5 +21,5 @@ public class Main {
 //        incident.isClosed(connection, 1);
 //        incident.update(connection, 1);
 
-    }
-}
+//    }
+//}
