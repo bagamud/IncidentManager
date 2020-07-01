@@ -1,14 +1,15 @@
 package entity;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "DEPARTMENT")
 public class Department {
     private int id;
     private String title;
-    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -42,14 +43,5 @@ public class Department {
     @Override
     public int hashCode() {
         return Objects.hash(id, title);
-    }
-
-    @OneToMany(mappedBy = "departmentByRequesterDepartment")
-    public Collection<Incident> getIncidentsById() {
-        return incidentsById;
-    }
-
-    public void setIncidentsById(Collection<Incident> incidentsById) {
-        this.incidentsById = incidentsById;
     }
 }

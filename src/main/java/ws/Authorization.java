@@ -25,7 +25,7 @@ public class Authorization {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        Query query = session.createQuery("FROM Users");
+        Query query = session.createQuery("FROM USERS");
         List<Users> users = query.getResultList();
         for (Users user : users) {
             if (user.getLogin().equals(login)) {

@@ -1,17 +1,18 @@
 package entity;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "PRIORITY")
 public class Priority {
     private int id;
     private int influence;
     private int urgency;
     private String description;
     private int term;
-    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -78,14 +79,5 @@ public class Priority {
     @Override
     public int hashCode() {
         return Objects.hash(id, influence, urgency, description, term);
-    }
-
-    @OneToMany(mappedBy = "priorityByPriority")
-    public Collection<Incident> getIncidentsById() {
-        return incidentsById;
-    }
-
-    public void setIncidentsById(Collection<Incident> incidentsById) {
-        this.incidentsById = incidentsById;
     }
 }

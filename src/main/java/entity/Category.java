@@ -1,10 +1,12 @@
 package entity;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "CATEGORY")
 public class Category {
     private int id;
     private int level;
@@ -12,7 +14,6 @@ public class Category {
     private int rightKey;
     private String title;
     private int parentId;
-    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -90,14 +91,5 @@ public class Category {
     @Override
     public int hashCode() {
         return Objects.hash(id, level, leftKey, rightKey, title, parentId);
-    }
-
-    @OneToMany(mappedBy = "categoryByCategory")
-    public Collection<Incident> getIncidentsById() {
-        return incidentsById;
-    }
-
-    public void setIncidentsById(Collection<Incident> incidentsById) {
-        this.incidentsById = incidentsById;
     }
 }

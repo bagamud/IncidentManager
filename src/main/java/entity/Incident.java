@@ -1,10 +1,13 @@
 package entity;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "INCIDENT")
 public class Incident {
     private int id;
     private Timestamp date;
@@ -14,19 +17,13 @@ public class Incident {
     private String requester;
     private String requesterContacts;
     private String ipAddress;
-    private Integer duration;
+    private int duration;
     private String description;
-    private Integer engineer;
+    private int engineer;
     private int operator;
     private int status;
     private Timestamp closeDate;
     private String journal;
-    private Category categoryByCategory;
-    private Priority priorityByPriority;
-    private Department departmentByRequesterDepartment;
-    private Users usersByEngineer;
-    private Users usersByOperator;
-    private IncStatus incStatusByStatus;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -110,11 +107,11 @@ public class Incident {
 
     @Basic
     @Column(name = "DURATION", nullable = true)
-    public Integer getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Integer duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
@@ -130,11 +127,11 @@ public class Incident {
 
     @Basic
     @Column(name = "ENGINEER", nullable = true)
-    public Integer getEngineer() {
+    public int getEngineer() {
         return engineer;
     }
 
-    public void setEngineer(Integer engineer) {
+    public void setEngineer(int engineer) {
         this.engineer = engineer;
     }
 
@@ -187,15 +184,15 @@ public class Incident {
                 category == incident.category &&
                 priority == incident.priority &&
                 requesterDepartment == incident.requesterDepartment &&
+                duration == incident.duration &&
+                engineer == incident.engineer &&
                 operator == incident.operator &&
                 status == incident.status &&
                 Objects.equals(date, incident.date) &&
                 Objects.equals(requester, incident.requester) &&
                 Objects.equals(requesterContacts, incident.requesterContacts) &&
                 Objects.equals(ipAddress, incident.ipAddress) &&
-                Objects.equals(duration, incident.duration) &&
                 Objects.equals(description, incident.description) &&
-                Objects.equals(engineer, incident.engineer) &&
                 Objects.equals(closeDate, incident.closeDate) &&
                 Objects.equals(journal, incident.journal);
     }
@@ -203,65 +200,5 @@ public class Incident {
     @Override
     public int hashCode() {
         return Objects.hash(id, date, category, priority, requesterDepartment, requester, requesterContacts, ipAddress, duration, description, engineer, operator, status, closeDate, journal);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY", referencedColumnName = "ID", nullable = false)
-    public Category getCategoryByCategory() {
-        return categoryByCategory;
-    }
-
-    public void setCategoryByCategory(Category categoryByCategory) {
-        this.categoryByCategory = categoryByCategory;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "PRIORITY", referencedColumnName = "ID", nullable = false)
-    public Priority getPriorityByPriority() {
-        return priorityByPriority;
-    }
-
-    public void setPriorityByPriority(Priority priorityByPriority) {
-        this.priorityByPriority = priorityByPriority;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "REQUESTER_DEPARTMENT", referencedColumnName = "ID", nullable = false)
-    public Department getDepartmentByRequesterDepartment() {
-        return departmentByRequesterDepartment;
-    }
-
-    public void setDepartmentByRequesterDepartment(Department departmentByRequesterDepartment) {
-        this.departmentByRequesterDepartment = departmentByRequesterDepartment;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "ENGINEER", referencedColumnName = "ID")
-    public Users getUsersByEngineer() {
-        return usersByEngineer;
-    }
-
-    public void setUsersByEngineer(Users usersByEngineer) {
-        this.usersByEngineer = usersByEngineer;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "OPERATOR", referencedColumnName = "ID", nullable = false)
-    public Users getUsersByOperator() {
-        return usersByOperator;
-    }
-
-    public void setUsersByOperator(Users usersByOperator) {
-        this.usersByOperator = usersByOperator;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "STATUS", referencedColumnName = "ID", nullable = false)
-    public IncStatus getIncStatusByStatus() {
-        return incStatusByStatus;
-    }
-
-    public void setIncStatusByStatus(IncStatus incStatusByStatus) {
-        this.incStatusByStatus = incStatusByStatus;
     }
 }

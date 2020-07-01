@@ -1,10 +1,12 @@
 package entity;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "USERS")
 public class Users {
     private int id;
     private String login;
@@ -13,9 +15,6 @@ public class Users {
     private int userGroup;
     private String contacts;
     private String email;
-    private Collection<Incident> incidentsById;
-    private Collection<Incident> incidentsById_0;
-    private UsersGroup usersGroupByUserGroup;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -104,33 +103,5 @@ public class Users {
     @Override
     public int hashCode() {
         return Objects.hash(id, login, password, name, userGroup, contacts, email);
-    }
-
-    @OneToMany(mappedBy = "usersByEngineer")
-    public Collection<Incident> getIncidentsById() {
-        return incidentsById;
-    }
-
-    public void setIncidentsById(Collection<Incident> incidentsById) {
-        this.incidentsById = incidentsById;
-    }
-
-    @OneToMany(mappedBy = "usersByOperator")
-    public Collection<Incident> getIncidentsById_0() {
-        return incidentsById_0;
-    }
-
-    public void setIncidentsById_0(Collection<Incident> incidentsById_0) {
-        this.incidentsById_0 = incidentsById_0;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "USER_GROUP", referencedColumnName = "ID", nullable = false)
-    public UsersGroup getUsersGroupByUserGroup() {
-        return usersGroupByUserGroup;
-    }
-
-    public void setUsersGroupByUserGroup(UsersGroup usersGroupByUserGroup) {
-        this.usersGroupByUserGroup = usersGroupByUserGroup;
     }
 }

@@ -1,7 +1,6 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -9,7 +8,6 @@ import java.util.Objects;
 public class IncStatus {
     private int id;
     private String title;
-    private Collection<Incident> incidentsById;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -43,14 +41,5 @@ public class IncStatus {
     @Override
     public int hashCode() {
         return Objects.hash(id, title);
-    }
-
-    @OneToMany(mappedBy = "incStatusByStatus")
-    public Collection<Incident> getIncidentsById() {
-        return incidentsById;
-    }
-
-    public void setIncidentsById(Collection<Incident> incidentsById) {
-        this.incidentsById = incidentsById;
     }
 }
