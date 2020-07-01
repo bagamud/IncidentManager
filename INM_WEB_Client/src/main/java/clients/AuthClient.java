@@ -7,8 +7,8 @@ import javax.ws.rs.client.WebTarget;
 public class AuthClient {
 
     private static final String BASE_URI = "http://localhost:8090/IncidentManagerWeb/webresources/";
-    private WebTarget webTarget;
-    private Client client;
+    private final WebTarget webTarget;
+    private final Client client;
 
     public AuthClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
