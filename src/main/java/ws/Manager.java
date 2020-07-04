@@ -15,6 +15,7 @@ import java.util.Date;
 public class Manager {
     /**
      * TODO: SessionFactory вынести в Stateful класс
+     * TODO: Logger в каждом методе с записью в поле Journal INM.INCIDENT
      */
     @Context
     UriInfo context;
