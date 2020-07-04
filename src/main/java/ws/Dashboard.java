@@ -19,7 +19,7 @@ public class Dashboard {
     UriInfo context;
 
     @GET
-    @Produces("text/plain")
+    @Produces("text/html")
     public String getClichedMessage() {
         return "Hello World";
     }
