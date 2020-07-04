@@ -60,7 +60,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="org.apache.commons:commons-dbcp2:2.0.1" level="project" />
-    <orderEntry type="library" name="mysql:mysql-connector-java:8.0.19" level="project" />
     <orderEntry type="library" name="JAX-RS-2.1.1" level="project" />
     <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.20" level="project" />
