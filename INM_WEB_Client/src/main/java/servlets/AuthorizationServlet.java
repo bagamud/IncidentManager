@@ -12,6 +12,9 @@ import java.io.IOException;
 
 @WebServlet(name = "auth", urlPatterns = "/auth")
 public class AuthorizationServlet extends HttpServlet {
+    /**
+     * TODO:
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

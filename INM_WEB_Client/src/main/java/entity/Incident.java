@@ -18,7 +18,9 @@ public class Incident {
     private int status;
     private Timestamp closeDate;
     private String journal;
-
+    /**
+     * TODO:
+     */
     public int getId() {
         return id;
     }

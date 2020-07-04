@@ -13,7 +13,9 @@ import java.util.Date;
 
 @Path("manager")
 public class Manager {
-
+    /**
+     * TODO: SessionFactory вынести в Stateful класс
+     */
     @Context
     UriInfo context;
 

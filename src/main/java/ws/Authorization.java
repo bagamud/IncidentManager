@@ -10,10 +10,18 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @Path("authorization")
 public class Authorization {
+    /**
+     * TODO: ’эшсоль на пароль
+     * TODO: SessionFactory вынести в Stateful класс
+     */
+    @Context
+    UriInfo context;
 
     @GET
     @Path("")

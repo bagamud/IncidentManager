@@ -6,7 +6,9 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 
 public class ManagerClient {
-
+    /**
+     * TODO:
+     */
     private static final String BASE_URI = "http://localhost:8080/IncidentManagerWeb/webresources/";
     private final WebTarget webTarget;
     private final Client client;

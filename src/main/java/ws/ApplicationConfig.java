@@ -17,5 +17,6 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(ws.Authorization.class);
         resources.add(ws.Manager.class);
+        resources.add(ws.Dashboard.class);
     }
 }

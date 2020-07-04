@@ -5,7 +5,9 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 
 public class AuthClient {
-
+    /**
+     * TODO: Õ‎רסמכü םא ןאנמכü
+     */
     private static final String BASE_URI = "http://localhost:8090/IncidentManagerWeb/webresources/";
     private final WebTarget webTarget;
     private final Client client;
