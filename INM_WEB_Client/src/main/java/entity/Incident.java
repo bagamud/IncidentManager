@@ -38,9 +38,13 @@ public class Incident {
     @JsonProperty
     private String journal;
 
+    public Incident() {
+    }
+
     /**
      * TODO:
      */
+
     public int getId() {
         return id;
     }

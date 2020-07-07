@@ -16,31 +16,23 @@ public class ManagerClient {
         webTarget = client.target(BASE_URI).path("manager");
     }
 
-    public int addIncident(int category, int priority, int rd, String requester, String rc,
-                           String ip, int duration, String description, int engineer, int operator, int status) {
+    public int addIncident(String incidentJson) {
         WebTarget resource = webTarget;
-        resource = resource.queryParam("category", category).queryParam("priority", priority).queryParam("rd", rd)
-                .queryParam("requester", requester).queryParam("rc", rc).queryParam("ip", ip)
-                .queryParam("duration", duration).queryParam("description", description)
-                .queryParam("engineer", engineer).queryParam("operator", operator).queryParam("status", status);
+        resource = resource.queryParam("incidentJson", incidentJson);
 
         return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Integer.class);
     }
 
-    public String getIncident(int id) {
+    public String getIncident(int id, String incidentJson) {
         WebTarget resource = webTarget;
-        resource = resource.queryParam("id", id);
+        resource = resource.queryParam("id", id).queryParam("incidentJson",  incidentJson);
 
         return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
     }
 
-    public void updateIncident(int id, int category, int priority, int rd, String requester, String rc,
-                               String ip, int duration, String description, int engineer, int operator, int status) {
+    public void updateIncident(String incidentJson) {
         WebTarget resource = webTarget;
-        resource = resource.queryParam("id", id).queryParam("category", category).queryParam("priority", priority)
-                .queryParam("rd", rd).queryParam("requester", requester).queryParam("rc", rc)
-                .queryParam("ip", ip).queryParam("duration", duration).queryParam("description", description)
-                .queryParam("engineer", engineer).queryParam("operator", operator).queryParam("status", status);
+        resource = resource.queryParam("incidentJson", incidentJson);
     }
 
     public void close() {

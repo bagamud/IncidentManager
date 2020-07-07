@@ -1,5 +1,6 @@
 package ws;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import entity.Incident;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,8 +9,8 @@ import org.hibernate.cfg.Configuration;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.io.IOException;
+import java.io.StringWriter;
 
 @Path("manager")
 public class Manager {
@@ -21,85 +22,78 @@ public class Manager {
     UriInfo context;
 
     @POST
-    @Path("/add{category},{priority},{rd},{requester},{rc},{ip},{duration},{description},{engineer},{operator},{status}")
+    @Path("/add{incidentJson}")
     @Produces("text/html")
-    public int addIncident(@PathParam("category") int category, @PathParam("priority") int priority,
-                           @PathParam("rd") int requesterDepartment, @PathParam("requester") String requester,
-                           @PathParam("rc") String requesterContacts, @PathParam("ip") String ipAddress, @PathParam("duration") Integer duration,
-                           @PathParam("description") String description, @PathParam("engineer") Integer engineer,
-                           @PathParam("operator") int operator, @PathParam("status") int status) {
+    public int addIncident(@PathParam("incidentJson") String incidentJson) {
+        int id = 0;
+        try {
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
+            Incident incident = new Incident();
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.readValue(incidentJson, Incident.class);
 
-        Incident incident = new Incident();
-        incident.setDate(new Timestamp(new Date().getTime()));
-        incident.setCategory(category);
-        incident.setPriority(priority);
-        incident.setRequesterDepartment(requesterDepartment);
-        incident.setRequester(requester);
-        incident.setIpAddress(ipAddress);
-        incident.setDuration(duration);
-        incident.setDescription(description);
-        incident.setEngineer(engineer);
-        incident.setOperator(operator);
-        incident.setStatus(status);
-
-        Long id = (Long) session.save(incident);
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.close();
-
-        return id.intValue();
+            Long longId = (Long) session.save(incident);
+            id = longId.intValue();
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return id;
     }
 
     @GET
     @Path("{id}")
     @Produces("text/html")
-    public Incident getIncident(@QueryParam("id") int id) {
+    public String getIncident(@QueryParam("id") int id) {
+        String incidentJson = null;
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
+        try {
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
 
-        Incident incident = session.get(Incident.class, id);
+            Incident incident = session.get(Incident.class, id);
+            ObjectMapper objectMapper = new ObjectMapper();
+            StringWriter s = new StringWriter();
+            objectMapper.writeValue(s, incident);
+            incidentJson = s.toString();
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.close();
-        return incident;
+        return incidentJson;
     }
 
     @PUT
-    @Path("/put{id},{category},{priority},{rd},{requester},{rc},{ip},{duration},{description},{engineer},{operator},{status}")
+    @Path("/put{id},{incidentJson}")
     @Produces("text/html")
-    public void updateIncident(@QueryParam("id") int id, @PathParam("category") int category, @PathParam("priority") int priority,
-                               @PathParam("rd") int requesterDepartment, @PathParam("requester") String requester,
-                               @PathParam("rc") String requesterContacts, @PathParam("ip") String ipAddress, @PathParam("duration") Integer duration,
-                               @PathParam("description") String description, @PathParam("engineer") Integer engineer,
-                               @PathParam("operator") int operator, @PathParam("status") int status) {
+    public void updateIncident(@QueryParam("id") int id, @PathParam("incidentJson") String incidentJson) {
+        try {
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
 
-        Incident incident = session.get(Incident.class, id);
+            Incident incident = session.get(Incident.class, id);
 
-        incident.setCategory(category);
-        incident.setPriority(priority);
-        incident.setRequesterDepartment(requesterDepartment);
-        incident.setRequester(requester);
-        incident.setIpAddress(ipAddress);
-        incident.setDuration(duration);
-        incident.setDescription(description);
-        incident.setEngineer(engineer);
-        incident.setOperator(operator);
-        incident.setStatus(status);
+            ObjectMapper objectMapper = new ObjectMapper();
+            StringWriter s = new StringWriter();
+            objectMapper.readValue(incidentJson, Incident.class);
 
-        session.update(incident);
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.close();
+            session.update(incident);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

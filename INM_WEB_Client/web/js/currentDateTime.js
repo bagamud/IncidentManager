@@ -28,7 +28,7 @@ function short_date_time() {
 }
 
 /* выводим текущую дату и время на сайт в блок с id "current_date_time_block" */
-document.getElementById('current_date_block').setAttribute('value', short_date_time().toString());
+document.getElementById('date').setAttribute('value', short_date_time().toString());
 
 
 setInterval(function () {

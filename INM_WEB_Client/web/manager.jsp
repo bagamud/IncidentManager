@@ -93,8 +93,8 @@
                         <!--                        </div>-->
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="current_date_block">Дата открытия заявки</label>
-                        <input type="text" class="form-control" id="current_date_block" disabled>
+                        <label for="date">Дата открытия заявки</label>
+                        <input type="text" class="form-control" id="date" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="operator">Оператор</label>
@@ -298,7 +298,7 @@
     }
 
     /* выводим текущую дату и время на сайт в блок с id "current_date_time_block" */
-    document.getElementById('current_date_block').setAttribute('value', short_date_time().toString());
+    document.getElementById('date').setAttribute('value', short_date_time().toString());
 
 
     setInterval(function () {
