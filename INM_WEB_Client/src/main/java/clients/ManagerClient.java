@@ -1,7 +1,5 @@
 package main.java.clients;
 
-import main.java.entity.Incident;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 

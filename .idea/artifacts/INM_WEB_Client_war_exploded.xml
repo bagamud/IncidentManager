@@ -8,7 +8,6 @@
           <element id="module-output" name="INM_WEB_Client" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="JAX-RS-2.1.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.5" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" />
         </element>

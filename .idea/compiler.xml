@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
-      <module name="IncidentManager" target="7" />
+      <module name="IncidentManager" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

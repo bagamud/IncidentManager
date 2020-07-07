@@ -8,7 +8,7 @@
           <element id="module-output" name="IncidentManager" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Hibernate 5.4.11-5.4.11" />
+          <element id="library" level="project" name="Maven: org.hibernate.orm:hibernate-core:6.0.0.Alpha5" />
         </element>
       </element>
     </root>
