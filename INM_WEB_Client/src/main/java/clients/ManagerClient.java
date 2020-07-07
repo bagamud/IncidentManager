@@ -29,11 +29,11 @@ public class ManagerClient {
         return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Integer.class);
     }
 
-    public Incident getIncident(int id) {
+    public String getIncident(int id) {
         WebTarget resource = webTarget;
         resource = resource.queryParam("id", id);
 
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Incident.class);
+        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
     }
 
     public void updateIncident(int id, int category, int priority, int rd, String requester, String rc,

@@ -9,6 +9,8 @@
         <module name="IncidentManager" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="IncidentManager" target="7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

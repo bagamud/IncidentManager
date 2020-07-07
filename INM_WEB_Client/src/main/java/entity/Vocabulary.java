@@ -1,5 +1,8 @@
 package main.java.entity;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import main.java.clients.VocabularyClient;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +12,9 @@ public class Vocabulary {
     private List<Users> users;
 
     public Vocabulary() {
-        categories = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        VocabularyClient vbc = new VocabularyClient();
+//        categories = objectMapper.readValue(vbc.getCategory(), Category.class);
         departments = new ArrayList<>();
         users = new ArrayList<>();
     }

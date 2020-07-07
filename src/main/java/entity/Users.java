@@ -1,19 +1,31 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
+@JsonAutoDetect
 @Entity(name = "USERS")
 public class Users {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String login;
+    @JsonIgnore
     private String password;
+    @JsonProperty
     private String name;
+    @JsonProperty
     private int userGroup;
+    @JsonProperty
     private String contacts;
+    @JsonProperty
     private String email;
 
     @Id

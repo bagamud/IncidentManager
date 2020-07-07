@@ -1,5 +1,8 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,22 +10,38 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+@JsonAutoDetect
 @Entity(name = "INCIDENT")
 public class Incident {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private Timestamp date;
+    @JsonProperty
     private int category;
+    @JsonProperty
     private int priority;
+    @JsonProperty
     private int requesterDepartment;
+    @JsonProperty
     private String requester;
+    @JsonProperty
     private String requesterContacts;
+    @JsonProperty
     private String ipAddress;
+    @JsonProperty
     private int duration;
+    @JsonProperty
     private String description;
+    @JsonProperty
     private int engineer;
+    @JsonProperty
     private int operator;
+    @JsonProperty
     private int status;
+    @JsonProperty
     private Timestamp closeDate;
+    @JsonProperty
     private String journal;
 
     @Id
