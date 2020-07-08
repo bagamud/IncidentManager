@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
 
-@Path("/vocabulary")
+@Path("vocabulary")
 public class Vocabulary {
     /**
      * TODO: SessionFactory вынести в Stateful класс

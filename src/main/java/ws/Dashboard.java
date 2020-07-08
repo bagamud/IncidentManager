@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
-@Path("/dashboard")
+@Path("dashboard")
 public class Dashboard {
     /**
      * TODO: Подключение к базе
