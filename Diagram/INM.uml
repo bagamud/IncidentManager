@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>entity.Category</OriginalElement>
+  <nodes>
+    <node x="885.0" y="0.0">entity.Priority</node>
+    <node x="476.0" y="99.0">entity.Category</node>
+    <node x="181.50000000000003" y="666.0">ws.ApplicationConfig</node>
+    <node x="0.0" y="476.0">ws.Manager</node>
+    <node x="234.00000000000003" y="498.0">ws.Authorization</node>
+    <node x="668.0" y="143.0">entity.Department</node>
+    <node x="18.5" y="0.0">entity.Incident</node>
+    <node x="505.50000000000006" y="476.0">ws.Vocabulary</node>
+    <node x="654.5" y="498.0">ws.Dashboard</node>
+    <node x="284.0" y="88.0">entity.Users</node>
+    <node x="217.0" y="807.0">entity.UsersGroup</node>
+    <node x="0.0" y="807.0">entity.IncStatus</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.9017580144777663" x="528.5" y="473.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
