@@ -6,7 +6,7 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/INM</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- DB schema will be updated if needed -->
         <!--        <property name="hibernate.hbm2ddl.auto">update</property>-->

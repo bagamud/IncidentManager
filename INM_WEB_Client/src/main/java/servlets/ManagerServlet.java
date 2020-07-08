@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.clients.ManagerClient;
 import main.java.entity.Incident;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,18 @@ public class ManagerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+
+        ManagerClient managerClient = new ManagerClient();
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        String incidentJson = managerClient.getIncident(id);
+        ObjectMapper objectMapper = new ObjectMapper();
+        Incident incident = objectMapper.readValue(incidentJson, Incident.class);
+
+        request.setAttribute("id", incidentJson);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
+        requestDispatcher.forward(request, response);
 
     }
 

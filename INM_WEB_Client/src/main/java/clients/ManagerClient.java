@@ -7,7 +7,7 @@ public class ManagerClient {
     /**
      * TODO:
      */
-    private static final String BASE_URI = "http://localhost:8080/IncidentManagerWeb/webresources/";
+    private static final String BASE_URI = "http://localhost:8090/IncidentManagerWeb/webresources/";
     private final WebTarget webTarget;
     private final Client client;
 
@@ -23,9 +23,9 @@ public class ManagerClient {
         return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Integer.class);
     }
 
-    public String getIncident(int id, String incidentJson) {
+    public String getIncident(int id) {
         WebTarget resource = webTarget;
-        resource = resource.queryParam("id", id).queryParam("incidentJson",  incidentJson);
+        resource = resource.queryParam("id", id);
 
         return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
     }

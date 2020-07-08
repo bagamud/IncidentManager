@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/INM</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="IncidentManager" uuid="b59c93ed-e04b-440a-aa18-08717a401434">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\K\IdeaProjects\IncidentManager\Diagram\vpproject\IncidentManager.vpp</jdbc-url>
+    </data-source>
   </component>
 </project>
