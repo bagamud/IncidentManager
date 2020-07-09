@@ -1,3 +1,4 @@
+<%@ page import="main.java.entity.Vocabulary" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<%@ page session="true" %>--%>
 <html lang="ru">
@@ -96,9 +97,9 @@
                         <select class="form-control custom-select d-block w-100 form-control" id="operator" required
                                 type="text">
                             <option value="">...</option>
-                            <%
+<%--                            <%--%>
 
-                            %>
+<%--                            %>--%>
                         </select>
                         <div class="invalid-feedback">
                             Неккоректное имя пользователя
@@ -111,9 +112,9 @@
                         <label for="department">Подразделение</label>
                         <select class="form-control custom-select d-block w-100" id="department" required>
                             <option value="">...</option>
-                            <%
-
-                            %>
+<%--                            <%--%>
+<%--                                out.print(new Vocabulary().getDepartments());--%>
+<%--                            %>--%>
                             <option value="1">1 отдел УГИБДД</option>
                             <option value="2">2 отдел УГИБДД</option>
                             <option value="3">3 отдел УГИБДД</option>
@@ -139,9 +140,13 @@
                         <label for="category">Категория инцидента</label>
                         <select class="form-control custom-select d-block w-100" id="category" required>
                             <option value="">...</option>
-                            <%
+<%--<jsp:useBean id="voc" class="main.java.entity.Vocabulary">--%>
+<%--    <jsp:getProperty name="voc" property="categories"/>--%>
+<%--</jsp:useBean>--%>
 
-                            %>
+<%--                            <%--%>
+<%--                                out.print(new Vocabulary().getCategories());--%>
+<%--                            %>--%>
                         </select>
                         <div class="invalid-feedback">
                             Пожалуйста выберите подразделение
@@ -213,9 +218,9 @@
                         <label for="status">Статус</label>
                         <select class="form-control custom-select d-block w-100" id="status" required type="text">
                             <option value="">...</option>
-                            <%
-
-                            %>
+<%--                            <%--%>
+<%--                                out.print(new Vocabulary().getUsers());--%>
+<%--                            %>--%>
                         </select>
                     </div>
 
@@ -223,9 +228,9 @@
                         <label for="engineer">Инженер</label>
                         <select class="form-control custom-select d-block w-100" id="engineer" required type="text">
                             <option value="">...</option>
-                            <%
-
-                            %>
+<%--                            <%--%>
+<%--                                out.print(new Vocabulary().getUsers());--%>
+<%--                            %>--%>
                         </select>
                         <div class="invalid-feedback">
                             Неккоректное имя пользователя

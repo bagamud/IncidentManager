@@ -3,43 +3,62 @@ package main.java.entity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.clients.VocabularyClient;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Vocabulary {
-    private List<Category> categories;
-    private List<Department> departments;
-    private List<Users> users;
+    private String categories;
+    private String departments;
+    private String users;
 
-    public Vocabulary() {
+    public Vocabulary() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         VocabularyClient vbc = new VocabularyClient();
-//        categories = objectMapper.readValue(vbc.getCategory(), Category.class);
-        departments = new ArrayList<>();
-        users = new ArrayList<>();
+        ArrayList<Category> categoriesJson = objectMapper.readValue(vbc.getSource("category"), ArrayList.class);
+        ArrayList<Department> departmentsJson = objectMapper.readValue(vbc.getSource("department"), ArrayList.class);
+        ArrayList<Users> usersJson = objectMapper.readValue(vbc.getSource("users"), ArrayList.class);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Category category : categoriesJson) {
+            stringBuilder.append("<option ").append("value=\"").append(category.getId()).append("\">").append(category.getTitle()).append("</option>");
+        }
+        categories = stringBuilder.toString();
+
+        stringBuilder = new StringBuilder();
+        for (Department department : departmentsJson) {
+            stringBuilder.append("<option ").append("value=\"").append(department.getId()).append("\">").append(department.getTitle()).append("</option>");
+        }
+        departments = stringBuilder.toString();
+
+        stringBuilder = new StringBuilder();
+        for (Users users : usersJson) {
+            stringBuilder.append("<option ").append("value=\"").append(users.getId()).append("\">").append(users.getName()).append("</option>");
+        }
+        users = stringBuilder.toString();
     }
 
-    public List<Category> getCategories() {
+    public String getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Category> categories) {
+    public void setCategories(String categories) {
         this.categories = categories;
     }
 
-    public List<Department> getDepartments() {
+    public String getDepartments() {
         return departments;
     }
 
-    public void setDepartments(List<Department> departments) {
+    public void setDepartments(String departments) {
         this.departments = departments;
     }
 
-    public List<Users> getUsers() {
+    public String getUsers() {
         return users;
     }
 
-    public void setUsers(List<Users> users) {
+    public void setUsers(String users) {
         this.users = users;
     }
 }

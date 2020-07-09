@@ -12,6 +12,7 @@ import org.hibernate.query.Query;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import java.io.IOException;
@@ -27,58 +28,35 @@ public class Vocabulary {
     UriInfo context;
 
     @GET
-    @Path("/category")
-    @Produces("text/html")
-    public String getCategory() throws IOException {
+    @Path("{source}")
+    @Produces("application/json")
+    public String getSource(@QueryParam("source") String source) throws IOException {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         ObjectMapper objectMapper = new ObjectMapper();
         StringWriter res = new StringWriter();
+        Query query;
 
-        Query query = session.createQuery("FROM CATEGORY");
-        List<Category> categories = query.getResultList();
-        objectMapper.writeValue(res, categories);
-
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.close();
-        return res.toString();
-    }
-
-    @GET
-    @Path("/department")
-    @Produces("text/html")
-    public String getDepartment() throws IOException {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        ObjectMapper objectMapper = new ObjectMapper();
-        StringWriter res = new StringWriter();
-
-        Query query = session.createQuery("FROM DEPARTMENT");
-        List<Department> departments = query.getResultList();
-        objectMapper.writeValue(res, departments);
-
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.close();
-        return res.toString();
-    }
-
-    @GET
-    @Path("/users")
-    @Produces("text/html")
-    public String getUsers() throws IOException {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        ObjectMapper objectMapper = new ObjectMapper();
-        StringWriter res = new StringWriter();
-
-        Query query = session.createQuery("FROM USERS");
-        List<Users> users = query.getResultList();
-        objectMapper.writeValue(res, users);
+        switch (source) {
+            case "category":
+                query = session.createQuery("FROM CATEGORY");
+                List<Category> categories = query.getResultList();
+                objectMapper.writeValue(res, categories);
+                break;
+            case "department":
+                query = session.createQuery("FROM DEPARTMENT");
+                List<Department> departments = query.getResultList();
+                objectMapper.writeValue(res, departments);
+                break;
+            case "users":
+                query = session.createQuery("FROM USERS");
+                List<Users> users = query.getResultList();
+                objectMapper.writeValue(res, users);
+                break;
+            default:
+                break;
+        }
 
         session.getTransaction().commit();
         session.close();

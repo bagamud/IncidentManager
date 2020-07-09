@@ -18,5 +18,6 @@ public class ApplicationConfig extends Application {
         resources.add(ws.Authorization.class);
         resources.add(ws.Manager.class);
         resources.add(ws.Dashboard.class);
+        resources.add(ws.Vocabulary.class);
     }
 }

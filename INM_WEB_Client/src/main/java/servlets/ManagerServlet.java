@@ -45,14 +45,15 @@ public class ManagerServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        ManagerClient managerClient = new ManagerClient();
-        int id = Integer.parseInt(request.getParameter("id"));
+//        ManagerClient managerClient = new ManagerClient();
+//        int id = Integer.parseInt(request.getParameter("id"));
+//
+//        String incidentJson = managerClient.getIncident(id);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        Incident incident = objectMapper.readValue(incidentJson, Incident.class);
+//
+//        request.setAttribute("id", incidentJson);
 
-        String incidentJson = managerClient.getIncident(id);
-        ObjectMapper objectMapper = new ObjectMapper();
-        Incident incident = objectMapper.readValue(incidentJson, Incident.class);
-
-        request.setAttribute("id", incidentJson);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
         requestDispatcher.forward(request, response);

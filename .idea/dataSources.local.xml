@@ -15,10 +15,5 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="IncidentManager" uuid="b59c93ed-e04b-440a-aa18-08717a401434">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <auth-provider>no-auth</auth-provider>
-      <schema-mapping />
-    </data-source>
   </component>
 </project>

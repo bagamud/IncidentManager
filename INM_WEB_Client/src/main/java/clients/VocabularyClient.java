@@ -16,19 +16,9 @@ public class VocabularyClient {
         webTarget = client.target(BASE_URI).path("vocabulary");
     }
 
-    public String getCategory() {
+    public String getSource(String source) {
         WebTarget resource = webTarget;
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
-    }
-
-    public String getDepartment() {
-        WebTarget resource = webTarget;
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
-    }
-
-    public String getUsers() {
-        WebTarget resource = webTarget;
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
+        return resource.queryParam(source).request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
     }
 
 }
