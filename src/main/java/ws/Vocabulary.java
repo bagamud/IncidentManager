@@ -13,8 +13,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
@@ -24,12 +22,11 @@ public class Vocabulary {
     /**
      * TODO: SessionFactory вынести в Stateful класс
      */
-    @Context
-    UriInfo context;
-
+//    @Context
+//    UriInfo context;
     @GET
-    @Path("{source}")
-    @Produces("application/json")
+    @Path("")
+    @Produces("text/html")
     public String getSource(@QueryParam("source") String source) throws IOException {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();

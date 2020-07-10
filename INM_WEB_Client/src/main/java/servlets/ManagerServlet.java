@@ -3,6 +3,7 @@ package main.java.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.clients.ManagerClient;
 import main.java.entity.Incident;
+import main.java.entity.Vocabulary;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,10 +54,9 @@ public class ManagerServlet extends HttpServlet {
 //        Incident incident = objectMapper.readValue(incidentJson, Incident.class);
 //
 //        request.setAttribute("id", incidentJson);
-
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
-        requestDispatcher.forward(request, response);
+//
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
+//        requestDispatcher.forward(request, response);
 
     }
 

@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.clients.VocabularyClient;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Vocabulary {
     private String categories;
@@ -15,9 +13,9 @@ public class Vocabulary {
     public Vocabulary() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         VocabularyClient vbc = new VocabularyClient();
-        ArrayList<Category> categoriesJson = objectMapper.readValue(vbc.getSource("category"), ArrayList.class);
-        ArrayList<Department> departmentsJson = objectMapper.readValue(vbc.getSource("department"), ArrayList.class);
-        ArrayList<Users> usersJson = objectMapper.readValue(vbc.getSource("users"), ArrayList.class);
+        Category[] categoriesJson = objectMapper.readValue(vbc.getSource("category"), Category[].class);
+        Department[] departmentsJson = objectMapper.readValue(vbc.getSource("department"), Department[].class);
+        Users[] usersJson = objectMapper.readValue(vbc.getSource("users"), Users[].class);
 
         StringBuilder stringBuilder = new StringBuilder();
         for (Category category : categoriesJson) {
