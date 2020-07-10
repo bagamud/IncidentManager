@@ -39,7 +39,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "LOGIN", nullable = false, length = 255)
+    @Column(name = "LOGIN", nullable = false)
     public String getLogin() {
         return login;
     }
@@ -49,7 +49,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "PASSWORD", nullable = false, length = 255)
+    @Column(name = "PASSWORD", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -59,7 +59,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "NAME", nullable = false, length = 255)
+    @Column(name = "NAME", nullable = false)
     public String getName() {
         return name;
     }
@@ -79,7 +79,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "CONTACTS", nullable = true, length = 255)
+    @Column(name = "CONTACTS")
     public String getContacts() {
         return contacts;
     }
@@ -89,7 +89,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "EMAIL", nullable = true, length = 255)
+    @Column(name = "EMAIL")
     public String getEmail() {
         return email;
     }

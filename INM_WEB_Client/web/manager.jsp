@@ -48,9 +48,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="dashboard.html">Мониторинг</a>
                 </li>
-                <!--            <li class="nav-item">-->
-                <!--                <a class="nav-link" href="#">Профиль</a>-->
-                <!--            </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="#">Выход</a>
                 </li>
@@ -195,7 +192,7 @@
                             <label for="status">Статус</label>
                             <select class="form-control custom-select d-block w-100" id="status" required type="text">
                                 <option value="" disabled>...</option>
-<%--                                <jsp:getProperty name="voc" property=""/>--%>
+                                    <%--                                <jsp:getProperty name="voc" property=""/>--%>
                             </select>
                         </div>
 

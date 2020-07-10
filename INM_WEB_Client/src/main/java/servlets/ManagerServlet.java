@@ -3,9 +3,7 @@ package main.java.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.clients.ManagerClient;
 import main.java.entity.Incident;
-import main.java.entity.Vocabulary;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
