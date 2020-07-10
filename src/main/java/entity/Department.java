@@ -29,7 +29,7 @@ public class Department {
     }
 
     @Basic
-    @Column(name = "TITLE", nullable = false, length = 255)
+    @Column(name = "TITLE", nullable = false)
     public String getTitle() {
         return title;
     }

@@ -20,7 +20,7 @@ public class UsersGroup {
     }
 
     @Basic
-    @Column(name = "NAME", nullable = true, length = 255)
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }
