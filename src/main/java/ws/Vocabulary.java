@@ -26,6 +26,7 @@ public class Vocabulary {
      */
     @Context
     UriInfo context;
+
     @GET
     @Path("")
     @Produces("text/html")
