@@ -1,18 +1,28 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
+@JsonAutoDetect
 @Entity(name = "CATEGORY")
 public class Category {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int level;
+    @JsonProperty
     private int leftKey;
+    @JsonProperty
     private int rightKey;
+    @JsonProperty
     private String title;
+    @JsonProperty
     private int parentId;
 
     @Id

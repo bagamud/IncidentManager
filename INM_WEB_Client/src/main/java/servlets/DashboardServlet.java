@@ -1,5 +1,7 @@
 package main.java.servlets;
 
+import main.java.clients.DashboardClient;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,5 +20,11 @@ public class DashboardServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+
+        DashboardClient dashboardClient = new DashboardClient();
+
     }
 }
+

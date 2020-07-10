@@ -1,5 +1,8 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,22 +10,38 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+@JsonAutoDetect
 @Entity(name = "INCIDENT")
 public class Incident {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private Timestamp date;
+    @JsonProperty
     private int category;
+    @JsonProperty
     private int priority;
+    @JsonProperty
     private int requesterDepartment;
+    @JsonProperty
     private String requester;
+    @JsonProperty
     private String requesterContacts;
+    @JsonProperty
     private String ipAddress;
+    @JsonProperty
     private int duration;
+    @JsonProperty
     private String description;
+    @JsonProperty
     private int engineer;
+    @JsonProperty
     private int operator;
+    @JsonProperty
     private int status;
+    @JsonProperty
     private Timestamp closeDate;
+    @JsonProperty
     private String journal;
 
     @Id
@@ -76,7 +95,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER", nullable = false, length = 255)
+    @Column(name = "REQUESTER", nullable = false)
     public String getRequester() {
         return requester;
     }
@@ -96,7 +115,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "IP_ADDRESS", nullable = true, length = 16)
+    @Column(name = "IP_ADDRESS", length = 16)
     public String getIpAddress() {
         return ipAddress;
     }
@@ -106,7 +125,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DURATION", nullable = true)
+    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
     }
@@ -116,7 +135,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION", nullable = true, length = 255)
+    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
@@ -126,7 +145,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "ENGINEER", nullable = true)
+    @Column(name = "ENGINEER")
     public int getEngineer() {
         return engineer;
     }
@@ -156,7 +175,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "CLOSE_DATE", nullable = true)
+    @Column(name = "CLOSE_DATE")
     public Timestamp getCloseDate() {
         return closeDate;
     }
@@ -166,7 +185,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "JOURNAL", nullable = true, length = -1)
+    @Column(name = "JOURNAL", length = -1)
     public String getJournal() {
         return journal;
     }

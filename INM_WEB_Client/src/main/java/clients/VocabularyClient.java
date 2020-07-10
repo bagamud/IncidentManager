@@ -2,6 +2,7 @@ package main.java.clients;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 public class VocabularyClient {
     /**
@@ -14,6 +15,12 @@ public class VocabularyClient {
     public VocabularyClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("vocabulary");
+    }
+
+    public String getSource(String source) {
+        WebTarget resource = webTarget;
+        resource = resource.queryParam("source", source);
+        return resource.request(MediaType.TEXT_HTML).get(String.class);
     }
 
 }

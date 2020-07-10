@@ -1,13 +1,23 @@
 package main.java.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
+@JsonAutoDetect
 public class Category {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int level;
+    @JsonProperty
     private int leftKey;
+    @JsonProperty
     private int rightKey;
+    @JsonProperty
     private String title;
+    @JsonProperty
     private int parentId;
 
     public Category() {

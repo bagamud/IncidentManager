@@ -1,17 +1,23 @@
 package main.java.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
+@JsonAutoDetect
 public class Users {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String login;
+    @JsonProperty
     private String name;
+    @JsonProperty
     private int userGroup;
+    @JsonProperty
     private String contacts;
+    @JsonProperty
     private String email;
 
     public Users() {

@@ -1,9 +1,15 @@
 package main.java.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
+@JsonAutoDetect
 public class Department {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String title;
 
     public Department() {

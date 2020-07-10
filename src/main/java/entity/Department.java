@@ -1,14 +1,21 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
+
+@JsonAutoDetect
 @Entity(name = "DEPARTMENT")
 public class Department {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String title;
 
     @Id
@@ -22,7 +29,7 @@ public class Department {
     }
 
     @Basic
-    @Column(name = "TITLE", nullable = false, length = 255)
+    @Column(name = "TITLE", nullable = false)
     public String getTitle() {
         return title;
     }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>entity.Category</OriginalElement>
+  <nodes>
+    <node x="191.99999999999997" y="571.0">main.java.entity.Users</node>
+    <node x="576.0" y="593.0">main.java.clients.VocabularyClient</node>
+    <node x="303.75" y="474.0">main.java.servlets</node>
+    <node x="274.0" y="911.0">main.java.entity.Vocabulary</node>
+    <node x="585.0" y="100.0">main.java.clients.AuthClient</node>
+    <node x="183.0" y="78.0">main.java.clients.ManagerClient</node>
+    <node x="384.0" y="571.0">main.java.entity.Category</node>
+    <node x="0.0" y="0.0">main.java.entity.Incident</node>
+    <node x="0.0" y="615.0">main.java.entity.Department</node>
+    <node x="397.0" y="132.0">main.java.clients.DashboardClient</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.java.entity.Vocabulary" target="main.java.entity.Users">
+      <point x="-37.5" y="-70.0" />
+      <point x="336.5" y="871.0" />
+      <point x="234.99999999999997" y="871.0" />
+      <point x="-43.0" y="135.0" />
+    </edge>
+    <edge source="main.java.servlets" target="main.java.entity.Incident">
+      <point x="-70.0" y="-26.0" />
+      <point x="313.75" y="454.0" />
+      <point x="40.75" y="454.0" />
+      <point x="-40.75" y="202.0" />
+    </edge>
+    <edge source="main.java.entity.Vocabulary" target="main.java.clients.VocabularyClient">
+      <point x="87.5" y="-70.0" />
+      <point x="461.5" y="891.0" />
+      <point x="708.0" y="891.0" />
+      <point x="44.0" y="113.0" />
+    </edge>
+    <edge source="main.java.entity.Vocabulary" target="main.java.entity.Department">
+      <point x="-87.5" y="-70.0" />
+      <point x="286.5" y="891.0" />
+      <point x="43.0" y="891.0" />
+      <point x="-43.0" y="91.0" />
+    </edge>
+    <edge source="main.java.servlets" target="main.java.clients.DashboardClient">
+      <point x="10.0" y="-26.0" />
+      <point x="393.75" y="424.0" />
+      <point x="439.0" y="424.0" />
+      <point x="-42.0" y="70.0" />
+    </edge>
+    <edge source="main.java.entity.Vocabulary" target="main.java.entity.Category">
+      <point x="12.5" y="-70.0" />
+      <point x="386.5" y="861.0" />
+      <point x="427.0" y="861.0" />
+      <point x="-43.0" y="135.0" />
+    </edge>
+    <edge source="main.java.servlets" target="main.java.clients.AuthClient">
+      <point x="50.0" y="-26.0" />
+      <point x="433.75" y="444.0" />
+      <point x="634.25" y="444.0" />
+      <point x="-49.25" y="102.0" />
+    </edge>
+    <edge source="main.java.servlets" target="main.java.clients.ManagerClient">
+      <point x="-30.0" y="-26.0" />
+      <point x="353.75" y="434.0" />
+      <point x="231.5" y="434.0" />
+      <point x="-48.5" y="124.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8141923436041083" x="391.0" y="525.5" />
+  <SelectedNodes>
+    <node>main.java.servlets</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
