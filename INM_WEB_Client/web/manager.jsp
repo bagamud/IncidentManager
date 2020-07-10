@@ -57,10 +57,6 @@
             </ul>
         </div>
         <div class="navbar-brand nav-link mr-lg-0" id="current_date_time_block2">
-<%--            <jsp:scriptlet>--%>
-<%--                out.print("Calendar");--%>
-
-<%--            </jsp:scriptlet>--%>
         </div>
 
     </nav>
