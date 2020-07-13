@@ -10,6 +10,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
     <title>Авторизация</title>
 
     <!-- Bootstrap core CSS -->
@@ -17,8 +19,7 @@
 
     <!-- Favicons -->
     <link rel="icon" href="img/favicons/favicon.ico">
-    <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#563d7c">
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
