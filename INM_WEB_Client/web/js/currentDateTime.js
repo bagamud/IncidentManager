@@ -26,11 +26,11 @@ function short_date_time() {
 
     return day + "." + month + "." + year;
 }
+setInterval(function () {
+    document.getElementById('current_date_time_block2').innerHTML = date_time();
+}, 1000);
 
 /* выводим текущую дату и время на сайт в блок с id "current_date_time_block" */
 document.getElementById('date').setAttribute('value', short_date_time().toString());
 
 
-setInterval(function () {
-    document.getElementById('current_date_time_block2').innerHTML = date_time();
-}, 1000);

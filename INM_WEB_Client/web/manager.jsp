@@ -35,10 +35,15 @@
 <jsp:useBean id="voc" class="main.java.entity.Vocabulary">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <img alt="Russian Federation" height="30" src="img/mvd.png" width="52"/>
-        <a class="navbar-brand nav-link mr-lg-0" href="#">РОИО ГИБДД</a>
-        <button class="navbar-toggler p-0 border-0" data-toggle="offcanvas" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand nav-link mr-lg-0" href="#">РОИО ГИБДД</a><nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <img style="margin-left: 10px" alt="Russian Federation" height="30" src="img/mvd.png" width="52"/>
+        <a class="navbar-brand nav-link mr-lg-auto" href="#">РОИО ГИБДД</a>
+        <div class="navbar-brand nav-link mr-lg-auto" id="current_date_time_block2"></div>
+
+        <ul class="navbar-nav mr-lg-0">
+            <li class="nav-item active">
+                <a class="navbar-brand">Иванов И.В.</a>
+            </li>
 
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">

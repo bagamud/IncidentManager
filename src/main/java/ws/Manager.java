@@ -15,8 +15,8 @@ import java.io.StringWriter;
 @Path("manager")
 public class Manager {
     /**
-     * TODO: SessionFactory вынести в Stateful класс
-     * TODO: Logger в каждом методе с записью в поле Journal INM.INCIDENT
+     * TODO: SessionFactory РІС‹РЅРµСЃС‚Рё РІ Stateful РєР»Р°СЃСЃ
+     * TODO: Logger РІ РєР°Р¶РґРѕРј РјРµС‚РѕРґРµ СЃ Р·Р°РїРёСЃСЊСЋ РІ РїРѕР»Рµ Journal INM.INCIDENT
      */
     @Context
     UriInfo context;
