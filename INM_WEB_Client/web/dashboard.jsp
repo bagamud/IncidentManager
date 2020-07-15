@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="manager.jsp">
                             <svg class="bi bi-bug-fill" fill="currentColor" height="1em" viewBox="0 0 16 16"
                                  width="1em"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -123,9 +123,9 @@
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button">
                         <svg class="bi bi-calendar3-fill" fill="currentColor" height="1em" viewBox="0 0 16 16"
                              width="1em" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2H0z"/>
+                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2H0z"></path>
                             <path d="M0 3h16v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm6.5 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm4-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-8 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm4-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-8 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm4-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                  fill-rule="evenodd"/>
+                                  fill-rule="evenodd"></path>
                         </svg>
                         This week
                     </button>
@@ -146,122 +146,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <jsp:useBean id="dashboardData" class="main.java.entity.Incident">
-                        <jsp:getProperty name="dashboardData" property="dashboardData"/>
+                    <jsp:useBean id="dashboardData" class="main.java.jb.DashboardBean">
+                        <jsp:getProperty name="dashboardData" property="allIncidentData"/>
                     </jsp:useBean>
-<%--                    <tr>--%>
-<%--                        <td><a href="manager.html">1,001</a></td>--%>
-<%--                        <td>Lorem</td>--%>
-<%--                        <td>ipsum</td>--%>
-<%--                        <td>dolor</td>--%>
-<%--                        <td>sit</td>--%>
-<%--                        <td></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,002</td>--%>
-<%--                        <td>amet</td>--%>
-<%--                        <td>consectetur</td>--%>
-<%--                        <td>adipiscing</td>--%>
-<%--                        <td>elit</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,003</td>--%>
-<%--                        <td>Integer</td>--%>
-<%--                        <td>nec</td>--%>
-<%--                        <td>odio</td>--%>
-<%--                        <td>Praesent</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,003</td>--%>
-<%--                        <td>libero</td>--%>
-<%--                        <td>Sed</td>--%>
-<%--                        <td>cursus</td>--%>
-<%--                        <td>ante</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,004</td>--%>
-<%--                        <td>dapibus</td>--%>
-<%--                        <td>diam</td>--%>
-<%--                        <td>Sed</td>--%>
-<%--                        <td>nisi</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,005</td>--%>
-<%--                        <td>Nulla</td>--%>
-<%--                        <td>quis</td>--%>
-<%--                        <td>sem</td>--%>
-<%--                        <td>at</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,006</td>--%>
-<%--                        <td>nibh</td>--%>
-<%--                        <td>elementum</td>--%>
-<%--                        <td>imperdiet</td>--%>
-<%--                        <td>Duis</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,007</td>--%>
-<%--                        <td>sagittis</td>--%>
-<%--                        <td>ipsum</td>--%>
-<%--                        <td>Praesent</td>--%>
-<%--                        <td>mauris</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,008</td>--%>
-<%--                        <td>Fusce</td>--%>
-<%--                        <td>nec</td>--%>
-<%--                        <td>tellus</td>--%>
-<%--                        <td>sed</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,009</td>--%>
-<%--                        <td>augue</td>--%>
-<%--                        <td>semper</td>--%>
-<%--                        <td>porta</td>--%>
-<%--                        <td>Mauris</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,010</td>--%>
-<%--                        <td>massa</td>--%>
-<%--                        <td>Vestibulum</td>--%>
-<%--                        <td>lacinia</td>--%>
-<%--                        <td>arcu</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,011</td>--%>
-<%--                        <td>eget</td>--%>
-<%--                        <td>nulla</td>--%>
-<%--                        <td>Class</td>--%>
-<%--                        <td>aptent</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,012</td>--%>
-<%--                        <td>taciti</td>--%>
-<%--                        <td>sociosqu</td>--%>
-<%--                        <td>ad</td>--%>
-<%--                        <td>litora</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,013</td>--%>
-<%--                        <td>torquent</td>--%>
-<%--                        <td>per</td>--%>
-<%--                        <td>conubia</td>--%>
-<%--                        <td>nostra</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,014</td>--%>
-<%--                        <td>per</td>--%>
-<%--                        <td>inceptos</td>--%>
-<%--                        <td>himenaeos</td>--%>
-<%--                        <td>Curabitur</td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>1,015</td>--%>
-<%--                        <td>sodales</td>--%>
-<%--                        <td>ligula</td>--%>
-<%--                        <td>in</td>--%>
-<%--                        <td>libero</td>--%>
-<%--                    </tr>--%>
                     </tbody>
                 </table>
             </div>

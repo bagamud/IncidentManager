@@ -45,11 +45,9 @@ public class Incident {
      * TODO:
      */
 
-    public String getDashboardData() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("<tr><td>").append(id).append("</td><td>").append(requesterDepartment).append("</td><td>")
-                .append(requester).append("</td><td>").append(category).append("</td><td>").append(status).append("</td></tr>");
-        return stringBuilder.toString();
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {

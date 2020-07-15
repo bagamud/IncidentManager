@@ -1,9 +1,8 @@
 package ws;
 
+import ejb.SessionFactoryUtil;
 import entity.Users;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import javax.ws.rs.GET;
@@ -18,7 +17,6 @@ import java.util.List;
 public class Authorization {
     /**
      * TODO: ’эшсоль на пароль
-     * TODO: SessionFactory вынести в Stateful класс
      */
     @Context
     UriInfo context;
@@ -29,8 +27,7 @@ public class Authorization {
     public String logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
         boolean isLogin = false;
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session = SessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
         Query query = session.createQuery("FROM USERS");
@@ -46,7 +43,6 @@ public class Authorization {
 
         session.getTransaction().commit();
         session.close();
-        sessionFactory.close();
 
         return String.valueOf(isLogin);
     }

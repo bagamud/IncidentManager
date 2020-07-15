@@ -1,4 +1,4 @@
-package entity;
+package main.java.entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,8 +23,6 @@ public class Priority {
     @JsonProperty
     private int term;
 
-    @Id
-    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -33,8 +31,6 @@ public class Priority {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "INFLUENCE", nullable = false)
     public int getInfluence() {
         return influence;
     }
@@ -43,8 +39,6 @@ public class Priority {
         this.influence = influence;
     }
 
-    @Basic
-    @Column(name = "URGENCY", nullable = false)
     public int getUrgency() {
         return urgency;
     }
@@ -53,8 +47,6 @@ public class Priority {
         this.urgency = urgency;
     }
 
-    @Basic
-    @Column(name = "DESCRIPTION", nullable = false, length = 100)
     public String getDescription() {
         return description;
     }
@@ -63,8 +55,6 @@ public class Priority {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "TERM", nullable = false)
     public int getTerm() {
         return term;
     }

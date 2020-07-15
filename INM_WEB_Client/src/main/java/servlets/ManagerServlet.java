@@ -1,9 +1,10 @@
 package main.java.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import main.java.clients.ManagerClient;
+import main.java.clients.EntityClient;
 import main.java.entity.Incident;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,17 +28,28 @@ public class ManagerServlet extends HttpServlet {
 
         incident.setDate(Timestamp.valueOf(request.getParameter("date")));
         incident.setCategory(Integer.parseInt(request.getParameter("category")));
+        incident.setPriority(Integer.parseInt(request.getParameter("priority")));
+        incident.setRequesterDepartment(Integer.parseInt(request.getParameter("department")));
+        incident.setRequester(request.getParameter("requester"));
+        incident.setRequesterContacts(request.getParameter("requesterContacts"));
+        incident.setIpAddress(request.getParameter("ip"));
+        incident.setDuration(Integer.parseInt(request.getParameter("duration")));
+        incident.setEngineer(Integer.parseInt(request.getParameter("engineer")));
         incident.setOperator(Integer.parseInt(request.getParameter("operator")));
-
+        incident.setStatus(Integer.parseInt(request.getParameter("status")));
+        incident.setCloseDate(Timestamp.valueOf(request.getParameter("close_date")));
 
         ObjectMapper objectMapper = new ObjectMapper();
         StringWriter s = new StringWriter();
         objectMapper.writeValue(s, incident);
 
-        ManagerClient managerClient = new ManagerClient();
-        int id = managerClient.addIncident(s.toString());
+        EntityClient entityClient = new EntityClient();
+        int id = entityClient.addIncident(s.toString());
 
         request.setAttribute("id", id);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

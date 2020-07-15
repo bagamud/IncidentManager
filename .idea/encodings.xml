@@ -2,10 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/INM_WEB_Client/web/js/currentDateTime.js" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/INM_WEB_Client/src/main/java/clients/AuthClient.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/INM_WEB_Client/web/js/currentDateTime.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ws/Authorization.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/ws/Dashboard.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ws/Manager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ws/Entity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ws/Vocabulary.java" charset="windows-1251" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

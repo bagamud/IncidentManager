@@ -13,7 +13,6 @@ public class Dashboard {
      * TODO: Формирование отчетов по полям - Статус, Подразделение, Инженерная группа, За период, так же должно формировать по нескольким полям
      * TODO: На выход отдельный метод должен отрисовывать таблицы на HTML через StringBuilder
      * TODO: Выгрузка в Excel
-     * TODO: SessionFactory вынести в Stateful класс
      */
     @Context
     UriInfo context;

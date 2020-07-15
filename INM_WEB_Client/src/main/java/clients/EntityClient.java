@@ -3,7 +3,7 @@ package main.java.clients;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 
-public class ManagerClient {
+public class EntityClient {
     /**
      * TODO:
      */
@@ -11,7 +11,7 @@ public class ManagerClient {
     private final WebTarget webTarget;
     private final Client client;
 
-    public ManagerClient() {
+    public EntityClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("manager");
     }
@@ -33,6 +33,12 @@ public class ManagerClient {
     public void updateIncident(String incidentJson) {
         WebTarget resource = webTarget;
         resource = resource.queryParam("incidentJson", incidentJson);
+    }
+
+    public String getAllIncidents() {
+        WebTarget resource = webTarget;
+
+        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
     }
 
     public void close() {

@@ -1,4 +1,4 @@
-package entity;
+package main.java.entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,8 +15,6 @@ public class IncStatus {
     @JsonProperty
     private String title;
 
-    @Id
-    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -25,8 +23,6 @@ public class IncStatus {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "TITLE", nullable = false)
     public String getTitle() {
         return title;
     }

@@ -29,7 +29,7 @@
     <link href="css/form-validation.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-<jsp:useBean id="voc" class="main.java.entity.Vocabulary">
+<jsp:useBean id="voc" class="main.java.jb.Vocabulary">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <img alt="Russian Federation" height="30" src="img/mvd.png" style="margin-left: 10px" width="52"/>
         <a class="navbar-brand nav-link mr-lg-auto" href="#">РОИО ГИБДД</a>
@@ -56,7 +56,7 @@
                 <div class="sidebar-sticky pt-3">
                     <ul class="py-3 nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="dashboard.jsp">
                                 <svg class="bi bi-grid-1x2-fill" fill="currentColor" height="1em" viewBox="0 0 16 16"
                                      width="1em" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm0 9a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5z"></path>
@@ -127,7 +127,7 @@
                         </form>
                     </div>
                     <div class="col-md-7 order-md-1">
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" action="manager" novalidate>
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="incidentNumber">Номер</label>
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="date">Дата открытия заявки</label>
-                                    <input class="form-control" disabled id="date" type="text">
+                                    <input class="form-control" disabled id="date" type="text" name="date">
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="operator">Оператор</label>
@@ -145,7 +145,7 @@
                                             required
                                             type="text">
                                         <option value="">...</option>
-                                        <jsp:getProperty name="voc" property="users"/>
+                                        <jsp:getProperty name="voc" property="userSelect"/>
                                     </select>
                                     <div class="invalid-feedback">
                                         Неккоректное имя пользователя
@@ -158,7 +158,7 @@
                                     <label for="department">Подразделение</label>
                                     <select class="form-control custom-select d-block w-100" id="department" required>
                                         <option value="">...</option>
-                                        <jsp:getProperty name="voc" property="departments"/>
+                                        <jsp:getProperty name="voc" property="departmentSelect"/>
                                     </select>
                                     <div class="invalid-feedback">
                                         Пожалуйста выберите подразделение
@@ -168,7 +168,7 @@
                                     <label for="category">Категория инцидента</label>
                                     <select class="form-control custom-select d-block w-100" id="category" required>
                                         <option value="">...</option>
-                                        <jsp:getProperty name="voc" property="categories"/>
+                                        <jsp:getProperty name="voc" property="categorySelect"/>
                                     </select>
                                     <div class="invalid-feedback">
                                         Пожалуйста выберите подразделение
@@ -239,6 +239,7 @@
                                     <select class="form-control custom-select d-block w-100" id="status" required
                                             type="text">
                                         <option value="">...</option>
+                                        <jsp:getProperty name="voc" property="statusSelect"/>
                                     </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -246,7 +247,7 @@
                                     <select class="form-control custom-select d-block w-100" id="engineer" required
                                             type="text">
                                         <option value="">...</option>
-                                        <jsp:getProperty name="voc" property="users"/>
+                                        <jsp:getProperty name="voc" property="userSelect"/>
                                     </select>
                                     <div class="invalid-feedback">
                                         Неккоректное имя пользователя
@@ -258,8 +259,9 @@
                                 </div>
                             </div>
                             <hr class="mb-4">
-                            <button class=" btn btn-primary btn-lg" type="submit">Сохранить</button>
+                            <button class=" btn btn-primary btn-lg" type="submit" formmethod="post">Сохранить</button>
                             <button class=" btn btn-primary btn-lg" type="reset">Очистить</button>
+                            <button class=" btn btn-primary btn-lg" type="submit" formmethod="get">Поиск</button>
                         </form>
                     </div>
                 </div>
