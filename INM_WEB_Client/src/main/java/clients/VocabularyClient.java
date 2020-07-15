@@ -20,7 +20,7 @@ public class VocabularyClient {
     public String getSource(String source) {
         WebTarget resource = webTarget;
         resource = resource.queryParam("source", source);
-        return resource.request(MediaType.TEXT_HTML).get(String.class);
+        return resource.request(MediaType.APPLICATION_JSON).get(String.class);
     }
 
 }

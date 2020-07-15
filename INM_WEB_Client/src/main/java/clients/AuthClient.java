@@ -3,6 +3,7 @@ package main.java.clients;
 import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 public class AuthClient {
     /**
@@ -24,7 +25,7 @@ public class AuthClient {
         if (login != null && password != null) {
             resource = resource.queryParam("login", login).queryParam("password", password);
         }
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
+        return resource.request(MediaType.APPLICATION_JSON).get(String.class);
     }
 
     public void close() {

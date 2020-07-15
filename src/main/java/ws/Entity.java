@@ -25,9 +25,8 @@ public class Entity {
     UriInfo context;
 
     @POST
-    @Path("/add{incidentJson}")
-    @Produces("text/html")
-    public int addIncident(@PathParam("incidentJson") String incidentJson) {
+    @Consumes("application/json")
+    public void addIncident(String incidentJson) {
         int id = 0;
         try {
             Session session = SessionFactoryUtil.getSessionFactory().openSession();
@@ -44,12 +43,12 @@ public class Entity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return id;
+//        return id;
     }
 
     @GET
     @Path("{id}")
-    @Produces("text/html")
+    @Produces("application/json")
     public String getIncident(@QueryParam("id") int id) {
         String incidentJson = null;
 
@@ -72,9 +71,8 @@ public class Entity {
     }
 
     @PUT
-    @Path("/put{id},{incidentJson}")
-    @Produces("text/html")
-    public void updateIncident(@QueryParam("id") int id, @PathParam("incidentJson") String incidentJson) {
+    @Consumes("application/json")
+    public void updateIncident(int id, String incidentJson) {
         try {
 
             Session session = SessionFactoryUtil.getSessionFactory().openSession();
@@ -94,8 +92,7 @@ public class Entity {
         }
     }
     @GET
-    @Path("")
-    @Produces("text/html")
+    @Produces("application/json")
     public String getAllIncident() {
         String incidentJson = null;
 

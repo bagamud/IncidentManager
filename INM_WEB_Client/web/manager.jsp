@@ -127,7 +127,7 @@
                         </form>
                     </div>
                     <div class="col-md-7 order-md-1">
-                        <form class="needs-validation" action="manager" novalidate>
+                        <form class="needs-validation" action="manager" method="post" novalidate>
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="incidentNumber">Номер</label>
@@ -143,7 +143,7 @@
                                     <label for="operator">Оператор</label>
                                     <select class="form-control custom-select d-block w-100 form-control" id="operator"
                                             required
-                                            type="text">
+                                            type="text" name="operator">
                                         <option value="">...</option>
                                         <jsp:getProperty name="voc" property="userSelect"/>
                                     </select>
@@ -156,7 +156,7 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="department">Подразделение</label>
-                                    <select class="form-control custom-select d-block w-100" id="department" required>
+                                    <select class="form-control custom-select d-block w-100" id="department" name="department" required>
                                         <option value="">...</option>
                                         <jsp:getProperty name="voc" property="departmentSelect"/>
                                     </select>
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="category">Категория инцидента</label>
-                                    <select class="form-control custom-select d-block w-100" id="category" required>
+                                    <select class="form-control custom-select d-block w-100" id="category" name="category" required>
                                         <option value="">...</option>
                                         <jsp:getProperty name="voc" property="categorySelect"/>
                                     </select>
@@ -178,7 +178,7 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="requester">Пользователь</label>
-                                    <input class="form-control" id="requester" placeholder="" required type="text"
+                                    <input class="form-control" id="requester" name="requester" placeholder="" required type="text"
                                            value="">
                                     <div class="invalid-feedback">
                                         Неккоректное имя пользователя
@@ -186,7 +186,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="requesterContacts">Контакты</label>
-                                    <input class="form-control" id="requesterContacts" placeholder="" required
+                                    <input class="form-control" id="requesterContacts" name="requesterContacts" placeholder="" required
                                            type="tel">
                                     <div class="invalid-feedback" style="width: 100%;">
                                         Введите контакты пользователя
@@ -196,24 +196,24 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="ip">IP-адрес</label>
-                                    <input class="form-control" id="ip" placeholder="0.0.0.0" type="text">
+                                    <input class="form-control" id="ip" name="ip" placeholder="0.0.0.0" type="text">
                                     <div class="invalid-feedback">
                                         Введите корректный IP-адрес компьютера пользователя
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="duration">Продолжительность инцидента</label>
-                                    <input class="form-control" id="duration" placeholder="" required type="text">
+                                    <input class="form-control" id="duration" name="duration" placeholder="" required type="text">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="description">Описание</label>
-                                <textarea class="form-control" id="description" required></textarea>
+                                <textarea class="form-control" id="description" name="description" required></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="influence">Влияние</label>
-                                    <select class="form-control custom-select d-block w-100" id="influence" required>
+                                    <select class="form-control custom-select d-block w-100" id="influence" name="influence" required>
                                         <option value="1">Высокое</option>
                                         <option value="2">Среднее</option>
                                         <option value="3">Низкое</option>
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="urgency">Срочность</label>
-                                    <select class="form-control custom-select d-block w-100" id="urgency" required>
+                                    <select class="form-control custom-select d-block w-100" id="urgency" name="urgency" required>
                                         <option value="1">Высокая</option>
                                         <option value="2">Средняя</option>
                                         <option value="3">Низкая</option>
@@ -229,14 +229,14 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="priority">Приоритет</label>
-                                    <input class="form-control" disabled id="priority" placeholder="" required
+                                    <input class="form-control" disabled id="priority" name="priority" placeholder="" required
                                            type="text">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="status">Статус</label>
-                                    <select class="form-control custom-select d-block w-100" id="status" required
+                                    <select class="form-control custom-select d-block w-100" id="status" name="status" required
                                             type="text">
                                         <option value="">...</option>
                                         <jsp:getProperty name="voc" property="statusSelect"/>
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="engineer">Инженер</label>
-                                    <select class="form-control custom-select d-block w-100" id="engineer" required
+                                    <select class="form-control custom-select d-block w-100" id="engineer" name="engineer" required
                                             type="text">
                                         <option value="">...</option>
                                         <jsp:getProperty name="voc" property="userSelect"/>
@@ -255,13 +255,13 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="close_date">Дата закрытия заявки</label>
-                                    <input class="form-control" id="close_date" type="date">
+                                    <input class="form-control" id="close_date" name="close_date" type="date">
                                 </div>
                             </div>
                             <hr class="mb-4">
-                            <button class=" btn btn-primary btn-lg" type="submit" formmethod="post">Сохранить</button>
-                            <button class=" btn btn-primary btn-lg" type="reset">Очистить</button>
-                            <button class=" btn btn-primary btn-lg" type="submit" formmethod="get">Поиск</button>
+                            <button class="btn btn-primary btn-lg" type="submit" formmethod="post">Сохранить</button>
+                            <button class="btn btn-primary btn-lg" type="reset">Очистить</button>
+                            <button class="btn btn-primary btn-lg" type="submit" formmethod="get">Поиск</button>
                         </form>
                     </div>
                 </div>

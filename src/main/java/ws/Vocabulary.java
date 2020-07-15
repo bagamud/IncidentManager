@@ -27,7 +27,7 @@ public class Vocabulary {
 
     @GET
     @Path("")
-    @Produces("text/html")
+    @Produces("application/json")
     public String getSource(@QueryParam("source") String source) throws IOException {
         Session session = SessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();

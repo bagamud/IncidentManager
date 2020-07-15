@@ -2,6 +2,7 @@ package main.java.clients;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 public class EntityClient {
     /**
@@ -16,18 +17,18 @@ public class EntityClient {
         webTarget = client.target(BASE_URI).path("manager");
     }
 
-    public int addIncident(String incidentJson) {
+    public void addIncident(String incidentJson) {
         WebTarget resource = webTarget;
         resource = resource.queryParam("incidentJson", incidentJson);
 
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(Integer.class);
+//        return resource.request(MediaType.APPLICATION_JSON).get(String.class);
     }
 
     public String getIncident(int id) {
         WebTarget resource = webTarget;
         resource = resource.queryParam("id", id);
 
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
+        return resource.request(MediaType.APPLICATION_JSON).get(String.class);
     }
 
     public void updateIncident(String incidentJson) {
@@ -38,7 +39,7 @@ public class EntityClient {
     public String getAllIncidents() {
         WebTarget resource = webTarget;
 
-        return resource.request(javax.ws.rs.core.MediaType.TEXT_HTML).get(String.class);
+        return resource.request(MediaType.APPLICATION_JSON).get(String.class);
     }
 
     public void close() {
