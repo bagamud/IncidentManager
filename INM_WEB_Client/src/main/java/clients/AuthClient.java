@@ -7,9 +7,9 @@ import javax.ws.rs.core.MediaType;
 
 public class AuthClient {
     /**
-     * TODO: Хэшсоль на пароль
-     * TODO: Авторизация должна сохранятсья на период HttpSession
-     * TODO: В строке отправляемого запроса не должен явно читаться пароль, только Хэш
+     * TODO: РҐСЌС€СЃРѕР»СЊ РЅР° РїР°СЂРѕР»СЊ
+     * TODO: РђРІС‚РѕСЂРёР·Р°С†РёСЏ РґРѕР»Р¶РЅР° СЃРѕС…СЂР°РЅСЏС‚СЃСЊСЏ РЅР° РїРµСЂРёРѕРґ HttpSession
+     * TODO: Р’ СЃС‚СЂРѕРєРµ РѕС‚РїСЂР°РІР»СЏРµРјРѕРіРѕ Р·Р°РїСЂРѕСЃР° РЅРµ РґРѕР»Р¶РµРЅ СЏРІРЅРѕ С‡РёС‚Р°С‚СЊСЃСЏ РїР°СЂРѕР»СЊ, С‚РѕР»СЊРєРѕ РҐСЌС€
      */
     private static final String BASE_URI = "http://localhost:8090/IncidentManagerWeb/webresources/";
     private final WebTarget webTarget;
