@@ -1,11 +1,13 @@
 package main.java.entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Timestamp;
 
 @JsonAutoDetect
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Incident {
     @JsonProperty
     private int id;

@@ -15,7 +15,7 @@ public class AuthorizationServlet extends HttpServlet {
     /**
      * TODO:
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
@@ -26,7 +26,7 @@ public class AuthorizationServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         AuthClient authClient = new AuthClient();
-        if (authClient.isLogin(login, password).equals("true")) {
+        if (authClient.isLogin(login, password)) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
             requestDispatcher.forward(request, response);
         } else {

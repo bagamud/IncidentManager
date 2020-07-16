@@ -31,13 +31,15 @@ public class Vocabulary {
         }
         return stringBuilder.toString();
     }
+
     public String getDepartmentSelect() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(Department department : departments) {
-        stringBuilder.append("<option ").append("value=\"").append(department.getId()).append("\">").append(department.getTitle()).append("</option>");
-    }
+        for (Department department : departments) {
+            stringBuilder.append("<option ").append("value=\"").append(department.getId()).append("\">").append(department.getTitle()).append("</option>");
+        }
         return stringBuilder.toString();
-}
+    }
+
     public String getUserSelect() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Users users : users) {

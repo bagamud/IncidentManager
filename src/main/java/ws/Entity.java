@@ -2,7 +2,6 @@ package ws;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ejb.SessionFactoryUtil;
-import entity.Category;
 import entity.Incident;
 import org.hibernate.Session;
 
@@ -26,71 +25,49 @@ public class Entity {
 
     @POST
     @Consumes("application/json")
-    public void addIncident(String incidentJson) {
+    public void addIncident(Incident incident) {
         int id = 0;
-        try {
-            Session session = SessionFactoryUtil.getSessionFactory().openSession();
-            session.beginTransaction();
+        Session session = SessionFactoryUtil.getSessionFactory().openSession();
+        session.beginTransaction();
 
-            Incident incident = new Incident();
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.readValue(incidentJson, Incident.class);
+        Long longId = (Long) session.save(incident);
+        id = longId.intValue();
+        session.getTransaction().commit();
+        session.close();
 
-            Long longId = (Long) session.save(incident);
-            id = longId.intValue();
-            session.getTransaction().commit();
-            session.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 //        return id;
     }
 
     @GET
-    @Path("{id}")
     @Produces("application/json")
-    public String getIncident(@QueryParam("id") int id) {
-        String incidentJson = null;
+    public Incident getIncident(@QueryParam("id") int id) {
 
-        try {
-            Session session = SessionFactoryUtil.getSessionFactory().openSession();
-            session.beginTransaction();
+        Session session = SessionFactoryUtil.getSessionFactory().openSession();
+        session.beginTransaction();
 
-            Incident incident = session.get(Incident.class, id);
-            ObjectMapper objectMapper = new ObjectMapper();
-            StringWriter s = new StringWriter();
-            objectMapper.writeValue(s, incident);
-            incidentJson = s.toString();
-            session.getTransaction().commit();
-            session.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Incident incident = session.get(Incident.class, id);
 
-        return incidentJson;
+        session.getTransaction().commit();
+        session.close();
+
+        return incident;
     }
 
     @PUT
     @Consumes("application/json")
     public void updateIncident(int id, String incidentJson) {
-        try {
 
-            Session session = SessionFactoryUtil.getSessionFactory().openSession();
-            session.beginTransaction();
+        Session session = SessionFactoryUtil.getSessionFactory().openSession();
+        session.beginTransaction();
 
-            Incident incident = session.get(Incident.class, id);
+        Incident incident = session.get(Incident.class, id);
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            StringWriter s = new StringWriter();
-            objectMapper.readValue(incidentJson, Incident.class);
+        session.update(incident);
+        session.getTransaction().commit();
+        session.close();
 
-            session.update(incident);
-            session.getTransaction().commit();
-            session.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+
     @GET
     @Produces("application/json")
     public String getAllIncident() {

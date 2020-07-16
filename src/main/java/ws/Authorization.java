@@ -1,10 +1,8 @@
 package ws;
 
 import ejb.SessionFactoryUtil;
-import entity.Incident;
 import entity.Users;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -27,7 +25,7 @@ public class Authorization {
 
     @GET
     @Produces("application/json")
-    public String logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
+    public boolean logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
         boolean isLogin = false;
 
         Session session = SessionFactoryUtil.getSessionFactory().openSession();
@@ -50,6 +48,6 @@ public class Authorization {
         session.getTransaction().commit();
         session.close();
 
-        return String.valueOf(isLogin);
+        return isLogin;
     }
 }

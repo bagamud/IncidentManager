@@ -20,12 +20,12 @@ public class AuthClient {
         webTarget = client.target(BASE_URI).path("authorization");
     }
 
-    public String isLogin(String login, String password) throws ClientErrorException {
+    public boolean isLogin(String login, String password) throws ClientErrorException {
         WebTarget resource = webTarget;
         if (login != null && password != null) {
             resource = resource.queryParam("login", login).queryParam("password", password);
         }
-        return resource.request(MediaType.APPLICATION_JSON).get(String.class);
+        return resource.request(MediaType.APPLICATION_JSON).get(Boolean.class);
     }
 
     public void close() {

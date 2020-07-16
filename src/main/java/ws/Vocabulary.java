@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ejb.SessionFactoryUtil;
 import entity.*;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -26,7 +25,6 @@ public class Vocabulary {
     UriInfo context;
 
     @GET
-    @Path("")
     @Produces("application/json")
     public String getSource(@QueryParam("source") String source) throws IOException {
         Session session = SessionFactoryUtil.getSessionFactory().openSession();

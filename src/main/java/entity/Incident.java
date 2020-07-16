@@ -1,6 +1,7 @@
 package entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Basic;
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @JsonAutoDetect
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity(name = "INCIDENT")
 public class Incident {
     @JsonProperty

@@ -38,7 +38,7 @@ public class DashboardBean {
     }
 
     public String getIncidentDataWhere(String request) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder allIncidents = new StringBuilder();
         try {
             entityClient = new EntityClient();
             objectMapper = new ObjectMapper();
@@ -46,7 +46,7 @@ public class DashboardBean {
 
             Incident[] incidentJson = objectMapper.readValue(entityClient.getAllIncidents(), Incident[].class);
             for (Incident incident : incidentJson) {
-                sb.append("<tr><td>").append(incident.getId()).append("</td><td>")
+                allIncidents.append("<tr><td>").append(incident.getId()).append("</td><td>")
                         .append(vocabulary.getDepartments()[incident.getRequesterDepartment() - 1].getTitle())
                         .append("</td><td>").append(incident.getDate()).append("</td><td>").append(vocabulary.getUsers()[incident.getOperator() - 1].getName())
                         .append("</td><td>").append(vocabulary.getCategories()[incident.getCategory() - 1].getTitle())
@@ -56,6 +56,6 @@ public class DashboardBean {
             e.printStackTrace();
         }
 
-        return sb.toString();
+        return allIncidents.toString();
     }
 }
