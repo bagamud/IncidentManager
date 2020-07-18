@@ -3,7 +3,10 @@ package main.java.entity;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
+import javax.json.bind.annotation.JsonbDateFormat;
+import javax.json.bind.annotation.JsonbTypeSerializer;
 import java.sql.Timestamp;
 
 @JsonAutoDetect
@@ -11,7 +14,7 @@ import java.sql.Timestamp;
 public class Incident {
     @JsonProperty
     private int id;
-    @JsonProperty
+    @JsonbDateFormat(value = JsonbDateFormat.TIME_IN_MILLIS)
     private Timestamp date;
     @JsonProperty
     private int category;
@@ -35,7 +38,7 @@ public class Incident {
     private int operator;
     @JsonProperty
     private int status;
-    @JsonProperty
+    @JsonbDateFormat(value = JsonbDateFormat.TIME_IN_MILLIS)
     private Timestamp closeDate;
     @JsonProperty
     private String journal;

@@ -3,6 +3,7 @@ package main.java.clients;
 import main.java.entity.Incident;
 
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
@@ -19,9 +20,8 @@ public class EntityClient {
         webTarget = client.target(BASE_URI).path("manager");
     }
 
-    public int addIncident(Incident incident) {
-        WebTarget resource = webTarget.queryParam("incident", incident);
-        return resource.request(MediaType.APPLICATION_JSON).get(Integer.class);
+    public void addIncident(String incident) {
+        webTarget.request(MediaType.APPLICATION_JSON).post(Entity.entity(incident, MediaType.APPLICATION_JSON));
     }
 
     public Incident getIncident(int id) {
@@ -29,8 +29,8 @@ public class EntityClient {
         return resource.request(MediaType.APPLICATION_JSON).get(Incident.class);
     }
 
-    public void updateIncident(String incidentJson) {
-        WebTarget resource = webTarget.queryParam("incidentJson", incidentJson);
+    public void updateIncident(Incident incident) {
+        webTarget.request(MediaType.APPLICATION_JSON).post(Entity.entity(incident, MediaType.APPLICATION_JSON));
     }
 
     public String getAllIncidents() {

@@ -27,7 +27,7 @@ public class ManagerServlet extends HttpServlet {
         Incident incident = new Incident();
 
         if (request.getParameter("date") != null) incident.setDate(Timestamp.valueOf(request.getParameter("date")));
-        else incident.setDate(Timestamp.valueOf("2100-11-11 11:12:13.059"));
+        else incident.setDate(Timestamp.valueOf("1594759370000"));
         if (request.getParameter("category") != null)
             incident.setCategory(Integer.parseInt(request.getParameter("category")));
         if (request.getParameter("priority") != null)
@@ -49,7 +49,7 @@ public class ManagerServlet extends HttpServlet {
             incident.setStatus(Integer.parseInt(request.getParameter("status")));
 //        if (request.getParameter("close_date") != null)
 //            incident.setCloseDate(Timestamp.valueOf(request.getParameter("close_date")));
-        else incident.setCloseDate(Timestamp.valueOf("2100-11-11 11:12:13.059"));
+        else incident.setCloseDate(Timestamp.valueOf("1594759370000"));
 
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -57,7 +57,7 @@ public class ManagerServlet extends HttpServlet {
         objectMapper.writeValue(s, incident);
 
         EntityClient entityClient = new EntityClient();
-        entityClient.addIncident(incident);
+        entityClient.addIncident(s.toString());
 //        int id = entityClient.addIncident();
 
 //        request.setAttribute("id", id);
