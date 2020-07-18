@@ -155,6 +155,8 @@ public class Incident {
         this.status = status;
     }
 
+
+
     public Timestamp getCloseDate() {
         return closeDate;
     }
