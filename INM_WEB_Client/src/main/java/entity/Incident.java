@@ -3,10 +3,8 @@ package main.java.entity;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
 import javax.json.bind.annotation.JsonbDateFormat;
-import javax.json.bind.annotation.JsonbTypeSerializer;
 import java.sql.Timestamp;
 
 @JsonAutoDetect
@@ -154,7 +152,6 @@ public class Incident {
     public void setStatus(int status) {
         this.status = status;
     }
-
 
 
     public Timestamp getCloseDate() {

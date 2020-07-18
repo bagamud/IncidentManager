@@ -20,8 +20,8 @@ public class EntityClient {
         webTarget = client.target(BASE_URI).path("manager");
     }
 
-    public void addIncident(String incident) {
-        webTarget.request(MediaType.APPLICATION_JSON).post(Entity.entity(incident, MediaType.APPLICATION_JSON));
+    public int addIncident(String incident) {
+        return webTarget.request(MediaType.APPLICATION_JSON).post(Entity.entity(incident, MediaType.APPLICATION_JSON)).getStatus();
     }
 
     public Incident getIncident(int id) {

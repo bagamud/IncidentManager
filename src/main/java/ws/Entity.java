@@ -25,19 +25,19 @@ public class Entity {
 
     @POST
     @Consumes("application/json")
-    public void addIncident(String incidentJson) throws IOException {
+    public int addIncident(String incidentJson) throws IOException {
         int id = 0;
         Session session = SessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
         ObjectMapper objectMapper = new ObjectMapper();
         Incident incident = objectMapper.readValue(incidentJson, Incident.class);
-        /*Long longId = (Long)*/ session.save(incident);
+        id = (int) session.save(incident);
 //        id = longId.intValue();
         session.getTransaction().commit();
         session.close();
 
-//        return id;
+        return id;
     }
 
     @GET

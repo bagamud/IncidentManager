@@ -57,10 +57,10 @@ public class ManagerServlet extends HttpServlet {
         objectMapper.writeValue(s, incident);
 
         EntityClient entityClient = new EntityClient();
-        entityClient.addIncident(s.toString());
-//        int id = entityClient.addIncident();
+//        entityClient.addIncident(s.toString());
+        int id = entityClient.addIncident(s.toString());
 
-//        request.setAttribute("id", id);
+        request.setAttribute("id", id);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
         requestDispatcher.forward(request, response);
