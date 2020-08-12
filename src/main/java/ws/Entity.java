@@ -15,6 +15,12 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
 
+/**
+ * Веб-методы реализующие основное взаимодействие с записями об инцидентах, построенные по принципу RESTful веб-службы
+ * CRUD (Create, Read, Update, Delete). Внешнее взаимодействие организовано в формате JSON.
+ *
+ * @author Ponkratov K.
+ */
 @Path("manager")
 public class Entity {
     /**
