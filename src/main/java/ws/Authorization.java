@@ -15,6 +15,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
+/**
+ * Веб-служба авторизации по паре логин/пароль, проверяющая совпадение в SQL аблице USERS
+ */
+
 @Path("authorization")
 public class Authorization {
     /**
