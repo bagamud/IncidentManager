@@ -21,8 +21,8 @@ import java.util.List;
 
 @Path("authorization")
 public class Authorization {
-    /**
-     * TODO: Хэшсоль на пароль
+    /*
+     TODO: Хэшсоль на пароль
      */
     @Context
     UriInfo context;

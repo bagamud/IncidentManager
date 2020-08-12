@@ -4,8 +4,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 
 public class DashboardClient {
-    /**
-     * TODO:
+    /*
+     TODO:
      */
     private static final String BASE_URI = "http://localhost:8090/IncidentManagerWeb/webresources/";
     private final WebTarget webTarget;

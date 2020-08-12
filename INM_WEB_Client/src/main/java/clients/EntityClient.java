@@ -8,8 +8,8 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 public class EntityClient {
-    /**
-     * TODO:
+    /*
+     TODO:
      */
     private static final String BASE_URI = "http://localhost:8090/IncidentManagerWeb/webresources/";
     private final WebTarget webTarget;
