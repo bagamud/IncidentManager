@@ -26,9 +26,9 @@ public class Entity {
      * @author Ponkratov K.
      */
 
-    /**
-     * TODO: Logger в каждом методе с записью в поле Journal INM.INCIDENT
-     */
+
+    //TODO: Logger в каждом методе с записью в поле Journal INM.INCIDENT
+
     @Context
     UriInfo context;
 
