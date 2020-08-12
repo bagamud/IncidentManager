@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * Веб-служба авторизации по паре логин/пароль, проверяющая совпадение в SQL аблице USERS
+ *
+ * @author Ponkratov K.
  */
 
 @Path("authorization")
