@@ -12,7 +12,7 @@
     <link href="css/form-validation.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-<jsp:useBean id="voc" class="main.java.jb.Vocabulary">
+<jsp:useBean class="main.java.jb.Vocabulary" id="voc">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <img alt="Russian Federation" height="30" src="img/mvd.png" style="margin-left: 10px" width="52"/>
         <a class="navbar-brand nav-link mr-lg-auto" href="#">РОИО ГИБДД</a>
@@ -110,7 +110,7 @@
                         </form>
                     </div>
                     <div class="col-md-7 order-md-1">
-                        <form class="needs-validation" action="manager" method="post" novalidate>
+                        <form action="manager" class="needs-validation" method="post" novalidate>
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="incidentNumber">Номер</label>
@@ -118,32 +118,32 @@
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="date">Дата открытия заявки</label>
-                                    <input class="form-control" disabled id="date" type="text" name="date">
+                                    <input class="form-control" disabled id="date" name="date" type="text">
                                 </div>
                                 <div class="col-md-3 mb-3">
-                                <label for="status">Статус</label>
-                                <select class="form-control custom-select d-block w-100" id="status" name="status"
-                                        required
-                                        type="text">
-                                    <jsp:getProperty name="voc" property="statusSelect"/>
-                                </select>
-                            </div>
+                                    <label for="status">Статус</label>
+                                    <select class="form-control custom-select d-block w-100" id="status" name="status"
+                                            required
+                                            type="text">
+                                        <jsp:getProperty name="voc" property="statusSelect"/>
+                                    </select>
+                                </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="close_date">Дата закрытия заявки</label>
                                     <input class="form-control" id="close_date" name="close_date" type="date">
                                 </div>
-<!--                                <div class="col-md-4 mb-3">-->
-<!--                                    <label for="operator">Оператор</label>-->
-<!--                                    <select class="form-control custom-select d-block w-100 form-control" id="operator"-->
-<!--                                            required-->
-<!--                                            type="text" name="operator">-->
-<!--                                        <jsp:getProperty name="voc" property="userSelect"/>-->
-<!--                                    </select>-->
-<!--                                    <div class="invalid-feedback">-->
-<!--                                        Неккоректное имя пользователя-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <!--                                <div class="col-md-4 mb-3">-->
+                                <!--                                    <label for="operator">Оператор</label>-->
+                                <!--                                    <select class="form-control custom-select d-block w-100 form-control" id="operator"-->
+                                <!--                                            required-->
+                                <!--                                            type="text" name="operator">-->
+                                <!--                                        <jsp:getProperty name="voc" property="userSelect"/>-->
+                                <!--                                    </select>-->
+                                <!--                                    <div class="invalid-feedback">-->
+                                <!--                                        Неккоректное имя пользователя-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                                 <hr>
                             </div>
                             <div class="row">
@@ -232,22 +232,22 @@
                                     %>
                                 </div>
                                 <div class="col-md-3 mb-3">
-                                <label for="engineer">Инженер</label>
-                                <select class="form-control custom-select d-block w-100" id="engineer"
-                                        name="engineer"
-                                        type="text">
-                                    <jsp:getProperty name="voc" property="userSelect"/>
-                                </select>
-                            </div>
+                                    <label for="engineer">Инженер</label>
+                                    <select class="form-control custom-select d-block w-100" id="engineer"
+                                            name="engineer"
+                                            type="text">
+                                        <jsp:getProperty name="voc" property="userSelect"/>
+                                    </select>
+                                </div>
 
                             </div>
                             <div class="row">
 
                             </div>
                             <hr class="mb-4">
-                            <button class="btn btn-primary btn-lg" type="submit" formmethod="post">Сохранить</button>
+                            <button class="btn btn-primary btn-lg" formmethod="post" type="submit">Сохранить</button>
                             <button class="btn btn-primary btn-lg" type="reset">Очистить</button>
-                            <button class="btn btn-primary btn-lg" type="submit" formmethod="get">Поиск</button>
+                            <button class="btn btn-primary btn-lg" formmethod="get" type="submit">Поиск</button>
                         </form>
                     </div>
                 </div>
