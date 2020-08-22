@@ -49,9 +49,9 @@
 <%--    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Пароль" required>--%>
 <%--    <div class="checkbox mb-3">--%>
 <%--    </div>--%>
-    <div class="col-md-4 mb-3">
-        <label for="operator">Выберите пользователя</label>
-        <select class="form-control custom-select d-block w-100 form-control" id="operator"
+    <div class="mb-3">
+        <label for="user">Выберите пользователя</label>
+        <select class="form-control custom-select d-block w-100 form-control" id="user"
                 required
                 type="text" name="user">
             <option value="">...</option>
