@@ -21,6 +21,9 @@ import java.util.List;
 @Path("vocabulary")
 public class Vocabulary {
 
+    /**
+     * Веб-метод отвечающий за загрузку справочников для отображения на сайте
+     */
     @Context
     UriInfo context;
 

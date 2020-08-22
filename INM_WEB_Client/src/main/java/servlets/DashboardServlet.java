@@ -1,6 +1,7 @@
 package main.java.servlets;
 
 import main.java.clients.DashboardClient;
+import main.java.clients.EntityClient;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,8 @@ public class DashboardServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        DashboardClient dashboardClient = new DashboardClient();
+        EntityClient entityClient = new EntityClient();
+
 
     }
 }

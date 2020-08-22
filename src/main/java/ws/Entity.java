@@ -33,6 +33,14 @@ public class Entity {
     @Context
     UriInfo context;
 
+    /**
+     * Веб-метод добавления записи об инцидентев базу данных
+     *
+     * @param incidentJson - передаваемый экземпляр класса Incident в формате String
+     * @return - возвращается ID записи, добавленной в базу данных
+     * @throws IOException - общее исключение
+     */
+
     @POST
     @Consumes("application/json")
     public int addIncident(String incidentJson) throws IOException {
@@ -50,20 +58,42 @@ public class Entity {
         return id;
     }
 
+    /**
+     * Веб-метод получения записи об инциденте из базы данных по ID номеру записи
+     *
+     * @param id - номер запрашиваемой записи
+     * @return - возвращается экземпляр класса Incident в формате JSON
+     */
+
     @GET
     @Produces("application/json")
-    public Incident getIncident(@QueryParam("id") int id) {
+    public String getIncident(@QueryParam("id") int id) {
 
         Session session = SessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
         Incident incident = session.get(Incident.class, id);
 
+        ObjectMapper objectMapper = new ObjectMapper();
+        StringWriter s = new StringWriter();
+        try {
+            objectMapper.writeValue(s, incident);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         session.getTransaction().commit();
         session.close();
 
-        return incident;
+        return s.toString();
     }
+
+    /**
+     * Веб-метод обновления записи об инциденте в базе данных
+     *
+     * @param id           - номер обновляемой записи
+     * @param incidentJson - экземпляр класса Incident в формате JSON передаваемый для обновления
+     */
 
     @PUT
     @Consumes("application/json")
@@ -80,30 +110,36 @@ public class Entity {
 
     }
 
+    /**
+     * Веб-метод получения всех записей об инцидентах из базы данных
+     *
+     * @return - возвращается массив записей об инцидентах в формате JSON
+     */
+
     @GET
+    @Path("/all")
     @Produces("application/json")
     public String getAllIncident() {
-        String incidentJson = null;
+        String incidentJson;
+        Session session = SessionFactoryUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
 
+        CriteriaQuery<Incident> incidentQuery = builder.createQuery(Incident.class);
+        Root<Incident> incidentRoot = incidentQuery.from(Incident.class);
+        incidentQuery.select(incidentRoot);
+        List<Incident> incidents = session.createQuery(incidentQuery).getResultList();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        StringWriter s = new StringWriter();
         try {
-            Session session = SessionFactoryUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            CriteriaBuilder builder = session.getCriteriaBuilder();
-
-            CriteriaQuery<Incident> incidentQuery = builder.createQuery(Incident.class);
-            Root<Incident> incidentRoot = incidentQuery.from(Incident.class);
-            incidentQuery.select(incidentRoot);
-            List<Incident> incidents = session.createQuery(incidentQuery).getResultList();
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            StringWriter s = new StringWriter();
             objectMapper.writeValue(s, incidents);
-            incidentJson = s.toString();
-            session.getTransaction().commit();
-            session.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        incidentJson = s.toString();
+        session.getTransaction().commit();
+        session.close();
 
         return incidentJson;
     }
