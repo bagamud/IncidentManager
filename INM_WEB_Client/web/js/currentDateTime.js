@@ -29,6 +29,8 @@ function short_date_time() {
 
 setInterval(function () {
     document.getElementById('current_date_time_block2').innerHTML = date_time();
+    document.getElementById('current_date_time_block2').setAttribute("value", date_time());
+
 }, 1000);
 
 /* ������� ������� ���� � ����� �� ���� � ���� � id "current_date_time_block" */

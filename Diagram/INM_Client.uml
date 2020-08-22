@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>entity.Category</OriginalElement>
+  <OriginalElement />
   <nodes>
-    <node x="666.0" y="0.0">main.java.entity.Users</node>
-    <node x="0.0" y="991.0">main.java.servlets</node>
-    <node x="208.0" y="0.0">main.java.clients.EntityClient</node>
-    <node x="447.0" y="0.0">main.java.jb.Vocabulary</node>
-    <node x="502.0" y="449.0">main.java.entity.Priority</node>
-    <node x="655.0" y="764.0">main.java.clients.DashboardClient</node>
-    <node x="217.0" y="449.0">main.java.jb.DashboardBean</node>
-    <node x="0.0" y="764.0">main.java.clients.VocabularyClient</node>
-    <node x="438.0" y="764.0">main.java.entity.IncStatus</node>
-    <node x="719.0" y="449.0">main.java.clients.AuthClient</node>
-    <node x="0.0" y="449.0">main.java.entity.Category</node>
+    <node x="0.0" y="462.0">main.java.entity.Users</node>
+    <node x="515.0" y="0.0">main.java.clients.EntityClient</node>
+    <node x="251.0" y="0.0">main.java.jb.Vocabulary</node>
+    <node x="254.0" y="462.0">main.java.entity.Priority</node>
+    <node x="0.0" y="1105.0">main.java.servlets.DashboardServlet</node>
+    <node x="475.0" y="956.0">main.java.servlets.AuthorizationServlet</node>
+    <node x="769.0" y="757.0">main.java.clients.DashboardClient</node>
+    <node x="508.0" y="462.0">main.java.jb.DashboardBean</node>
+    <node x="0.0" y="956.0">main.java.servlets.ManagerServlet</node>
+    <node x="0.0" y="757.0">main.java.clients.VocabularyClient</node>
+    <node x="515.0" y="757.0">main.java.entity.IncStatus</node>
+    <node x="856.0" y="462.0">main.java.clients.AuthClient</node>
+    <node x="813.0" y="0.0">main.java.entity.Category</node>
     <node x="0.0" y="0.0">main.java.entity.Incident</node>
-    <node x="221.0" y="764.0">main.java.entity.Department</node>
+    <node x="261.0" y="757.0">main.java.entity.Department</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="397.0" y="420.5" />
-  <SelectedNodes>
-    <node>main.java.servlets</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="364.4185128596896" y="802.8571428571429" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

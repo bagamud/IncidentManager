@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 
 @WebServlet(name = "ManagerServlet", urlPatterns = "/manager")
 public class ManagerServlet extends HttpServlet {
-    /**
+    /*
      * TODO:
      */
 
@@ -26,8 +26,8 @@ public class ManagerServlet extends HttpServlet {
 
         Incident incident = new Incident();
 
-        if (request.getParameter("date") != null) incident.setDate(Timestamp.valueOf(request.getParameter("date")));
-        else incident.setDate(Timestamp.valueOf("1594759370000"));
+//        if (request.getParameter("date") != null) incident.setDate(Timestamp.valueOf(request.getParameter("date")));
+//        else incident.setDate(Timestamp.valueOf("1594759370000"));
         if (request.getParameter("category") != null)
             incident.setCategory(Integer.parseInt(request.getParameter("category")));
         if (request.getParameter("priority") != null)
