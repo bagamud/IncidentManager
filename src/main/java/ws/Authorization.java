@@ -1,45 +1,59 @@
 package ws;
 
+import ejb.SessionFactoryUtil;
 import entity.Users;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
+
+/**
+ * Веб-служба авторизации по паре логин/пароль, проверяющая совпадение в SQL аблице USERS
+ *
+ * @author Ponkratov K.
+ */
 
 @Path("authorization")
 public class Authorization {
+    /*
+     TODO: Хэшсоль на пароль
+     */
+    @Context
+    UriInfo context;
 
     @GET
-    @Path("")
-    @Produces("text/html")
-    public String logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
+    @Produces("application/json")
+    public boolean logIn(@QueryParam("login") String login, @QueryParam("password") String password) {
         boolean isLogin = false;
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session = SessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
 
-        Query query = session.createQuery("FROM Users");
-        List<Users> users = query.getResultList();
+        CriteriaQuery<Users> usersQuery = builder.createQuery(Users.class);
+        Root<Users> usersRoot = usersQuery.from(Users.class);
+        usersQuery.select(usersRoot);
+        List<Users> users = session.createQuery(usersQuery).getResultList();
         for (Users user : users) {
             if (user.getLogin().equals(login)) {
                 if (user.getPassword().equals(password)) {
                     isLogin = true;
                     break;
                 }
-            } else isLogin = false;
+            }
         }
 
         session.getTransaction().commit();
         session.close();
-        sessionFactory.close();
 
-        return String.valueOf(isLogin);
+        return isLogin;
     }
 }

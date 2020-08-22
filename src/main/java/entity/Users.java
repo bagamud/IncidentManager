@@ -1,22 +1,35 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Objects;
 
-@Entity
+@JsonAutoDetect
+@Entity(name = "USERS")
 public class Users {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String login;
+    @JsonIgnore
     private String password;
+    @JsonProperty
     private String name;
+    @JsonProperty
     private int userGroup;
+    @JsonProperty
     private String contacts;
+    @JsonProperty
     private String email;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -26,7 +39,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "LOGIN")
+    @Column(name = "LOGIN", nullable = false)
     public String getLogin() {
         return login;
     }
@@ -36,7 +49,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -46,7 +59,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     public String getName() {
         return name;
     }
@@ -56,7 +69,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "USER_GROUP")
+    @Column(name = "USER_GROUP", nullable = false)
     public int getUserGroup() {
         return userGroup;
     }
@@ -89,29 +102,18 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Users users = (Users) o;
-
-        if (id != users.id) return false;
-        if (login != null ? !login.equals(users.login) : users.login != null) return false;
-        if (password != null ? !password.equals(users.password) : users.password != null) return false;
-        if (name != null ? !name.equals(users.name) : users.name != null) return false;
-        if (userGroup != users.userGroup) return false;
-        if (contacts != null ? !contacts.equals(users.contacts) : users.contacts != null) return false;
-        if (email != null ? !email.equals(users.email) : users.email != null) return false;
-
-        return true;
+        return id == users.id &&
+                userGroup == users.userGroup &&
+                Objects.equals(login, users.login) &&
+                Objects.equals(password, users.password) &&
+                Objects.equals(name, users.name) &&
+                Objects.equals(contacts, users.contacts) &&
+                Objects.equals(email, users.email);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + userGroup;
-        result = 31 * result + (contacts != null ? contacts.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        return result;
+        return Objects.hash(id, login, password, name, userGroup, contacts, email);
     }
 }

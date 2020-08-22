@@ -1,31 +1,54 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.util.Objects;
 
-@Entity
+@JsonAutoDetect
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Entity(name = "INCIDENT")
 public class Incident {
+    @JsonProperty
     private int id;
+    @JsonbDateFormat(value = JsonbDateFormat.TIME_IN_MILLIS)
     private Timestamp date;
+    @JsonProperty
     private int category;
+    @JsonProperty
     private int priority;
+    @JsonProperty
     private int requesterDepartment;
+    @JsonProperty
     private String requester;
+    @JsonProperty
     private String requesterContacts;
+    @JsonProperty
     private String ipAddress;
+    @JsonProperty
     private int duration;
+    @JsonProperty
     private String description;
+    @JsonProperty
     private int engineer;
+    @JsonProperty
     private int operator;
+    @JsonProperty
     private int status;
+    @JsonbDateFormat(value = JsonbDateFormat.TIME_IN_MILLIS)
     private Timestamp closeDate;
+    @JsonProperty
     private String journal;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -35,7 +58,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DATE")
+    @Column(name = "DATE", nullable = false)
     public Timestamp getDate() {
         return date;
     }
@@ -45,7 +68,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "CATEGORY")
+    @Column(name = "CATEGORY", nullable = false)
     public int getCategory() {
         return category;
     }
@@ -55,7 +78,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "PRIORITY")
+    @Column(name = "PRIORITY", nullable = false)
     public int getPriority() {
         return priority;
     }
@@ -65,7 +88,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER_DEPARTMENT")
+    @Column(name = "REQUESTER_DEPARTMENT", nullable = false)
     public int getRequesterDepartment() {
         return requesterDepartment;
     }
@@ -75,7 +98,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER")
+    @Column(name = "REQUESTER", nullable = false)
     public String getRequester() {
         return requester;
     }
@@ -85,7 +108,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "REQUESTER_CONTACTS")
+    @Column(name = "REQUESTER_CONTACTS", nullable = false, length = 45)
     public String getRequesterContacts() {
         return requesterContacts;
     }
@@ -95,7 +118,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "IP_ADDRESS")
+    @Column(name = "IP_ADDRESS", length = 16)
     public String getIpAddress() {
         return ipAddress;
     }
@@ -135,7 +158,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "OPERATOR")
+    @Column(name = "OPERATOR", nullable = false)
     public int getOperator() {
         return operator;
     }
@@ -145,7 +168,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "STATUS")
+    @Column(name = "STATUS", nullable = false)
     public int getStatus() {
         return status;
     }
@@ -165,7 +188,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "JOURNAL")
+    @Column(name = "JOURNAL", length = -1)
     public String getJournal() {
         return journal;
     }
@@ -178,47 +201,26 @@ public class Incident {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Incident incident = (Incident) o;
-
-        if (id != incident.id) return false;
-        if (category != incident.category) return false;
-        if (priority != incident.priority) return false;
-        if (requesterDepartment != incident.requesterDepartment) return false;
-        if (operator != incident.operator) return false;
-        if (status != incident.status) return false;
-        if (date != null ? !date.equals(incident.date) : incident.date != null) return false;
-        if (requester != null ? !requester.equals(incident.requester) : incident.requester != null) return false;
-        if (requesterContacts != null ? !requesterContacts.equals(incident.requesterContacts) : incident.requesterContacts != null)
-            return false;
-        if (ipAddress != null ? !ipAddress.equals(incident.ipAddress) : incident.ipAddress != null) return false;
-        if (duration != incident.duration) return false;
-        if (description != null ? !description.equals(incident.description) : incident.description != null)
-            return false;
-        if (engineer != incident.engineer) return false;
-        if (closeDate != null ? !closeDate.equals(incident.closeDate) : incident.closeDate != null) return false;
-        if (journal != null ? !journal.equals(incident.journal) : incident.journal != null) return false;
-
-        return true;
+        return id == incident.id &&
+                category == incident.category &&
+                priority == incident.priority &&
+                requesterDepartment == incident.requesterDepartment &&
+                duration == incident.duration &&
+                engineer == incident.engineer &&
+                operator == incident.operator &&
+                status == incident.status &&
+                Objects.equals(date, incident.date) &&
+                Objects.equals(requester, incident.requester) &&
+                Objects.equals(requesterContacts, incident.requesterContacts) &&
+                Objects.equals(ipAddress, incident.ipAddress) &&
+                Objects.equals(description, incident.description) &&
+                Objects.equals(closeDate, incident.closeDate) &&
+                Objects.equals(journal, incident.journal);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + category;
-        result = 31 * result + priority;
-        result = 31 * result + requesterDepartment;
-        result = 31 * result + (requester != null ? requester.hashCode() : 0);
-        result = 31 * result + (requesterContacts != null ? requesterContacts.hashCode() : 0);
-        result = 31 * result + (ipAddress != null ? ipAddress.hashCode() : 0);
-        result = 31 * result + duration;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + engineer;
-        result = 31 * result + operator;
-        result = 31 * result + status;
-        result = 31 * result + (closeDate != null ? closeDate.hashCode() : 0);
-        result = 31 * result + (journal != null ? journal.hashCode() : 0);
-        return result;
+        return Objects.hash(id, date, category, priority, requesterDepartment, requester, requesterContacts, ipAddress, duration, description, engineer, operator, status, closeDate, journal);
     }
 }

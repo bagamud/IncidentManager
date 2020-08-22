@@ -1,17 +1,25 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Objects;
 
-@Entity
+
+@JsonAutoDetect
+@Entity(name = "DEPARTMENT")
 public class Department {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String title;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -21,7 +29,7 @@ public class Department {
     }
 
     @Basic
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", nullable = false)
     public String getTitle() {
         return title;
     }
@@ -34,19 +42,13 @@ public class Department {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Department that = (Department) o;
-
-        if (id != that.id) return false;
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(title, that.title);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        return result;
+        return Objects.hash(id, title);
     }
 }

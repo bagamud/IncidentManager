@@ -1,15 +1,16 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "users_group", schema = "inm", catalog = "")
+@Table(name = "USERS_GROUP", schema = "INM")
 public class UsersGroup {
     private int id;
     private String name;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     public int getId() {
         return id;
     }
@@ -32,19 +33,13 @@ public class UsersGroup {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         UsersGroup that = (UsersGroup) o;
-
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name);
     }
 }
