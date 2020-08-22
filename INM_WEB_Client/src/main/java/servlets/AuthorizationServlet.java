@@ -1,6 +1,9 @@
 package main.java.servlets;
 
-import main.java.clients.AuthClient;
+//import main.java.clients.AuthClient;
+
+import main.java.jb.SelectedUser;
+import main.java.jb.Session;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,17 +25,21 @@ public class AuthorizationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+//        String login = request.getParameter("login");
+//        String password = request.getParameter("password");
+        Session session = new Session();
 
-        AuthClient authClient = new AuthClient();
-        if (authClient.isLogin(login, password)) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
-            requestDispatcher.forward(request, response);
-        } else {
-            request.setAttribute("msg", "Incorrect login or password");
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-            requestDispatcher.forward(request, response);
-        }
+        session.setUser(new SelectedUser(request.getParameter("user")));
+//        AuthClient authClient = new AuthClient();
+//        if (authClient.isLogin(login, password)) {
+//            RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
+//            requestDispatcher.forward(request, response);
+//        } else {
+//            request.setAttribute("msg", "Incorrect login or password");
+//            RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+//            requestDispatcher.forward(request, response);
+//        }
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("manager.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

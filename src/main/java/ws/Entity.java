@@ -44,7 +44,7 @@ public class Entity {
     @POST
     @Consumes("application/json")
     public int addIncident(String incidentJson) throws IOException {
-        int id = 0;
+        int id;
         Session session = SessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
