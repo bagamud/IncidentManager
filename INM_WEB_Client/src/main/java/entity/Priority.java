@@ -1,23 +1,12 @@
 package main.java.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.Entity;
 import java.util.Objects;
 
-@JsonAutoDetect
-@Entity(name = "PRIORITY")
 public class Priority {
-    @JsonProperty
     private int id;
-    @JsonProperty
     private int influence;
-    @JsonProperty
     private int urgency;
-    @JsonProperty
     private String description;
-    @JsonProperty
     private int term;
 
     public int getId() {

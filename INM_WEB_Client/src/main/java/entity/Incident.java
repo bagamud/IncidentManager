@@ -1,44 +1,22 @@
 package main.java.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.json.bind.annotation.JsonbDateFormat;
 import java.sql.Timestamp;
 
-@JsonAutoDetect
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Incident {
-    @JsonProperty
     private int id;
-    @JsonbDateFormat(value = JsonbDateFormat.TIME_IN_MILLIS)
     private Timestamp date;
-    @JsonProperty
     private int category;
-    @JsonProperty
     private int priority;
-    @JsonProperty
     private int requesterDepartment;
-    @JsonProperty
     private String requester;
-    @JsonProperty
     private String requesterContacts;
-    @JsonProperty
     private String ipAddress;
-    @JsonProperty
     private int duration;
-    @JsonProperty
     private String description;
-    @JsonProperty
     private int engineer;
-    @JsonProperty
     private int operator;
-    @JsonProperty
     private int status;
-    @JsonbDateFormat(value = JsonbDateFormat.TIME_IN_MILLIS)
     private Timestamp closeDate;
-    @JsonProperty
     private String journal;
 
     public Incident() {

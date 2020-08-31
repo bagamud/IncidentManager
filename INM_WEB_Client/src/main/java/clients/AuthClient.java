@@ -1,9 +1,9 @@
 //package main.java.clients;
 //
-//import javax.ws.rs.ClientErrorException;
-//import javax.ws.rs.client.Client;
-//import javax.ws.rs.client.WebTarget;
-//import javax.ws.rs.core.MediaType;
+//import javax.ru.kpp.incidentmanager.ws.rs.ClientErrorException;
+//import javax.ru.kpp.incidentmanager.ws.rs.client.Client;
+//import javax.ru.kpp.incidentmanager.ws.rs.client.WebTarget;
+//import javax.ru.kpp.incidentmanager.ws.rs.core.MediaType;
 //
 //public class AuthClient {
 //    /*
@@ -16,7 +16,7 @@
 //    private final Client client;
 //
 //    public AuthClient() {
-//        client = javax.ws.rs.client.ClientBuilder.newClient();
+//        client = javax.ru.kpp.incidentmanager.ws.rs.client.ClientBuilder.newClient();
 //        webTarget = client.target(BASE_URI).path("authorization");
 //    }
 //

@@ -1,6 +1,5 @@
 package main.java.jb;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.clients.VocabularyClient;
 import main.java.entity.*;
@@ -10,7 +9,7 @@ import java.io.IOException;
 public class Vocabulary {
     private Category[] categories;
     private Department[] departments;
-    private IncStatus[] status;
+    private Status[] status;
     private Priority[] priority;
     private Users[] users;
 
@@ -20,7 +19,7 @@ public class Vocabulary {
         categories = objectMapper.readValue(vbc.getSource("category"), Category[].class);
         departments = objectMapper.readValue(vbc.getSource("department"), Department[].class);
         users = objectMapper.readValue(vbc.getSource("users"), Users[].class);
-        status = objectMapper.readValue(vbc.getSource("status"), IncStatus[].class);
+        status = objectMapper.readValue(vbc.getSource("status"), Status[].class);
         priority = objectMapper.readValue(vbc.getSource("priority"), Priority[].class);
 
     }
@@ -51,7 +50,7 @@ public class Vocabulary {
 
     public String getStatusSelect() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (IncStatus status : status) {
+        for (Status status : status) {
             stringBuilder.append("<option ").append("value=\"").append(status.getId()).append("\">").append(status.getTitle()).append("</option>");
         }
         return stringBuilder.toString();
@@ -81,11 +80,11 @@ public class Vocabulary {
         this.users = users;
     }
 
-    public IncStatus[] getStatus() {
+    public Status[] getStatus() {
         return status;
     }
 
-    public void setStatus(IncStatus[] status) {
+    public void setStatus(Status[] status) {
         this.status = status;
     }
 

@@ -1,23 +1,13 @@
 package main.java.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
-@JsonAutoDetect
 public class Users {
-    @JsonProperty
     private int id;
-    @JsonProperty
     private String login;
-    @JsonProperty
     private String name;
-    @JsonProperty
     private int userGroup;
-    @JsonProperty
     private String contacts;
-    @JsonProperty
     private String email;
 
     public Users() {

@@ -2,6 +2,7 @@ package main.java.jb;
 
 public class Session {
     SelectedUser user;
+
     public Session() {
     }
 

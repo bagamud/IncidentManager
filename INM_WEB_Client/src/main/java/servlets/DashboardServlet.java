@@ -1,6 +1,5 @@
 package main.java.servlets;
 
-import main.java.clients.DashboardClient;
 import main.java.clients.EntityClient;
 
 import javax.servlet.annotation.WebServlet;
