@@ -1,5 +1,7 @@
 package ru.kpp.incidentmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import java.util.Objects;
 public class Users {
     private int id;
     private String login;
+    @JsonIgnore
     private String password;
     private String name;
     private int usergroup;

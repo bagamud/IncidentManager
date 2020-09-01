@@ -3,150 +3,21 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="559.4625000000001" y="866.0">ws.ApplicationConfig</node>
-    <node x="1530.375" y="698.5">ws.Authorization</node>
-    <node x="974.9625000000001" y="698.5">ws.Vocabulary</node>
-    <node x="206.0" y="662.0">ws.Entity</node>
-    <node x="1524.8375" y="96.0">entity.Users</node>
-    <node x="1066.8375" y="108.0">entity.Category</node>
-    <node x="379.8375000000001" y="120.0">entity.Priority</node>
-    <node x="1295.8375" y="156.0">entity.Department</node>
-    <node x="150.8375000000001" y="0.0">entity.Incident</node>
-    <node x="0.0" y="698.5">ws.Dashboard</node>
-    <node x="837.8375000000001" y="156.0">entity.UsersGroup</node>
-    <node x="608.8375000000001" y="156.0">entity.IncStatus</node>
-    <node x="796.8375000000001" y="501.0">ejb.SessionFactoryUtil</node>
+    <node x="0.0" y="452.0">ru.kpp.incidentmanager.entity.Priority</node>
+    <node x="217.0" y="0.0">ru.kpp.incidentmanager.entity.Users</node>
+    <node x="301.0" y="850.0">ru.kpp.incidentmanager.ws.Vocabulary</node>
+    <node x="476.0" y="452.0">ru.kpp.incidentmanager.entity.Status</node>
+    <node x="0.0" y="850.0">ru.kpp.incidentmanager.IncidentManagerApplication</node>
+    <node x="217.0" y="452.0">ru.kpp.incidentmanager.ws.Entity</node>
+    <node x="434.0" y="684.0">ru.kpp.incidentmanager.ServletInitializer</node>
+    <node x="434.0" y="0.0">ru.kpp.incidentmanager.entity.Category</node>
+    <node x="0.0" y="0.0">ru.kpp.incidentmanager.entity.Incident</node>
+    <node x="0.0" y="684.0">ru.kpp.incidentmanager.entity.Department</node>
+    <node x="217.0" y="684.0">ru.kpp.incidentmanager.entity.Usersgroup</node>
   </nodes>
   <notes />
-  <edges>
-    <edge source="ws.Authorization" target="entity.Users">
-      <point x="61.0" y="-40.5" />
-      <point x="1713.375" y="481.0" />
-      <point x="1699.0041666666668" y="481.0" />
-      <point x="69.66666666666674" y="124.5" />
-    </edge>
-    <edge source="ws.Vocabulary" target="entity.Department">
-      <point x="54.0" y="-40.5" />
-      <point x="1136.9625" y="632.0" />
-      <point x="1452.5875" y="632.0" />
-      <point x="52.25" y="64.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.UsersGroup">
-      <point x="0.0" y="-40.5" />
-      <point x="0.0" y="64.5" />
-    </edge>
-    <edge source="ws.Vocabulary" target="entity.Category">
-      <point x="18.0" y="-40.5" />
-      <point x="1100.9625" y="622.0" />
-      <point x="1223.5875" y="622.0" />
-      <point x="52.25" y="112.5" />
-    </edge>
-    <edge source="ws.Vocabulary" target="entity.Priority">
-      <point x="-90.0" y="-40.5" />
-      <point x="992.9625000000001" y="632.0" />
-      <point x="432.0875000000001" y="632.0" />
-      <point x="-52.25" y="100.5" />
-    </edge>
-    <edge source="ws.Vocabulary" target="entity.Users">
-      <point x="90.0" y="-40.5" />
-      <point x="1172.9625" y="642.0" />
-      <point x="1658.6708333333333" y="642.0" />
-      <point x="1658.6708333333333" y="481.0" />
-      <point x="1629.3375" y="481.0" />
-      <point x="0.0" y="124.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.Incident">
-      <point x="-124.71428571428578" y="-40.5" />
-      <point x="817.6232142857143" y="481.0" />
-      <point x="307.5875000000001" y="481.0" />
-      <point x="52.25" y="220.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.Category">
-      <point x="41.571428571428555" y="-40.5" />
-      <point x="983.9089285714285" y="461.0" />
-      <point x="1119.0875" y="461.0" />
-      <point x="-52.25" y="112.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.IncStatus">
-      <point x="-41.57142857142867" y="-40.5" />
-      <point x="900.7660714285714" y="461.0" />
-      <point x="765.5875000000001" y="461.0" />
-      <point x="52.25" y="64.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.Department">
-      <point x="83.14285714285711" y="-40.5" />
-      <point x="1025.4803571428572" y="471.0" />
-      <point x="1348.0875" y="471.0" />
-      <point x="-52.25" y="64.5" />
-    </edge>
-    <edge source="ws.ApplicationConfig" target="ws.Dashboard">
-      <point x="-133.5" y="-40.5" />
-      <point x="603.9625000000001" y="846.0" />
-      <point x="93.0" y="846.0" />
-      <point x="0.0" y="40.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.Users">
-      <point x="124.71428571428567" y="-40.5" />
-      <point x="1067.0517857142856" y="481.0" />
-      <point x="1559.6708333333333" y="481.0" />
-      <point x="-69.66666666666674" y="124.5" />
-    </edge>
-    <edge source="ws.ApplicationConfig" target="ws.Authorization">
-      <point x="133.5" y="-40.5" />
-      <point x="870.9625000000001" y="846.0" />
-      <point x="1652.375" y="846.0" />
-      <point x="0.0" y="40.5" />
-    </edge>
-    <edge source="ws.Entity" target="ejb.SessionFactoryUtil">
-      <point x="66.25" y="-77.0" />
-      <point x="404.75" y="642.0" />
-      <point x="845.3375000000001" y="642.0" />
-      <point x="-97.0" y="40.5" />
-    </edge>
-    <edge source="ws.Vocabulary" target="entity.IncStatus">
-      <point x="-54.0" y="-40.5" />
-      <point x="1028.9625" y="622.0" />
-      <point x="661.0875000000001" y="622.0" />
-      <point x="-52.25" y="64.5" />
-    </edge>
-    <edge source="ws.Vocabulary" target="ejb.SessionFactoryUtil">
-      <point x="-18.0" y="-40.5" />
-      <point x="1064.9625" y="612.0" />
-      <point x="942.3375000000001" y="612.0" />
-      <point x="0.0" y="40.5" />
-    </edge>
-    <edge source="ws.Authorization" target="ejb.SessionFactoryUtil">
-      <point x="-61.0" y="-40.5" />
-      <point x="1591.375" y="602.0" />
-      <point x="1039.3375" y="602.0" />
-      <point x="97.0" y="40.5" />
-    </edge>
-    <edge source="ejb.SessionFactoryUtil" target="entity.Priority">
-      <point x="-83.14285714285722" y="-40.5" />
-      <point x="859.1946428571428" y="471.0" />
-      <point x="536.5875000000001" y="471.0" />
-      <point x="52.25" y="100.5" />
-    </edge>
-    <edge source="ws.Entity" target="entity.Incident">
-      <point x="-66.25" y="-77.0" />
-      <point x="272.25" y="642.0" />
-      <point x="203.0875000000001" y="642.0" />
-      <point x="-52.25" y="220.5" />
-    </edge>
-    <edge source="ws.ApplicationConfig" target="ws.Entity">
-      <point x="-44.5" y="-40.5" />
-      <point x="692.9625000000001" y="836.0" />
-      <point x="338.5" y="836.0" />
-      <point x="0.0" y="77.0" />
-    </edge>
-    <edge source="ws.ApplicationConfig" target="ws.Vocabulary">
-      <point x="44.5" y="-40.5" />
-      <point x="781.9625000000001" y="836.0" />
-      <point x="1082.9625" y="836.0" />
-      <point x="0.0" y="40.5" />
-    </edge>
-  </edges>
-  <settings layout="Hierarchic Group" zoom="0.6549019607843138" x="749.6776102124072" y="335.78884882037477" />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.6549019607843138" x="750.0" y="336.0" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
