@@ -6,7 +6,7 @@ import ru.kpp.incidentmanager.entity.Incident;
 import java.util.List;
 
 public interface IncidentRepository extends CrudRepository<Incident, Integer> {
-//    List<Incident> findById(int id);
 
     List<Incident> findByStatusNotLike(int status);
+//    int findIncidentById
 }

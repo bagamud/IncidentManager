@@ -85,4 +85,10 @@ public class Entity {
         }).orElseThrow();
     }
 
+    @DeleteMapping(path = "/{id}")
+    public void deleteIncident(@PathVariable int id) {
+        incidentRepository.deleteById(id);
+    }
+
+
 }
