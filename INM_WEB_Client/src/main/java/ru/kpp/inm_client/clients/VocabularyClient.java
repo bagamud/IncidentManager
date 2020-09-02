@@ -1,10 +1,10 @@
 package ru.kpp.inm_client.clients;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import ru.kpp.inm_client.entity.*;
-import ru.kpp.inm_client.entity.Department;
-import ru.kpp.inm_client.entity.Priority;
 
+@Component
 public class VocabularyClient {
     /*
      TODO:
@@ -13,11 +13,14 @@ public class VocabularyClient {
 
     RestTemplate restTemplate = new RestTemplate();
 
-    Category[] categories = restTemplate.getForObject(BASE_URI + "categories", Category[].class);
-    Department[] departments = restTemplate.getForObject(BASE_URI + "departments", Department[].class);
+    Category[] categories = restTemplate.getForObject(BASE_URI + "category", Category[].class);
+    Department[] departments = restTemplate.getForObject(BASE_URI + "department", Department[].class);
     Priority[] priority = restTemplate.getForObject(BASE_URI + "priority", Priority[].class);
     Status[] status = restTemplate.getForObject(BASE_URI + "status", Status[].class);
     Users[] users = restTemplate.getForObject(BASE_URI + "users", Users[].class);
+
+    public VocabularyClient() {
+    }
 
     public String getCategorySelect() {
         StringBuilder stringBuilder = new StringBuilder();
