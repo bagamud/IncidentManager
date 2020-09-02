@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="IncidentManager" />
+        <module name="INM_WEB_Client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
       <module name="IncidentManager" target="11" />
+      <module name="INM_WEB_Client" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="INM_WEB_Client" options="-parameters" />
       <module name="IncidentManager" options="-parameters" />
     </option>
   </component>
