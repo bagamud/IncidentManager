@@ -1,5 +1,6 @@
 package ru.kpp.incidentmanager.controllers;
 
+import org.springframework.web.bind.annotation.*;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.repositories.IncidentRepository;
 
