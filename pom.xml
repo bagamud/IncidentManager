@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>ru.kpp</groupId>
-    <artifactId>IncidentManager</artifactId>
+    <artifactId>incidentmanager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>IncidentManager</name>
-    <description>Service Desk application</description>
+    <description>Service Desk server</description>
 
     <properties>
         <java.version>11</java.version>
