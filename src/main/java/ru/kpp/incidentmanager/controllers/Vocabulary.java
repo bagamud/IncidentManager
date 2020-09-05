@@ -19,16 +19,14 @@ public class Vocabulary {
     final DepartmentRepository departmentRepository;
     final PriorityRepository priorityRepository;
     final StatusRepository statusRepository;
-    final UsersRepository usersRepository;
+
 
     public Vocabulary(CategoryRepository categoryRepository, DepartmentRepository departmentRepository,
-                      PriorityRepository priorityRepository, StatusRepository statusRepository,
-                      UsersRepository usersRepository) {
+                      PriorityRepository priorityRepository, StatusRepository statusRepository) {
         this.categoryRepository = categoryRepository;
         this.departmentRepository = departmentRepository;
         this.priorityRepository = priorityRepository;
         this.statusRepository = statusRepository;
-        this.usersRepository = usersRepository;
     }
 
     @GetMapping(path = "/category")
@@ -57,12 +55,5 @@ public class Vocabulary {
     Iterable<Status> getStatus() {
 
         return statusRepository.findAll();
-    }
-
-    @GetMapping(path = "/users")
-    public @ResponseBody
-    Iterable<Users> getUsers() {
-
-        return usersRepository.findAll();
     }
 }

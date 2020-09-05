@@ -1,3 +1,81 @@
+GET http://localhost:8080/users/kponkratov
+
+<> 2020-09-05T054923.200.json
+
+###
+
+GET http://localhost:8080/users?login=kponkratov
+
+<> 2020-09-05T054909.200.json
+
+###
+
+GET http://localhost:8080/users
+
+<> 2020-09-05T054847.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/users
+
+<> 2020-09-05T054831.404.json
+
+###
+
+GET http://localhost:8080/vocabulary/users
+
+<> 2020-09-05T023708.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/status
+
+<> 2020-09-05T023657.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/priority
+
+<> 2020-09-05T023606.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/department
+
+<> 2020-09-05T023544.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+
+<> 2020-09-05T023313.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+
+<> 2020-09-05T023112.500.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+
+<> 2020-09-05T020033.200.json
+
+###
+
+GET http://localhost:8080/manager/all
+
+<> 2020-09-05T020009.200.json
+
+###
+
+POST http://localhost:8080/manager/add
+
+<> 2020-09-05T015944.400.json
+
+###
+
 GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
 
 <> 2020-08-19T104059.500.html
