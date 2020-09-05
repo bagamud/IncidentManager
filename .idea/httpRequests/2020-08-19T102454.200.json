@@ -1,0 +1,9 @@
+{
+  "headers": {
+    "Accept-Encoding": "gzip,deflate", 
+    "Authorization": "Bearer {{auth_token}}", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Apache-HttpClient/4.5.12 (Java/11.0.8)", 
+    "X-Amzn-Trace-Id": "Root=1-5f3d7c86-e4c307f5be325dd3897b271c"
+  }
+}

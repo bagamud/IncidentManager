@@ -1,0 +1,77 @@
+GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
+
+<> 2020-08-19T104059.500.html
+
+###
+
+GET http://localhost:8090/incidentmanager/auth?login=user&password=user
+
+<> 2020-08-19T104053.500.html
+
+###
+
+GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
+
+<> 2020-08-19T103449.500.html
+
+###
+
+GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
+
+<> 2020-08-19T103418.500.html
+
+###
+
+GET http://localhost:8090/incidentmanager/auth?login=user&password=user
+
+<> 2020-08-19T102553.500.html
+
+###
+
+GET https://httpbin.org/digest-auth/realm/user/passwd
+Authorization: Digest user passwd
+
+<> 2020-08-19T102542.200.json
+
+###
+
+GET https://httpbin.org/digest-auth/realm/user/passwd
+Authorization: Digest user passwd
+
+<> 2020-08-19T102535.200.json
+
+###
+
+GET https://httpbin.org/basic-auth/user/passwd
+Authorization: Basic user passwd
+
+<> 2020-08-19T102515.200.json
+
+###
+
+GET https://httpbin.org/basic-auth/user/passwd
+Authorization: Basic user passwd
+
+<> 2020-08-19T102506.200.json
+
+###
+
+GET https://httpbin.org/headers
+Authorization: Bearer {{auth_token}}
+
+<> 2020-08-19T102454.200.json
+
+###
+
+GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
+
+<> 2020-08-19T102351.500.html
+
+###
+
+GET http://localhost:8090/incidentmanager/auth?login=user&password=user
+
+<> 2020-08-19T102022.500.html
+
+###
+
