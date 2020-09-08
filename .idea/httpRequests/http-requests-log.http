@@ -1,5 +1,57 @@
 GET http://localhost:8080/users/kponkratov
 
+<> 2020-09-08T113414.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/status
+
+<> 2020-09-08T113411.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/priority
+
+<> 2020-09-08T113409.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/department
+
+<> 2020-09-08T113406.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+
+<> 2020-09-08T113403.200.json
+
+###
+
+GET http://localhost:8080/manager/service
+
+<> 2020-09-08T113358.200.json
+
+###
+
+GET http://localhost:8080/manager
+
+<> 2020-09-08T113350.400.json
+
+###
+
+GET http://localhost:8090/manager
+
+###
+
+GET http://localhost:8080/manager/service
+
+<> 2020-09-06T035250.200.json
+
+###
+
+GET http://localhost:8080/users/kponkratov
+
 <> 2020-09-05T054923.200.json
 
 ###
