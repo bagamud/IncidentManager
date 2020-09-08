@@ -12,7 +12,7 @@ import ru.kpp.incidentmanager.repositories.IncidentRepository;
  */
 @RestController
 @RequestMapping(path = "/manager")
-public class Entity {
+public class IncidentsController {
 
     /*
     TODO: Logger в каждом методе с записью в поле Journal INM.INCIDENT
@@ -21,7 +21,7 @@ public class Entity {
     final
     IncidentRepository incidentRepository;
 
-    public Entity(IncidentRepository incidentRepository) {
+    public IncidentsController(IncidentRepository incidentRepository) {
         this.incidentRepository = incidentRepository;
     }
 
@@ -65,7 +65,7 @@ public class Entity {
      * @return - возвращает коллекцию экземпляров класса Incident
      */
     @GetMapping(path = "/service")
-    public Iterable<Incident> getIncidentsInWork() {
+    public Iterable<Incident> getIncidentsInService() {
         return incidentRepository.findByStatusNotLike(3);
     }
 

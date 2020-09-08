@@ -9,7 +9,7 @@ import ru.kpp.incidentmanager.repositories.*;
 
 @Controller
 @RequestMapping(path = "/vocabulary")
-public class Vocabulary {
+public class VocabularyController {
 
     /**
      * Веб-метод отвечающий за загрузку справочников для отображения на сайте
@@ -21,8 +21,8 @@ public class Vocabulary {
     final StatusRepository statusRepository;
 
 
-    public Vocabulary(CategoryRepository categoryRepository, DepartmentRepository departmentRepository,
-                      PriorityRepository priorityRepository, StatusRepository statusRepository) {
+    public VocabularyController(CategoryRepository categoryRepository, DepartmentRepository departmentRepository,
+                                PriorityRepository priorityRepository, StatusRepository statusRepository) {
         this.categoryRepository = categoryRepository;
         this.departmentRepository = departmentRepository;
         this.priorityRepository = priorityRepository;
