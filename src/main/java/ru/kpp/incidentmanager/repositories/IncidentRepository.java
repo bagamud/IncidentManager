@@ -12,5 +12,5 @@ public interface IncidentRepository extends CrudRepository<Incident, Integer> {
 
     List<Incident> findByDate(Timestamp date);
 
-    List<Incident> findByEngineer(Integer user);
+//    List<Incident> findByEngineer(Integer user);
 }
