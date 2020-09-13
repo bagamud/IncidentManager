@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Usersgroup {
+public class Roles {
     private int id;
     private String name;
 
@@ -35,7 +35,7 @@ public class Usersgroup {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Usersgroup that = (Usersgroup) o;
+        Roles that = (Roles) o;
         return id == that.id &&
                 Objects.equals(name, that.name);
     }

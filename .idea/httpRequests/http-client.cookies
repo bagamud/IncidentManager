@@ -1,2 +1,3 @@
 # domain	path	name	value	date
 httpbin.org	/	fake	fake_value	-1
+localhost	/	JSESSIONID	8668FC5590B94E15D357D68C14E0AECC	-1

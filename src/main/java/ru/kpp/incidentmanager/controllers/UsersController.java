@@ -20,9 +20,4 @@ public class UsersController {
 
         return usersRepository.findAll();
     }
-
-    @GetMapping(path = "{login}")
-    Users getUserByLogin(@PathVariable String login) {
-        return usersRepository.findUsersByLogin(login);
-    }
 }

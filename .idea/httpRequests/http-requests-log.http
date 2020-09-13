@@ -1,207 +1,42 @@
-GET http://localhost:8080/users/kponkratov
+GET http://localhost:8080/manager/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
 
-<> 2020-09-08T113414.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/status
-
-<> 2020-09-08T113411.200.json
+<> 2020-09-13T045126.200.json
 
 ###
 
-GET http://localhost:8080/vocabulary/priority
-
-<> 2020-09-08T113409.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/department
-
-<> 2020-09-08T113406.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/category
-
-<> 2020-09-08T113403.200.json
-
-###
-
-GET http://localhost:8080/manager/service
-
-<> 2020-09-08T113358.200.json
-
-###
-
-GET http://localhost:8080/manager
-
-<> 2020-09-08T113350.400.json
-
-###
-
-GET http://localhost:8090/manager
-
-###
-
-GET http://localhost:8080/manager/service
-
-<> 2020-09-06T035250.200.json
-
-###
-
-GET http://localhost:8080/users/kponkratov
-
-<> 2020-09-05T054923.200.json
-
-###
-
-GET http://localhost:8080/users?login=kponkratov
-
-<> 2020-09-05T054909.200.json
-
-###
-
-GET http://localhost:8080/users
-
-<> 2020-09-05T054847.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/users
-
-<> 2020-09-05T054831.404.json
-
-###
-
-GET http://localhost:8080/vocabulary/users
-
-<> 2020-09-05T023708.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/status
-
-<> 2020-09-05T023657.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/priority
-
-<> 2020-09-05T023606.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/department
-
-<> 2020-09-05T023544.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/category
-
-<> 2020-09-05T023313.200.json
-
-###
-
-GET http://localhost:8080/vocabulary/category
-
-<> 2020-09-05T023112.500.json
-
-###
-
-GET http://localhost:8080/vocabulary/category
-
-<> 2020-09-05T020033.200.json
+GET http://localhost:8080/manager/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOX
 
 ###
 
 GET http://localhost:8080/manager/all
 
-<> 2020-09-05T020009.200.json
+<> 2020-09-13T045058.401.json
 
 ###
 
-POST http://localhost:8080/manager/add
-
-<> 2020-09-05T015944.400.json
-
-###
-
-GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
-
-<> 2020-08-19T104059.500.html
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=199
 
 ###
 
-GET http://localhost:8090/incidentmanager/auth?login=user&password=user
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
 
-<> 2020-08-19T104053.500.html
-
-###
-
-GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
-
-<> 2020-08-19T103449.500.html
+<> 2020-09-13T044953.200.json
 
 ###
 
-GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
-
-<> 2020-08-19T103418.500.html
-
-###
-
-GET http://localhost:8090/incidentmanager/auth?login=user&password=user
-
-<> 2020-08-19T102553.500.html
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=199
 
 ###
 
-GET https://httpbin.org/digest-auth/realm/user/passwd
-Authorization: Digest user passwd
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
 
-<> 2020-08-19T102542.200.json
-
-###
-
-GET https://httpbin.org/digest-auth/realm/user/passwd
-Authorization: Digest user passwd
-
-<> 2020-08-19T102535.200.json
-
-###
-
-GET https://httpbin.org/basic-auth/user/passwd
-Authorization: Basic user passwd
-
-<> 2020-08-19T102515.200.json
-
-###
-
-GET https://httpbin.org/basic-auth/user/passwd
-Authorization: Basic user passwd
-
-<> 2020-08-19T102506.200.json
-
-###
-
-GET https://httpbin.org/headers
-Authorization: Bearer {{auth_token}}
-
-<> 2020-08-19T102454.200.json
-
-###
-
-GET http://localhost:8090/IncidentManagerWeb/webresources/vocabulary
-
-<> 2020-08-19T102351.500.html
-
-###
-
-GET http://localhost:8090/incidentmanager/auth?login=user&password=user
-
-<> 2020-08-19T102022.500.html
+<> 2020-09-13T044929.200.json
 
 ###
 

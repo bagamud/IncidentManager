@@ -12,7 +12,7 @@ VALUES (1, 1, 1, 24, 'CATEGORY', 0),
        (11, 3, 19, 20, 'SEP', 4),
        (12, 3, 21, 22, 'SUDIS', 4);
 
-INSERT INTO inm.usersgroup (ID, NAME)
+INSERT INTO inm.roles (ID, NAME)
 VALUES (1, 'administrator'),
        (2, 'operator'),
        (3, 'system engineer'),
@@ -66,7 +66,7 @@ VALUES (1, 'В работе'),
        (2, 'Отложен'),
        (3, 'Решен');
 
-INSERT INTO inm.users (ID, LOGIN, PASSWORD, NAME, USERGROUP, CONTACTS, EMAIL)
+INSERT INTO inm.users (ID, username, PASSWORD, NAME, role, CONTACTS, EMAIL)
 VALUES (1, 'kponkratov', '12345', 'Понкратов Кирилл', 1, '308', 'kponkratov@'),
        (2, 'ashevelev12', '12345', 'Шевелев Анатолий', 4, '179', 'ashevelev12@'),
        (3, 'iefremov10', '12345', 'Ефремов Иван', 3, '178', 'iefremov10@'),

@@ -17,7 +17,7 @@ CREATE TABLE inm.department
     title VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE inm.usersgroup
+CREATE TABLE inm.roles
 (
     id   INT PRIMARY KEY,
     name VARCHAR(255)
@@ -25,15 +25,15 @@ CREATE TABLE inm.usersgroup
 
 CREATE TABLE inm.users
 (
-    id        INT PRIMARY KEY,
-    login     VARCHAR(255) NOT NULL,
-    password  VARCHAR(255) NOT NULL,
-    name      VARCHAR(255) NOT NULL,
-    usergroup INT          NOT NULL,
-    contacts  VARCHAR(255),
-    email     VARCHAR(255),
-    CONSTRAINT fk_usergroup FOREIGN KEY (USERGROUP)
-        REFERENCES usersgroup (id)
+    id       INT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name     VARCHAR(255) NOT NULL,
+    roles    INT          NOT NULL,
+    contacts VARCHAR(255),
+    email    VARCHAR(255),
+    CONSTRAINT fk_roles FOREIGN KEY (ROLES)
+        REFERENCES roles (id)
 );
 
 CREATE TABLE inm.status

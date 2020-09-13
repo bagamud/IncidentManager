@@ -11,11 +11,11 @@ import java.util.Objects;
 @Entity
 public class Users {
     private int id;
-    private String login;
+    private String username;
     @JsonIgnore
     private String password;
     private String name;
-    private int usergroup;
+    private int role;
     private String contacts;
     private String email;
 
@@ -30,13 +30,13 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "LOGIN")
-    public String getLogin() {
-        return login;
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Basic
@@ -60,13 +60,13 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "USERGROUP")
-    public int getUsergroup() {
-        return usergroup;
+    @Column(name = "role")
+    public int getRole() {
+        return role;
     }
 
-    public void setUsergroup(int usergroup) {
-        this.usergroup = usergroup;
+    public void setRole(int role) {
+        this.role = role;
     }
 
     @Basic
@@ -95,8 +95,8 @@ public class Users {
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
         return id == users.id &&
-                usergroup == users.usergroup &&
-                Objects.equals(login, users.login) &&
+                role == users.role &&
+                Objects.equals(username, users.username) &&
                 Objects.equals(password, users.password) &&
                 Objects.equals(name, users.name) &&
                 Objects.equals(contacts, users.contacts) &&
@@ -105,6 +105,6 @@ public class Users {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password, name, usergroup, contacts, email);
+        return Objects.hash(id, username, password, name, role, contacts, email);
     }
 }
