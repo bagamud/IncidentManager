@@ -1,0 +1,123 @@
+GET http://localhost:8080/incident/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-14T041456.200.json
+
+###
+
+GET http://localhost:8080/incident/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-14T041452.200.json
+
+###
+
+GET http://localhost:8080/incident/all
+
+<> 2020-09-14T041438.200.json
+
+###
+
+GET http://localhost:8080/incident/1
+
+<> 2020-09-14T041426.500.json
+
+###
+
+POST http://localhost:8080/incident
+
+<> 2020-09-14T041411.400.json
+
+###
+
+GET http://localhost:8080/incident/all
+
+<> 2020-09-14T041402.200.json
+
+###
+
+GET http://localhost:8080/incident/all
+
+###
+
+GET http://localhost:8080/incident/all
+
+<> 2020-09-14T041054.200.json
+
+###
+
+GET http://localhost:8080/users
+
+<> 2020-09-14T041042.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+
+<> 2020-09-14T041010.200.json
+
+###
+
+GET http://localhost:8080/incident/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-14T040943.200.json
+
+###
+
+GET http://localhost:8080/incidentmanager-0.0.1-SNAPSHOT/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T033647.200.json
+
+###
+
+GET http://localhost:8080/incidentmanager-0.0.1-SNAPSHOT
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T033630.404.json
+
+###
+
+GET http://localhost:8080/manager/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T045126.200.json
+
+###
+
+GET http://localhost:8080/manager/all
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOX
+
+###
+
+GET http://localhost:8080/manager/all
+
+<> 2020-09-13T045058.401.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=199
+
+###
+
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T044953.200.json
+
+###
+
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=199
+
+###
+
+GET http://localhost:8080/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T044929.200.json
+
+###
+
