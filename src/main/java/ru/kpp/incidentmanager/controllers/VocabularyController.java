@@ -73,7 +73,7 @@ public class VocabularyController {
      *
      * @return - возвращает коллекцию экземпляров класса Incident
      */
-    @GetMapping(path = "/incidentsinservice")
+    @GetMapping(path = "/inservice")
     public Iterable<Incident> getIncidentsInService() {
         return incidentRepository.findByStatusNotLike(3);
     }
