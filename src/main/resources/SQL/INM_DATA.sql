@@ -13,10 +13,10 @@ VALUES (1, 1, 1, 24, 'CATEGORY', 0),
        (12, 3, 21, 22, 'SUDIS', 4);
 
 INSERT INTO inm.roles (ID, NAME)
-VALUES (1, 'administrator'),
-       (2, 'operator'),
-       (3, 'system engineer'),
-       (4, 'software engineer');
+VALUES (1, 'SYSTEM'),
+       (2, 'ADMIN'),
+       (3, 'USER'),
+       (4, 'OPERATOR');
 
 INSERT INTO inm.department (ID, TITLE)
 VALUES (1, '1 отдел УГИБДД'),
@@ -67,10 +67,19 @@ VALUES (1, 'В работе'),
        (3, 'Решен');
 
 INSERT INTO inm.users (ID, username, PASSWORD, NAME, role, CONTACTS, EMAIL)
-VALUES (1, 'kponkratov', '12345', 'Понкратов Кирилл', 1, '308', 'kponkratov@'),
-       (2, 'ashevelev12', '12345', 'Шевелев Анатолий', 4, '179', 'ashevelev12@'),
-       (3, 'iefremov10', '12345', 'Ефремов Иван', 3, '178', 'iefremov10@'),
-       (4, 'ttambovceva', '12345', 'Тамбовцева Татьяна', 2, '322', 'ttambovceva@');
+VALUES (1, 'vocabulary', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'vocabulary', 1, null,
+        null),
+       (2, 'kponkratov', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'Понкратов Кирилл', 2, '308',
+        'kponkratov@'),
+       (3, 'ashevelev12', '$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq', 'Шевелев Анатолий', 3, '179',
+        'ashevelev12@'),
+       (4, 'iefremov10', '$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC', 'Ефремов Иван', 2, '178',
+        'iefremov10@'),
+       (5, 'ttambovceva', '$2a$10$ysJ4M.eROavCKu/KMMo9FuA9x1hFSPlGmvg1E8XPuWd5Y5u6Ps2Xa', 'Тамбовцева Татьяна', 3,
+        '322', 'ttambovceva@'),
+       (6, 'nanokhin2', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'Анохин Николай', 3, '130',
+        'nanokhin2@');
+
 
 INSERT INTO inm.priority (ID, INFLUENCE, URGENCY, DESCRIPTION, TERM)
 VALUES (1, 1, 1, 'Critical', 1),

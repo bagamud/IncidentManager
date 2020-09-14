@@ -17,6 +17,6 @@ public class UsersController {
     @GetMapping
     public @ResponseBody
     Iterable<Users> getUsers() {
-        return usersRepository.findAllByRoleIsNot(0);
+        return usersRepository.findAllByRoleIsNot(1);
     }
 }

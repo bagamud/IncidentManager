@@ -29,10 +29,10 @@ CREATE TABLE inm.users
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     name     VARCHAR(255) NOT NULL,
-    roles    INT          NOT NULL,
+    role     INT          NOT NULL,
     contacts VARCHAR(255),
     email    VARCHAR(255),
-    CONSTRAINT fk_roles FOREIGN KEY (ROLES)
+    CONSTRAINT fk_roles FOREIGN KEY (ROLE)
         REFERENCES roles (id)
 );
 
