@@ -19,14 +19,18 @@ public class VocabularyController {
     final DepartmentRepository departmentRepository;
     final PriorityRepository priorityRepository;
     final StatusRepository statusRepository;
-
+    final UsersRepository usersRepository;
+    final IncidentRepository incidentRepository;
 
     public VocabularyController(CategoryRepository categoryRepository, DepartmentRepository departmentRepository,
-                                PriorityRepository priorityRepository, StatusRepository statusRepository) {
+                                PriorityRepository priorityRepository, StatusRepository statusRepository,
+                                UsersRepository usersRepository, IncidentRepository incidentRepository) {
         this.categoryRepository = categoryRepository;
         this.departmentRepository = departmentRepository;
         this.priorityRepository = priorityRepository;
         this.statusRepository = statusRepository;
+        this.usersRepository = usersRepository;
+        this.incidentRepository = incidentRepository;
     }
 
     @GetMapping(path = "/category")
@@ -55,5 +59,22 @@ public class VocabularyController {
     Iterable<Status> getStatus() {
 
         return statusRepository.findAll();
+    }
+
+    @GetMapping(path = "/users")
+    public @ResponseBody
+    Iterable<Users> getUsers() {
+        return usersRepository.findAll();
+    }
+
+
+    /**
+     * Веб-метод получения всех записей об инцидентах из базы данных со статусом, отличным от статуса "Решен"
+     *
+     * @return - возвращает коллекцию экземпляров класса Incident
+     */
+    @GetMapping(path = "/incidentsinservice")
+    public Iterable<Incident> getIncidentsInService() {
+        return incidentRepository.findByStatusNotLike(3);
     }
 }

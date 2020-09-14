@@ -59,15 +59,6 @@ public class IncidentsController {
         return incidentRepository.findAll();
     }
 
-    /**
-     * Веб-метод получения всех записей об инцидентах из базы данных со статусом, отличным от статуса "Решен"
-     *
-     * @return - возвращает коллекцию экземпляров класса Incident
-     */
-    @GetMapping(path = "/service")
-    public Iterable<Incident> getIncidentsInService() {
-        return incidentRepository.findByStatusNotLike(3);
-    }
 
     /**
      * Веб-метод обновления записи об инциденте в базе данных

@@ -8,6 +8,6 @@ import java.util.List;
 public interface UsersRepository extends CrudRepository<Users, Integer> {
     Users findByUsername(String username);
 
-    List<Users> findAllByRoleIsNot(int role);
+//    List<Users> findAllByRoleIsNot(int role);
 
 }

@@ -14,9 +14,9 @@ public class UsersController {
         this.usersRepository = usersRepository;
     }
 
-    @GetMapping
+    @GetMapping(path = "/{username}")
     public @ResponseBody
-    Iterable<Users> getUsers() {
-        return usersRepository.findAllByRoleIsNot(1);
+    Users getUser(@PathVariable String username) {
+        return usersRepository.findByUsername(username);
     }
 }
