@@ -11,7 +11,7 @@ import ru.kpp.incidentmanager.repositories.IncidentRepository;
  * @author Ponkratov K.
  */
 @RestController
-@RequestMapping(path = "/manager")
+@RequestMapping(path = "/incident")
 public class IncidentsController {
 
     /*
@@ -31,7 +31,7 @@ public class IncidentsController {
      * @param incident - запись инцидента добавляемая в базу данных
      */
 
-    @PostMapping(path = "/add")
+    @PostMapping
     public Incident addIncident(@RequestBody Incident incident) {
         return incidentRepository.save(incident);
     }
@@ -43,8 +43,8 @@ public class IncidentsController {
      * @return - возвращается экземпляр класса Incident в формате JSON
      */
 
-    @GetMapping
-    public Incident getIncident(@RequestParam int id) {
+    @GetMapping(path = "/{id}")
+    public Incident getIncident(@PathVariable int id) {
         return incidentRepository.findById(id).orElseThrow();
     }
 

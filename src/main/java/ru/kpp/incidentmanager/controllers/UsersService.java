@@ -1,4 +1,4 @@
-package ru.kpp.incidentmanager.repositories;
+package ru.kpp.incidentmanager.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.kpp.incidentmanager.entity.Users;
+import ru.kpp.incidentmanager.repositories.RolesRepository;
+import ru.kpp.incidentmanager.repositories.UsersRepository;
 
 import java.util.Collections;
 import java.util.List;

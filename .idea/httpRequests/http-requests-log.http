@@ -1,3 +1,17 @@
+GET http://localhost:8080/incidentmanager-0.0.1-SNAPSHOT/vocabulary/category
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T033647.200.json
+
+###
+
+GET http://localhost:8080/incidentmanager-0.0.1-SNAPSHOT
+Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
+
+<> 2020-09-13T033630.404.json
+
+###
+
 GET http://localhost:8080/manager/all
 Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
 
