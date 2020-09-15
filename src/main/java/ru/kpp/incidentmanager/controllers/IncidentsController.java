@@ -9,11 +9,12 @@ import ru.kpp.incidentmanager.repositories.IncidentRepository;
 import java.util.NoSuchElementException;
 
 /**
- * Веб-методы реализующие основное взаимодействие с записями об инцидентах, построенные по принципу RESTful
+ * Класс отвечающий за основное взаимодействие с записями об инцидентах, построенные по принципу RESTful
  * веб-службы CRUD (Create, Read, Update, Delete). Внешнее взаимодействие организовано в формате JSON.
  *
  * @author Ponkratov K.
  */
+
 @RestController
 @RequestMapping(path = "/incident")
 public class IncidentsController {
@@ -28,7 +29,8 @@ public class IncidentsController {
     /**
      * Веб-метод добавления записи об инцидентев базу данных
      *
-     * @param incident - запись инцидента добавляемая в базу данных
+     * @param incident - передается экземпляр класса Incident для добавления в базу данных
+     * @return экземпляр класса Incident, записанный в базу данных
      */
 
     @PostMapping
@@ -40,7 +42,7 @@ public class IncidentsController {
      * Веб-метод получения записи об инциденте из базы данных по ID номеру записи
      *
      * @param id - номер запрашиваемой записи
-     * @return - возвращается экземпляр класса Incident в формате JSON
+     * @return - возвращается экземпляр класса Incident
      */
 
     @GetMapping(path = "/{id}")
@@ -55,7 +57,7 @@ public class IncidentsController {
     /**
      * Веб-метод получения всех записей об инцидентах из базы данных
      *
-     * @return - возвращается массив записей об инцидентах в формате JSON
+     * @return - возвращается массив экземпляров класса Incident
      */
 
     @GetMapping(path = "/all")
@@ -79,6 +81,12 @@ public class IncidentsController {
             return incidentRepository.save(incidentById);
         }).orElseThrow();
     }
+
+    /**
+     * Веб-метод удаления записи об инциденте в базе даннх
+     *
+     * @param id номер записи об инциденте для удаления
+     */
 
     @DeleteMapping(path = "/{id}")
     public void deleteIncident(@PathVariable int id) {

@@ -13,6 +13,13 @@ import ru.kpp.incidentmanager.repositories.UsersRepository;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Класс формирующий сведения о зарегистрированном пользователе
+ * (username - имя пользователя, password - пароль, role - роль)
+ * из базы данных для прохождения аутентификации с переданными
+ * веб-сервису именем ползьвателя и паролем
+ */
+
 @Service
 public class UsersService implements UserDetailsService {
     final
