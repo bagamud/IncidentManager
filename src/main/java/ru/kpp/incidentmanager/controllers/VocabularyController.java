@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ru.kpp.incidentmanager.entity.*;
 import ru.kpp.incidentmanager.repositories.*;
 
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping(path = "/vocabulary")
 public class VocabularyController {
@@ -74,7 +76,8 @@ public class VocabularyController {
      * @return - возвращает коллекцию экземпляров класса Incident
      */
     @GetMapping(path = "/inservice")
-    public Iterable<Incident> getIncidentsInService() {
-        return incidentRepository.findByStatusNotLike(3);
+    public @ResponseBody
+    Iterable<Incident> getIncidentsInService() {
+        return incidentRepository.findAllByStatusIsNot(((ArrayList<Status>) statusRepository.findAll()).get(2));
     }
 }

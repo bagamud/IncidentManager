@@ -1,6 +1,5 @@
 package ru.kpp.incidentmanager.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,8 +32,7 @@ public class UsersService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("Пользователь не найден");
         }
-        List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(rolesRepository.findById(user.getRole()).get().getName()));
-        System.out.println(rolesRepository.findById(user.getRole()).get().getName());
+        List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(user.getRole().getName()));
         return new User(user.getUsername(), user.getPassword(), authorities);
     }
 }

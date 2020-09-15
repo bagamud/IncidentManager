@@ -1,8 +1,12 @@
 package ru.kpp.incidentmanager.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.repositories.IncidentRepository;
+
+import java.util.NoSuchElementException;
 
 /**
  * Веб-методы реализующие основное взаимодействие с записями об инцидентах, построенные по принципу RESTful
@@ -13,10 +17,6 @@ import ru.kpp.incidentmanager.repositories.IncidentRepository;
 @RestController
 @RequestMapping(path = "/incident")
 public class IncidentsController {
-
-    /*
-    TODO: Logger в каждом методе с записью в поле Journal INM.INCIDENT
-     */
 
     final
     IncidentRepository incidentRepository;
@@ -45,7 +45,11 @@ public class IncidentsController {
 
     @GetMapping(path = "/{id}")
     public Incident getIncident(@PathVariable int id) {
-        return incidentRepository.findById(id).orElseThrow();
+        try {
+            return incidentRepository.findById(id).orElseThrow();
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid incident number", e);
+        }
     }
 
     /**

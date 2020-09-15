@@ -1,31 +1,30 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Table(schema = "inm")
 public class Incident {
     private int id;
     private Timestamp date;
-    private int category;
-    private int priority;
-    private int requesterdepartment;
+    private Category category;
+    private Priority priority;
+    private Department requesterdepartment;
     private String requester;
     private String requestercontacts;
     private String ipaddress;
     private Integer duration;
     private String description;
-    private Integer engineer;
-    private int operator;
-    private int status;
+    private Users engineer;
+    private Users operator;
+    private Status status;
     private Timestamp closedate;
     private String journal;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     public int getId() {
         return id;
@@ -45,33 +44,33 @@ public class Incident {
         this.date = date;
     }
 
-    @Basic
-    @Column(name = "CATEGORY")
-    public int getCategory() {
+    @ManyToOne(targetEntity = Category.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CATEGORY")
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    @Basic
-    @Column(name = "PRIORITY")
-    public int getPriority() {
+    @ManyToOne(targetEntity = Priority.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "PRIORITY")
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
-    @Basic
-    @Column(name = "REQUESTERDEPARTMENT")
-    public int getRequesterdepartment() {
+    @ManyToOne(targetEntity = Department.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "REQUESTERDEPARTMENT")
+    public Department getRequesterdepartment() {
         return requesterdepartment;
     }
 
-    public void setRequesterdepartment(int requesterdepartment) {
+    public void setRequesterdepartment(Department requesterdepartment) {
         this.requesterdepartment = requesterdepartment;
     }
 
@@ -125,33 +124,33 @@ public class Incident {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "ENGINEER")
-    public Integer getEngineer() {
+    @ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ENGINEER")
+    public Users getEngineer() {
         return engineer;
     }
 
-    public void setEngineer(Integer engineer) {
+    public void setEngineer(Users engineer) {
         this.engineer = engineer;
     }
 
-    @Basic
-    @Column(name = "OPERATOR")
-    public int getOperator() {
+    @ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "OPERATOR")
+    public Users getOperator() {
         return operator;
     }
 
-    public void setOperator(int operator) {
+    public void setOperator(Users operator) {
         this.operator = operator;
     }
 
-    @Basic
-    @Column(name = "STATUS")
-    public int getStatus() {
+    @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "STATUS")
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

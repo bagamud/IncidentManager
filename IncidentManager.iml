@@ -8,8 +8,11 @@
         <datasource-mapping>
           <factory-entry name="IncidentManager" value="e29d2465-84b4-47a7-8e76-68c358339593" />
           <factory-entry name="entityManagerFactory" value="e29d2465-84b4-47a7-8e76-68c358339593" />
+          <factory-entry name="noname-a.xml@0" value="e29d2465-84b4-47a7-8e76-68c358339593" />
         </datasource-mapping>
-        <naming-strategy-map />
+        <naming-strategy-map>
+          <unit-entry name="entityManagerFactory" />
+        </naming-strategy-map>
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
