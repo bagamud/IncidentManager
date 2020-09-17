@@ -14,7 +14,7 @@ public class Category {
     private int parentId;
 
     @Id
-    @Column(name = "ID")
+    @Column
     public int getId() {
         return id;
     }
@@ -24,7 +24,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "LEVEL")
+    @Column
     public int getLevel() {
         return level;
     }
@@ -34,7 +34,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "LEFTKEY")
+    @Column
     public int getLeftkey() {
         return leftkey;
     }
@@ -44,7 +44,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "RIGHTKEY")
+    @Column
     public int getRightkey() {
         return rightkey;
     }
@@ -54,7 +54,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "TITLE")
+    @Column
     public String getTitle() {
         return title;
     }
@@ -64,7 +64,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "PARENT_ID")
+    @Column
     public int getParentId() {
         return parentId;
     }

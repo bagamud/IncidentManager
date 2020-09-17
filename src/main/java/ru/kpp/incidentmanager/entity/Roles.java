@@ -10,7 +10,7 @@ public class Roles {
     private String name;
 
     @Id
-    @Column(name = "ID")
+    @Column
     public int getId() {
         return id;
     }
@@ -20,7 +20,7 @@ public class Roles {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column
     public String getName() {
         return name;
     }
