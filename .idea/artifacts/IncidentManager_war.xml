@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="incidentmanager-0.0.1-SNAPSHOT.war">
+    <root id="archive" name="inm.war">
       <element id="artifact" artifact-name="IncidentManager:war exploded" />
     </root>
   </artifact>
