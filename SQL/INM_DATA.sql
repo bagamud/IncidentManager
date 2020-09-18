@@ -65,16 +65,18 @@ VALUES (1, 'В работе'),
        (2, 'Отложен'),
        (3, 'Решен');
 
-INSERT INTO inm.users (ID, username, PASSWORD, NAME, role, CONTACTS, EMAIL)
-VALUES (1, 'kponkratov', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'Понкратов Кирилл', 1, '308',
+INSERT INTO inm.users (ID, username, /*PASSWORD,*/ NAME, role, CONTACTS, EMAIL)
+VALUES (1, 'kponkratov', /*'$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', */'Понкратов Кирилл', 1,
+        '308',
         'kponkratov@'),
-       (2, 'ashevelev12', '$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq', 'Шевелев Анатолий', 2, '179',
+       (2, 'ashevelev12', /*'$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq', */'Шевелев Анатолий', 2,
+        '179',
         'ashevelev12@'),
-       (3, 'iefremov10', '$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC', 'Ефремов Иван', 1, '178',
+       (3, 'iefremov10', /*'$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC', */'Ефремов Иван', 1, '178',
         'iefremov10@'),
-       (4, 'ttambovceva', '$2a$10$ysJ4M.eROavCKu/KMMo9FuA9x1hFSPlGmvg1E8XPuWd5Y5u6Ps2Xa', 'Тамбовцева Татьяна', 2,
+       (4, 'ttambovceva', /*'$2a$10$ysJ4M.eROavCKu/KMMo9FuA9x1hFSPlGmvg1E8XPuWd5Y5u6Ps2Xa', */'Тамбовцева Татьяна', 2,
         '322', 'ttambovceva@'),
-       (5, 'nanokhin2', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'Анохин Николай', 2, '130',
+       (5, 'nanokhin2',/* '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO',*/ 'Анохин Николай', 2, '130',
         'nanokhin2@');
 
 
