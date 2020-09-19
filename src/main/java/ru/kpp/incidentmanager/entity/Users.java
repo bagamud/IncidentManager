@@ -10,8 +10,7 @@ import java.util.Objects;
 public class Users {
     private int id;
     private String username;
-    //    @JsonIgnore
-//    private String password;
+    private String password;
     private String name;
     private Roles role;
     private String contacts;
@@ -37,15 +36,15 @@ public class Users {
         this.username = username;
     }
 
-//    @Basic
-//    @Column(name = "PASSWORD")
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
+    @Basic
+    @Column(name = "PASSWORD")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Basic
     @Column(name = "NAME")
@@ -95,7 +94,7 @@ public class Users {
         return id == users.id &&
                 role == users.role &&
                 Objects.equals(username, users.username) &&
-//                Objects.equals(password, users.password) &&
+                Objects.equals(password, users.password) &&
                 Objects.equals(name, users.name) &&
                 Objects.equals(contacts, users.contacts) &&
                 Objects.equals(email, users.email);
@@ -103,6 +102,6 @@ public class Users {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username,/* password, */name, role, contacts, email);
+        return Objects.hash(id, username, password, name, role, contacts, email);
     }
 }
