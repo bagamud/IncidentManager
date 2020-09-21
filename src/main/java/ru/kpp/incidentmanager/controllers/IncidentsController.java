@@ -93,5 +93,4 @@ public class IncidentsController {
         incidentRepository.deleteById(id);
     }
 
-
 }

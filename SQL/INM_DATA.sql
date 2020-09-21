@@ -77,7 +77,6 @@ VALUES (1, 'kponkratov', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk
        (5, 'nanokhin2', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'Анохин Николай', 2, '130',
         'nanokhin2@');
 
-
 INSERT INTO inm.priority (ID, INFLUENCE, URGENCY, DESCRIPTION, TERM)
 VALUES (1, 1, 1, 'Critical', 1),
        (2, 1, 2, 'Hight', 8),
