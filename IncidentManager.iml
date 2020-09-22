@@ -16,12 +16,7 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="WebSecurityConfig" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/ru/kpp/incidentmanager/security/WebSecurityConfig.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/ru/kpp/incidentmanager/IncidentManagerApplication.java</file>
-        </fileset>
-      </configuration>
+      <configuration />
     </facet>
     <facet type="web" name="Web">
       <configuration>
