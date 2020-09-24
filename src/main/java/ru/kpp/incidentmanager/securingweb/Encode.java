@@ -1,4 +1,4 @@
-package ru.kpp.incidentmanager.security;
+package ru.kpp.incidentmanager.securingweb;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

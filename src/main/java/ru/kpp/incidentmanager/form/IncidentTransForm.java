@@ -40,11 +40,9 @@ public class IncidentTransForm {
      *
      * @param incidentForm экземпляр класса {@link IncidentForm}
      * @return экземпляр класса {@link Incident}
-     * @throws ParseException исключение ошибки разбора переменных класса {@link IncidentForm} и заполнения переменных
-     *                        сущностей, содержащихся в классе {@link Incident}
      */
 
-    public Incident convert(IncidentForm incidentForm) throws ParseException {
+    public Incident convert(IncidentForm incidentForm) {
 
         Incident incident = new Incident();
 

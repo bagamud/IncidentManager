@@ -45,7 +45,7 @@
                         for (Incident incident : (List<Incident>) request.getAttribute("incidentsInService")) {
                             if (incident.getPriority() == null) incident.setPriority(new Priority());
                             out.print("<tr><td>" + incident.getId()
-                                    + "</td><td>" /*+ incident.getRequesterdepartment().getTitle()*/
+                                    + "</td><td>" + incident.getRequesterdepartment().getTitle()
                                     + "</td><td>" + incident.getDate()
                                     + "</td><td>" + incident.getEngineer().getName()
                                     + "</td><td>" + incident.getPriority().getDescription()

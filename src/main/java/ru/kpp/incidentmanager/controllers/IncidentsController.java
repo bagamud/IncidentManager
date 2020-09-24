@@ -19,7 +19,6 @@ import java.util.NoSuchElementException;
  */
 
 @RestController
-@RequestMapping(path = "/incident")
 public class IncidentsController {
 
     final
@@ -37,7 +36,6 @@ public class IncidentsController {
      * @return экземпляр класса Incident, записанный в базу данных
      */
 
-    @PostMapping
     public Incident addIncident(@RequestBody Incident incident) {
         return incidentRepository.save(incident);
     }
@@ -49,7 +47,6 @@ public class IncidentsController {
      * @return - возвращается экземпляр класса Incident
      */
 
-    @GetMapping(path = "/{id}")
     public Incident getIncident(@PathVariable int id) {
         try {
             return incidentRepository.findById(id);
@@ -64,7 +61,6 @@ public class IncidentsController {
      * @return - возвращается массив экземпляров класса Incident
      */
 
-    @GetMapping(path = "/all")
     public Iterable<Incident> getAllIncidents() {
         return incidentRepository.findAll();
     }
@@ -77,7 +73,6 @@ public class IncidentsController {
      * @param id       - номер обновляемой записи
      */
 
-    @PutMapping(path = "/{id}")
     public Incident updateIncident(@RequestBody Incident incident, @PathVariable int id) {
         Incident incidentById = incidentRepository.findById(id);
         incidentById = incident;
@@ -90,7 +85,6 @@ public class IncidentsController {
      * @param id номер записи об инциденте для удаления
      */
 
-    @DeleteMapping(path = "/{id}")
     public void deleteIncident(@PathVariable int id) {
         incidentRepository.deleteById(id);
     }
@@ -100,7 +94,7 @@ public class IncidentsController {
      *
      * @return - возвращает коллекцию экземпляров класса Incident
      */
-    @GetMapping(path = "/inservice")
+
     public @ResponseBody
     Iterable<Incident> getIncidentsInService(Status status) {
         return incidentRepository.findAllByStatusIsNot(status);

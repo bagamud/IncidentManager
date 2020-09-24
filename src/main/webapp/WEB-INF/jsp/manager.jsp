@@ -78,7 +78,7 @@
                                         name="department" required>
                                     <option value="${incident.requesterdepartment}">${incident.requesterdepartmentTitle}</option>
                                     <%
-                                        for (Department department : (List<Department>) request.getAttribute("departments")) {
+                                        for (Department department : Objects.requireNonNull((List<Department>) request.getAttribute("departments"))) {
                                             out.print("<option value=\"" + department.getId() + "\">" + department.getTitle() + "</option>");
                                         }
                                     %>

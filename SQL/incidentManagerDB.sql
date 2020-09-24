@@ -54,7 +54,7 @@ CREATE TABLE inm.priority
 CREATE TABLE inm.incident
 (
     id                  INT PRIMARY KEY AUTO_INCREMENT,
-    date                TIMESTAMP    NOT NULL,
+    date                TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     category            INT          NOT NULL,
     priority            INT          NOT NULL,
     requesterdepartment INT          NOT NULL,

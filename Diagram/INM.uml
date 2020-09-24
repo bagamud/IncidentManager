@@ -3,276 +3,302 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1110.4728221844293" y="1266.5">ru.kpp.incidentmanager.controllers.IncidentsController</node>
-    <node x="300.4728221844292" y="1201.0">ru.kpp.incidentmanager.controllers.VocabularyController</node>
-    <node x="521.0623818972032" y="1015.0">ru.kpp.incidentmanager.repositories.PriorityRepository</node>
-    <node x="1236.5623818972033" y="171.0">ru.kpp.incidentmanager.entity.Users</node>
-    <node x="915.1788359788355" y="226.0">ru.kpp.incidentmanager.entity.Status</node>
-    <node x="59.5" y="1566.0">ru.kpp.incidentmanager.IncidentManagerApplication</node>
-    <node x="1064.2504818594102" y="981.0">ru.kpp.incidentmanager.repositories.IncidentRepository</node>
-    <node x="1642.3385582010578" y="1289.0">ru.kpp.incidentmanager.security.WebSecurityConfig</node>
-    <node x="1641.8385582010578" y="969.0">ru.kpp.incidentmanager.controllers.UsersService</node>
-    <node x="583.5623818972032" y="193.0">ru.kpp.incidentmanager.entity.Priority</node>
-    <node x="0.0" y="1015.0">ru.kpp.incidentmanager.repositories.CategoryRepository</node>
-    <node x="1362.2504818594102" y="980.0">ru.kpp.incidentmanager.controllers.UsersController</node>
-    <node x="292.0623818972032" y="1015.0">ru.kpp.incidentmanager.repositories.DepartmentRepository</node>
-    <node x="769.3123818972032" y="1015.0">ru.kpp.incidentmanager.repositories.StatusRepository</node>
-    <node x="1801.8385582010578" y="690.5">ru.kpp.incidentmanager.repositories.RolesRepository</node>
-    <node x="0.0" y="1670.0">ru.kpp.incidentmanager.ServletInitializer</node>
-    <node x="1279.5623818972033" y="0.0">ru.kpp.incidentmanager.entity.Roles</node>
-    <node x="1476.1811555177624" y="678.5">ru.kpp.incidentmanager.repositories.UsersRepository</node>
-    <node x="112.10636810279698" y="182.0">ru.kpp.incidentmanager.entity.Category</node>
-    <node x="304.106368102797" y="226.0">ru.kpp.incidentmanager.entity.Department</node>
-    <node x="761.188099962207" y="502.0">ru.kpp.incidentmanager.entity.Incident</node>
+    <node x="1385.961111111111" y="450.0">ru.kpp.incidentmanager.controllers.IncidentsController</node>
+    <node x="554.2859457671957" y="300.0">ru.kpp.incidentmanager.repositories.PriorityRepository</node>
+    <node x="188.0" y="80.0">ru.kpp.incidentmanager.entity.Users</node>
+    <node x="1362.667791005291" y="80.0">ru.kpp.incidentmanager.entity.Status</node>
+    <node x="0.0" y="675.0">ru.kpp.incidentmanager.IncidentManagerApplication</node>
+    <node x="1473.961111111111" y="300.0">ru.kpp.incidentmanager.repositories.IncidentRepository</node>
+    <node x="689.25" y="450.0">ru.kpp.incidentmanager.form.IncidentTransForm</node>
+    <node x="301.0" y="675.0">ru.kpp.incidentmanager.securingweb.Encode</node>
+    <node x="945.8055555555554" y="600.0">ru.kpp.incidentmanager.MainController</node>
+    <node x="1003.9537367724869" y="80.0">ru.kpp.incidentmanager.entity.Priority</node>
+    <node x="342.2859457671956" y="300.0">ru.kpp.incidentmanager.repositories.CategoryRepository</node>
+    <node x="58.89705687830667" y="600.0">ru.kpp.incidentmanager.securingweb.WebSecurityConfig</node>
+    <node x="778.2859457671957" y="300.0">ru.kpp.incidentmanager.form.IncidentForm</node>
+    <node x="942.2859457671957" y="300.0">ru.kpp.incidentmanager.repositories.DepartmentRepository</node>
+    <node x="0.0" y="80.0">ru.kpp.incidentmanager.repositories.RolesRepository</node>
+    <node x="1217.307258597884" y="300.0">ru.kpp.incidentmanager.repositories.StatusRepository</node>
+    <node x="32.0" y="755.0">ru.kpp.incidentmanager.ServletInitializer</node>
+    <node x="88.89705687830667" y="450.0">ru.kpp.incidentmanager.securingweb.UsersService</node>
+    <node x="157.22981150793635" y="0.0">ru.kpp.incidentmanager.entity.Roles</node>
+    <node x="595.7239252645506" y="80.0">ru.kpp.incidentmanager.entity.Category</node>
+    <node x="154.28594576719559" y="300.0">ru.kpp.incidentmanager.repositories.UsersRepository</node>
+    <node x="1007.9537367724869" y="200.0">ru.kpp.incidentmanager.entity.Incident</node>
+    <node x="1152.8344576719578" y="80.0">ru.kpp.incidentmanager.entity.Department</node>
   </nodes>
   <notes />
   <edges>
     <edge source="ru.kpp.incidentmanager.entity.Incident" target="ru.kpp.incidentmanager.entity.Department">
-      <point x="-52.5" y="-203.5" />
-      <point x="813.688099962207" y="452.0" />
-      <point x="411.606368102797" y="452.0" />
-      <point x="21.5" y="60.5" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.repositories.PriorityRepository">
-      <point x="-65.83333333333326" y="-160.0" />
-      <point x="629.639488851096" y="1111.0" />
-      <point x="569.0623818972032" y="1111.0" />
-      <point x="-48.0" y="15.0" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.repositories.IncidentRepository" target="ru.kpp.incidentmanager.entity.Status">
-      <point x="0.0" y="-49.0" />
-      <point x="1202.7504818594102" y="949.0" />
-      <point x="1214.2290485638698" y="949.0" />
-      <point x="1214.2290485638698" y="452.0" />
-      <point x="1069.9788359788356" y="452.0" />
-      <point x="68.80000000000007" y="60.5" />
+      <point x="16.799999999999955" y="-15.0" />
+      <point x="1080.7537367724867" y="140.0" />
+      <point x="1174.1677910052913" y="140.0" />
+      <point x="-42.66666666666663" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.PriorityRepository" target="ru.kpp.incidentmanager.entity.Priority">
       <point x="0.0" y="-15.0" />
-      <point x="617.0623818972032" y="482.0" />
-      <point x="648.0623818972032" y="482.0" />
-      <point x="-21.5" y="93.5" />
+      <point x="650.2859457671957" y="180.0" />
+      <point x="1022.6204034391536" y="180.0" />
+      <point x="-37.33333333333326" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.repositories.StatusRepository">
-      <point x="65.83333333333348" y="-160.0" />
-      <point x="761.3061555177627" y="1111.0" />
-      <point x="813.3123818972032" y="1111.0" />
-      <point x="-44.0" y="15.0" />
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.repositories.DepartmentRepository">
+      <point x="4.444444444444571" y="-15.0" />
+      <point x="1030.25" y="500.0" />
+      <point x="1093.8415013227514" y="500.0" />
+      <point x="1093.8415013227514" y="410.0" />
+      <point x="1072.2859457671957" y="410.0" />
+      <point x="26.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.security.WebSecurityConfig" target="ru.kpp.incidentmanager.controllers.UsersService">
-      <point x="-74.25" y="-72.0" />
-      <point x="-74.75" y="61.0" />
+    <edge source="ru.kpp.incidentmanager.repositories.IncidentRepository" target="ru.kpp.incidentmanager.entity.Status">
+      <point x="48.0" y="-15.0" />
+      <point x="1617.961111111111" y="170.0" />
+      <point x="1449.0677910052912" y="170.0" />
+      <point x="38.40000000000009" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.form.IncidentForm">
+      <point x="19.714285714285666" y="-15.0" />
+      <point x="800.9642857142857" y="430.0" />
+      <point x="802.2859457671957" y="430.0" />
+      <point x="-48.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.controllers.IncidentsController" target="ru.kpp.incidentmanager.entity.Status">
+      <point x="-25.0" y="-15.0" />
+      <point x="1460.961111111111" y="180.0" />
+      <point x="1429.867791005291" y="180.0" />
+      <point x="19.200000000000045" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.entity.Users" target="ru.kpp.incidentmanager.entity.Roles">
-      <point x="-43.0" y="-115.5" />
-      <point x="1279.5623818972033" y="146.0" />
-      <point x="1308.22904856387" y="146.0" />
-      <point x="-57.33333333333326" y="60.5" />
+      <point x="-22.0" y="-15.0" />
+      <point x="210.0" y="55.0" />
+      <point x="201.22981150793635" y="55.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.repositories.StatusRepository">
+      <point x="72.28571428571433" y="-15.0" />
+      <point x="853.5357142857143" y="420.0" />
+      <point x="1239.307258597884" y="420.0" />
+      <point x="-66.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.securingweb.UsersService" target="ru.kpp.incidentmanager.entity.Users">
+      <point x="-48.0" y="-15.0" />
+      <point x="112.89705687830667" y="430.0" />
+      <point x="128.34150132275113" y="430.0" />
+      <point x="128.34150132275113" y="180.0" />
+      <point x="199.0" y="180.0" />
+      <point x="-33.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.CategoryRepository" target="ru.kpp.incidentmanager.entity.Category">
       <point x="0.0" y="-15.0" />
-      <point x="96.0" y="482.0" />
-      <point x="133.60636810279698" y="482.0" />
-      <point x="-64.5" y="104.5" />
+      <point x="438.2859457671956" y="180.0" />
+      <point x="614.3905919312172" y="180.0" />
+      <point x="-37.33333333333337" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.entity.Incident">
-      <point x="21.94444444444457" y="-160.0" />
-      <point x="717.4172666288738" y="1181.0" />
-      <point x="752.1788359788355" y="1181.0" />
-      <point x="752.1788359788355" y="949.0" />
-      <point x="796.188099962207" y="949.0" />
-      <point x="-70.0" y="203.5" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.UsersService" target="ru.kpp.incidentmanager.repositories.UsersRepository">
-      <point x="-119.59999999999991" y="-61.0" />
-      <point x="1671.738558201058" y="949.0" />
-      <point x="1630.6811555177624" y="949.0" />
-      <point x="51.5" y="27.0" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.repositories.UsersRepository">
-      <point x="329.16666666666686" y="-160.0" />
-      <point x="1024.639488851096" y="1171.0" />
-      <point x="1597.7504818594102" y="1171.0" />
-      <point x="1597.7504818594102" y="949.0" />
-      <point x="1562.0144888510958" y="949.0" />
-      <point x="-17.166666666666742" y="27.0" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.repositories.IncidentRepository">
-      <point x="197.5000000000001" y="-160.0" />
-      <point x="892.9728221844293" y="1141.0" />
-      <point x="1098.8754818594102" y="1141.0" />
-      <point x="-103.875" y="49.0" />
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.repositories.PriorityRepository">
+      <point x="-32.85714285714289" y="-15.0" />
+      <point x="748.3928571428571" y="380.0" />
+      <point x="674.2859457671957" y="380.0" />
+      <point x="24.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.entity.Incident" target="ru.kpp.incidentmanager.entity.Status">
-      <point x="31.5" y="-203.5" />
-      <point x="897.688099962207" y="442.0" />
-      <point x="932.3788359788356" y="442.0" />
-      <point x="-68.79999999999995" y="60.5" />
+      <point x="39.200000000000045" y="-15.0" />
+      <point x="1103.1537367724868" y="170.0" />
+      <point x="1372.267791005291" y="170.0" />
+      <point x="-38.40000000000009" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.UsersController" target="ru.kpp.incidentmanager.entity.Users">
-      <point x="-75.0" y="-50.0" />
-      <point x="1399.7504818594102" y="949.0" />
-      <point x="1403.8385582010578" y="949.0" />
-      <point x="1403.8385582010578" y="472.0" />
-      <point x="1347.1338104686317" y="472.0" />
-      <point x="24.57142857142844" y="115.5" />
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.repositories.UsersRepository">
+      <point x="-75.55555555555543" y="-15.0" />
+      <point x="950.25" y="580.0" />
+      <point x="243.39705687830667" y="580.0" />
+      <point x="243.39705687830667" y="430.0" />
+      <point x="224.28594576719559" y="430.0" />
+      <point x="-14.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.securingweb.UsersService" target="ru.kpp.incidentmanager.repositories.UsersRepository">
+      <point x="0.0" y="-15.0" />
+      <point x="160.89705687830667" y="430.0" />
+      <point x="168.28594576719559" y="430.0" />
+      <point x="-70.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.controllers.IncidentsController">
+      <point x="48.88888888888903" y="-15.0" />
+      <point x="1074.6944444444443" y="550.0" />
+      <point x="1435.961111111111" y="550.0" />
+      <point x="-50.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.form.IncidentForm">
+      <point x="-4.444444444444343" y="-15.0" />
+      <point x="1021.3611111111111" y="500.0" />
+      <point x="917.25" y="500.0" />
+      <point x="917.25" y="390.0" />
+      <point x="898.2859457671957" y="390.0" />
+      <point x="48.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.securingweb.WebSecurityConfig" target="ru.kpp.incidentmanager.securingweb.UsersService">
+      <point x="-46.0" y="-15.0" />
+      <point x="104.89705687830667" y="580.0" />
+      <point x="124.89705687830667" y="580.0" />
+      <point x="-36.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.repositories.CategoryRepository">
+      <point x="-48.8888888888888" y="-15.0" />
+      <point x="976.9166666666666" y="550.0" />
+      <point x="413.69444444444434" y="550.0" />
+      <point x="-24.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.entity.Incident" target="ru.kpp.incidentmanager.entity.Category">
-      <point x="-94.5" y="-203.5" />
-      <point x="771.688099962207" y="472.0" />
-      <point x="219.60636810279698" y="472.0" />
-      <point x="21.5" y="104.5" />
+      <point x="-28.0" y="-15.0" />
+      <point x="1035.953736772487" y="150.0" />
+      <point x="651.7239252645506" y="150.0" />
+      <point x="0.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.UsersController" target="ru.kpp.incidentmanager.repositories.UsersRepository">
-      <point x="0.0" y="-50.0" />
-      <point x="1474.7504818594102" y="949.0" />
-      <point x="1493.3478221844293" y="949.0" />
-      <point x="-85.83333333333326" y="27.0" />
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.repositories.CategoryRepository">
+      <point x="-59.14285714285711" y="-15.0" />
+      <point x="722.1071428571429" y="400.0" />
+      <point x="462.2859457671956" y="400.0" />
+      <point x="24.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.repositories.IncidentRepository" target="ru.kpp.incidentmanager.entity.Users">
-      <point x="92.33333333333326" y="-49.0" />
-      <point x="1295.0838151927435" y="949.0" />
-      <point x="1236.3385582010578" y="949.0" />
-      <point x="1236.3385582010578" y="482.0" />
-      <point x="1297.9909533257746" y="482.0" />
-      <point x="-24.57142857142867" y="115.5" />
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.repositories.PriorityRepository">
+      <point x="-39.999999999999886" y="-15.0" />
+      <point x="985.8055555555555" y="540.0" />
+      <point x="616.8055555555555" y="540.0" />
+      <point x="616.8055555555555" y="430.0" />
+      <point x="578.2859457671957" y="430.0" />
+      <point x="-72.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.repositories.DepartmentRepository">
-      <point x="-197.5" y="-160.0" />
-      <point x="497.9728221844292" y="1141.0" />
-      <point x="344.0623818972032" y="1141.0" />
-      <point x="-52.0" y="15.0" />
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.repositories.StatusRepository">
+      <point x="31.1111111111112" y="-15.0" />
+      <point x="1056.9166666666665" y="530.0" />
+      <point x="1327.307258597884" y="530.0" />
+      <point x="22.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.UsersRepository" target="ru.kpp.incidentmanager.entity.Users">
-      <point x="0.0" y="-27.0" />
-      <point x="1579.1811555177624" y="462.0" />
-      <point x="1371.7052390400604" y="462.0" />
-      <point x="49.14285714285711" y="115.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="238.28594576719559" y="180.0" />
+      <point x="221.0" y="180.0" />
+      <point x="-11.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.StatusRepository" target="ru.kpp.incidentmanager.entity.Status">
       <point x="0.0" y="-15.0" />
-      <point x="857.3123818972032" y="949.0" />
-      <point x="981.688099962207" y="949.0" />
-      <point x="981.688099962207" y="452.0" />
-      <point x="1001.1788359788355" y="452.0" />
-      <point x="0.0" y="60.5" />
+      <point x="1305.307258597884" y="280.0" />
+      <point x="1397.2666666666664" y="280.0" />
+      <point x="1397.2666666666664" y="180.0" />
+      <point x="1410.667791005291" y="180.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.controllers.IncidentsController" target="ru.kpp.incidentmanager.repositories.IncidentRepository">
-      <point x="0.0" y="-94.5" />
-      <point x="1240.4728221844293" y="1151.0" />
-      <point x="1237.3754818594102" y="1151.0" />
-      <point x="34.625" y="49.0" />
+      <point x="25.0" y="-15.0" />
+      <point x="1510.961111111111" y="430.0" />
+      <point x="1497.961111111111" y="430.0" />
+      <point x="-72.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.entity.Users">
-      <point x="285.27777777777794" y="-160.0" />
-      <point x="980.7505999622072" y="1161.0" />
-      <point x="1351.7504818594102" y="1161.0" />
-      <point x="1351.7504818594102" y="482.0" />
-      <point x="1322.5623818972033" y="482.0" />
-      <point x="0.0" y="115.5" />
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.repositories.UsersRepository">
+      <point x="-85.42857142857144" y="-15.0" />
+      <point x="695.8214285714286" y="420.0" />
+      <point x="280.2859457671956" y="420.0" />
+      <point x="42.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.entity.Incident" target="ru.kpp.incidentmanager.entity.Priority">
-      <point x="-10.5" y="-203.5" />
-      <point x="855.688099962207" y="432.0" />
-      <point x="691.0623818972032" y="432.0" />
-      <point x="21.5" y="93.5" />
+      <point x="-5.600000000000023" y="-15.0" />
+      <point x="1058.3537367724869" y="180.0" />
+      <point x="1059.953736772487" y="180.0" />
+      <point x="0.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.entity.Department">
-      <point x="-241.3888888888889" y="-160.0" />
-      <point x="454.0839332955403" y="1151.0" />
-      <point x="254.10636810279698" y="1151.0" />
-      <point x="254.10636810279698" y="482.0" />
-      <point x="325.606368102797" y="482.0" />
-      <point x="-64.5" y="60.5" />
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.entity.Incident">
+      <point x="6.571428571428555" y="-15.0" />
+      <point x="787.8214285714286" y="350.0" />
+      <point x="767.7859457671957" y="350.0" />
+      <point x="767.7859457671957" y="270.0" />
+      <point x="1041.553736772487" y="270.0" />
+      <point x="-22.399999999999977" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.form.IncidentTransForm" target="ru.kpp.incidentmanager.repositories.DepartmentRepository">
+      <point x="46.0" y="-15.0" />
+      <point x="827.25" y="400.0" />
+      <point x="968.2859457671957" y="400.0" />
+      <point x="-78.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.DepartmentRepository" target="ru.kpp.incidentmanager.entity.Department">
       <point x="0.0" y="-15.0" />
-      <point x="396.0623818972032" y="482.0" />
-      <point x="368.606368102797" y="482.0" />
-      <point x="-21.5" y="60.5" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.UsersService" target="ru.kpp.incidentmanager.repositories.RolesRepository">
-      <point x="59.799999999999955" y="-61.0" />
-      <point x="1851.1385582010575" y="949.0" />
-      <point x="1843.8385582010578" y="949.0" />
-      <point x="-42.0" y="15.0" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.entity.Category">
-      <point x="-285.2777777777778" y="-160.0" />
-      <point x="410.1950444066514" y="1161.0" />
-      <point x="202.5" y="1161.0" />
-      <point x="202.5" y="482.0" />
-      <point x="176.60636810279698" y="482.0" />
-      <point x="-21.5" y="104.5" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.repositories.CategoryRepository">
-      <point x="-373.05555555555566" y="-160.0" />
-      <point x="322.41726662887356" y="1181.0" />
-      <point x="48.0" y="1181.0" />
-      <point x="-48.0" y="15.0" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.entity.Priority">
-      <point x="-109.72222222222217" y="-160.0" />
-      <point x="585.750599962207" y="1121.0" />
-      <point x="510.5623818972032" y="1121.0" />
-      <point x="510.5623818972032" y="482.0" />
-      <point x="605.0623818972032" y="482.0" />
-      <point x="-64.5" y="93.5" />
+      <point x="1046.2859457671957" y="280.0" />
+      <point x="1149.4177910052913" y="280.0" />
+      <point x="1149.4177910052913" y="160.0" />
+      <point x="1259.5011243386245" y="160.0" />
+      <point x="42.66666666666663" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.IncidentRepository" target="ru.kpp.incidentmanager.entity.Incident">
-      <point x="-92.33333333333326" y="-49.0" />
-      <point x="1110.417148526077" y="929.0" />
-      <point x="936.188099962207" y="929.0" />
-      <point x="70.0" y="203.5" />
+      <point x="-48.0" y="-15.0" />
+      <point x="1521.961111111111" y="250.0" />
+      <point x="1108.7537367724867" y="250.0" />
+      <point x="44.799999999999955" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.entity.Incident">
+      <point x="22.2222222222224" y="-15.0" />
+      <point x="1048.0277777777778" y="520.0" />
+      <point x="1160.7859457671957" y="520.0" />
+      <point x="1160.7859457671957" y="270.0" />
+      <point x="1063.953736772487" y="270.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.entity.Incident" target="ru.kpp.incidentmanager.entity.Users">
-      <point x="73.5" y="-203.5" />
-      <point x="939.688099962207" y="462.0" />
-      <point x="1248.8480961829175" y="462.0" />
-      <point x="-73.71428571428578" y="115.5" />
+      <point x="-50.39999999999998" y="-15.0" />
+      <point x="1013.5537367724869" y="170.0" />
+      <point x="243.0" y="170.0" />
+      <point x="11.0" y="15.0" />
     </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.UsersService" target="ru.kpp.incidentmanager.entity.Users">
-      <point x="0.0" y="-61.0" />
-      <point x="1791.3385582010578" y="452.0" />
-      <point x="1396.276667611489" y="452.0" />
-      <point x="73.71428571428578" y="115.5" />
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.repositories.IncidentRepository">
+      <point x="75.55555555555577" y="-15.0" />
+      <point x="1101.3611111111113" y="580.0" />
+      <point x="1622.4055555555556" y="580.0" />
+      <point x="1622.4055555555556" y="430.0" />
+      <point x="1641.961111111111" y="430.0" />
+      <point x="72.0" y="15.0" />
+    </edge>
+    <edge source="ru.kpp.incidentmanager.MainController" target="ru.kpp.incidentmanager.form.IncidentTransForm">
+      <point x="-22.222222222222058" y="-15.0" />
+      <point x="1003.5833333333334" y="520.0" />
+      <point x="735.25" y="520.0" />
+      <point x="-46.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.controllers.IncidentsController" target="ru.kpp.incidentmanager.entity.Incident">
-      <point x="-86.66666666666674" y="-94.5" />
-      <point x="1153.8061555177624" y="1121.0" />
-      <point x="955.8123818972032" y="1121.0" />
-      <point x="955.8123818972032" y="939.0" />
-      <point x="866.188099962207" y="939.0" />
-      <point x="0.0" y="203.5" />
+      <point x="-75.0" y="-15.0" />
+      <point x="1410.961111111111" y="430.0" />
+      <point x="1407.2517030423282" y="430.0" />
+      <point x="1407.2517030423282" y="260.0" />
+      <point x="1086.353736772487" y="260.0" />
+      <point x="22.40000000000009" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.ServletInitializer" target="ru.kpp.incidentmanager.IncidentManagerApplication">
-      <point x="0.0" y="-27.0" />
-      <point x="0.0" y="27.0" />
-    </edge>
-    <edge source="ru.kpp.incidentmanager.controllers.VocabularyController" target="ru.kpp.incidentmanager.entity.Status">
-      <point x="153.6111111111112" y="-160.0" />
-      <point x="849.0839332955404" y="1131.0" />
-      <point x="1041.9380999622072" y="1131.0" />
-      <point x="1041.9380999622072" y="452.0" />
-      <point x="1035.5788359788355" y="452.0" />
-      <point x="34.39999999999998" y="60.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="ru.kpp.incidentmanager.repositories.RolesRepository" target="ru.kpp.incidentmanager.entity.Roles">
       <point x="0.0" y="-15.0" />
-      <point x="1885.8385582010578" y="146.0" />
-      <point x="1422.8957152305366" y="146.0" />
-      <point x="57.33333333333326" y="60.5" />
+      <point x="84.0" y="55.0" />
+      <point x="171.89647817460298" y="55.0" />
+      <point x="-29.333333333333343" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5" x="985.0" y="862.0" />
-  <SelectedNodes />
-  <Categories>
-    <Category>Fields</Category>
-    <Category>Constructors</Category>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
-    <Category>Inner Classes</Category>
-  </Categories>
+  <settings layout="Hierarchic Group" zoom="0.8653618030842231" x="833.0" y="392.5" />
+  <SelectedNodes>
+    <node>ru.kpp.incidentmanager.controllers.IncidentsController</node>
+    <node>ru.kpp.incidentmanager.repositories.PriorityRepository</node>
+    <node>ru.kpp.incidentmanager.entity.Users</node>
+    <node>ru.kpp.incidentmanager.entity.Status</node>
+    <node>ru.kpp.incidentmanager.IncidentManagerApplication</node>
+    <node>ru.kpp.incidentmanager.repositories.IncidentRepository</node>
+    <node>ru.kpp.incidentmanager.entity.Priority</node>
+    <node>ru.kpp.incidentmanager.repositories.CategoryRepository</node>
+    <node>ru.kpp.incidentmanager.repositories.DepartmentRepository</node>
+    <node>ru.kpp.incidentmanager.repositories.RolesRepository</node>
+    <node>ru.kpp.incidentmanager.repositories.StatusRepository</node>
+    <node>ru.kpp.incidentmanager.ServletInitializer</node>
+    <node>ru.kpp.incidentmanager.entity.Roles</node>
+    <node>ru.kpp.incidentmanager.entity.Category</node>
+    <node>ru.kpp.incidentmanager.repositories.UsersRepository</node>
+    <node>ru.kpp.incidentmanager.entity.Incident</node>
+    <node>ru.kpp.incidentmanager.entity.Department</node>
+  </SelectedNodes>
+  <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>
