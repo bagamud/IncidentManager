@@ -94,4 +94,16 @@ public class IncidentsController {
     public void deleteIncident(@PathVariable int id) {
         incidentRepository.deleteById(id);
     }
+
+    /**
+     * Веб-метод получения всех записей об инцидентах из базы данных со статусом, отличным от статуса "Решен"
+     *
+     * @return - возвращает коллекцию экземпляров класса Incident
+     */
+    @GetMapping(path = "/inservice")
+    public @ResponseBody
+    Iterable<Incident> getIncidentsInService(Status status) {
+        return incidentRepository.findAllByStatusIsNot(status);
+    }
+
 }
