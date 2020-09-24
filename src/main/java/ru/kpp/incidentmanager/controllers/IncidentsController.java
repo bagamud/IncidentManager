@@ -80,8 +80,8 @@ public class IncidentsController {
     @PutMapping(path = "/{id}")
     public Incident updateIncident(@RequestBody Incident incident, @PathVariable int id) {
         Incident incidentById = incidentRepository.findById(id);
-            incidentById = incident;
-            return incidentRepository.save(incidentById);
+        incidentById = incident;
+        return incidentRepository.save(incidentById);
     }
 
     /**
