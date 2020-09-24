@@ -3,6 +3,13 @@ package ru.kpp.incidentmanager.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности ролей пользователей, аналогичный классу серверной части, используется
+ * при формировании сведений о пользователе используемых при аутентификации доступа пользователя
+ * к ресурсам
+ */
+
 @Entity
 @Table(schema = "inm")
 public class Roles {

@@ -3,6 +3,12 @@ package ru.kpp.incidentmanager.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности приоритета инцидента, используется в классе {@link ru.kpp.incidentmanager.entity.Incident Incident},
+ * а также при формировании справочника, используемого веб-формами
+ */
+
 @Entity
 @Table(schema = "inm")
 public class Priority {

@@ -3,6 +3,13 @@ package ru.kpp.incidentmanager.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности, содержащий сведения об отделах и подразделениях, являющихся инициаторами заявки об инциденте,
+ * соответствующий аналогичному классу сущности серверной части приложения, в настоящем клиенте используется в классе
+ * {@link ru.kpp.incidentmanager.entity.Incident Incident}, а также для формирования справочников используемых в веб-формах
+ */
+
 @Entity
 @Table(schema = "inm")
 public class Department {

@@ -4,8 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import ru.kpp.incidentmanager.entity.Incident;
+import ru.kpp.incidentmanager.entity.Status;
 import ru.kpp.incidentmanager.repositories.IncidentRepository;
+import ru.kpp.incidentmanager.repositories.StatusRepository;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 /**
@@ -21,6 +24,7 @@ public class IncidentsController {
 
     final
     IncidentRepository incidentRepository;
+
 
     public IncidentsController(IncidentRepository incidentRepository) {
         this.incidentRepository = incidentRepository;
@@ -48,7 +52,7 @@ public class IncidentsController {
     @GetMapping(path = "/{id}")
     public Incident getIncident(@PathVariable int id) {
         try {
-            return incidentRepository.findById(id).orElseThrow();
+            return incidentRepository.findById(id);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid incident number", e);
         }
@@ -75,11 +79,9 @@ public class IncidentsController {
 
     @PutMapping(path = "/{id}")
     public Incident updateIncident(@RequestBody Incident incident, @PathVariable int id) {
-        return incidentRepository.findById(id).map(incidentById -> {
-            incident.setId(incidentById.getId());
+        Incident incidentById = incidentRepository.findById(id);
             incidentById = incident;
             return incidentRepository.save(incidentById);
-        }).orElseThrow();
     }
 
     /**
@@ -91,6 +93,17 @@ public class IncidentsController {
     @DeleteMapping(path = "/{id}")
     public void deleteIncident(@PathVariable int id) {
         incidentRepository.deleteById(id);
+    }
+
+    /**
+     * Веб-метод получения всех записей об инцидентах из базы данных со статусом, отличным от статуса "Решен"
+     *
+     * @return - возвращает коллекцию экземпляров класса Incident
+     */
+    @GetMapping(path = "/inservice")
+    public @ResponseBody
+    Iterable<Incident> getIncidentsInService(Status status) {
+        return incidentRepository.findAllByStatusIsNot(status);
     }
 
 }

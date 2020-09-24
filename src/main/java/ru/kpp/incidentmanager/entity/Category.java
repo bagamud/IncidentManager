@@ -3,6 +3,13 @@ package ru.kpp.incidentmanager.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности, содержащий переменные элемента вложенного множества категорий инцидентов,
+ * соответствующий аналогичному классу серверной части приложения.
+ * В настоящем клиенте представлен в классе {@link ru.kpp.incidentmanager.entity.Incident Incident}, а также в справочнике используемом для веб-форм
+ */
+
 @Entity
 @Table(schema = "inm")
 public class Category {

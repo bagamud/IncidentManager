@@ -3,6 +3,12 @@ package ru.kpp.incidentmanager.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности статуся заявки об инциденте, соответствует классу серверной части приложения, используется при
+ * формировании справочника, используемого веб-формами
+ */
+
 @Entity
 @Table(schema = "inm")
 public class Status {

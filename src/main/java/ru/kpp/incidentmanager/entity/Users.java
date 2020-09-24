@@ -1,9 +1,14 @@
 package ru.kpp.incidentmanager.entity;
 
-//import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Objects;
+
+
+/**
+ * Класс сущности пользователей, соответствет классу серверной части приложения, используется для формирования сведений
+ * о пользователе для аутентификации запросов к ресурсам, а также при формировании справочника, используемого
+ * веб-формами
+ */
 
 @Entity
 @Table(schema = "inm")
