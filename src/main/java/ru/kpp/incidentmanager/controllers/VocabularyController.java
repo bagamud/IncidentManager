@@ -78,6 +78,6 @@ public class VocabularyController {
     @GetMapping(path = "/inservice")
     public @ResponseBody
     Iterable<Incident> getIncidentsInService() {
-        return incidentRepository.findAllByStatusIsNot(((ArrayList<Status>) statusRepository.findAll()).get(2));
+        return incidentRepository.findAllByStatusIsNot(((ArrayList<Status>) statusRepository.findAll()).get(3));
     }
 }

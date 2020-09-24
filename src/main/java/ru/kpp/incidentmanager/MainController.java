@@ -5,11 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kpp.incidentmanager.controllers.IncidentsController;
+import ru.kpp.incidentmanager.controllers.VocabularyController;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.form.IncidentForm;
-//import ru.kpp.incidentmanager.form.IncidentTransForm;
 import ru.kpp.incidentmanager.form.IncidentTransForm;
-import ru.kpp.incidentmanager.repositories.*;
 
 import javax.validation.Valid;
 import java.sql.Timestamp;
@@ -20,25 +19,13 @@ import java.util.Objects;
 @Controller
 public class MainController {
 
-    final CategoryRepository categoryRepository;
-    final DepartmentRepository departmentRepository;
-    final PriorityRepository priorityRepository;
-    final StatusRepository statusRepository;
-    final UsersRepository usersRepository;
-    final IncidentRepository incidentRepository;
+    final VocabularyController vocabularyController;
     final IncidentsController incidentsController;
     final IncidentTransForm incidentTransForm;
 
-    public MainController(CategoryRepository categoryRepository, DepartmentRepository departmentRepository,
-                          PriorityRepository priorityRepository, StatusRepository statusRepository,
-                          UsersRepository usersRepository, IncidentRepository incidentRepository, IncidentsController incidentsController,
+    public MainController(VocabularyController vocabularyController, IncidentsController incidentsController,
                           IncidentTransForm incidentTransForm) {
-        this.categoryRepository = categoryRepository;
-        this.departmentRepository = departmentRepository;
-        this.priorityRepository = priorityRepository;
-        this.statusRepository = statusRepository;
-        this.usersRepository = usersRepository;
-        this.incidentRepository = incidentRepository;
+        this.vocabularyController = vocabularyController;
         this.incidentsController = incidentsController;
         this.incidentTransForm = incidentTransForm;
     }
@@ -95,15 +82,15 @@ public class MainController {
 
     @GetMapping(path = "/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("incidentsInService", incidentsController.getIncidentsInService((statusRepository.findAll()).get(3)));
+        model.addAttribute("incidentsInService", vocabularyController.getIncidentsInService());
         return "dashboard";
     }
 
     private void getVocabulary(Model model) {
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("departments", departmentRepository.findAll());
-        model.addAttribute("priority", priorityRepository.findAll());
-        model.addAttribute("status", statusRepository.findAll());
-        model.addAttribute("users", usersRepository.findAll());
+        model.addAttribute("categories", vocabularyController.getCategories());
+        model.addAttribute("departments", vocabularyController.getDepartments());
+        model.addAttribute("priority", vocabularyController.getPriorities());
+        model.addAttribute("status", vocabularyController.getStatus());
+        model.addAttribute("users", vocabularyController.getUsers());
     }
 }
