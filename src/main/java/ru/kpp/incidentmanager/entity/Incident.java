@@ -40,8 +40,7 @@ public class Incident {
     }
 
     @Basic
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "DATE")
+    @Column(name = "DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     public Timestamp getDate() {
         return date;
     }
@@ -121,7 +120,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     public String getDescription() {
         return description;
     }
@@ -161,7 +160,7 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "CLOSEDATE")
+    @Column(name = "CLOSEDATE", columnDefinition = "TIMESTAMP")
     public Timestamp getClosedate() {
         return closedate;
     }

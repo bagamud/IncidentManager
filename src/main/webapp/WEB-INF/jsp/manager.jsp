@@ -37,19 +37,24 @@
                         <p>Самурай без меча, подобен самураю с мечем, но без меча.</p>
                     </form>
                 </div>
+
                 <div class="col-md-7 order-md-1">
                     <form class="needs-validation" action="${pageContext.request.contextPath}/manager" method="get"
                           novalidate>
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label for="incidentNumber">Номер</label>
-                                <input class="form-control" id="incidentNumber" placeholder="" required
+                                <label for="id">Номер</label>
+                                <input class="form-control <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
+                                       id="id" placeholder="" required
                                        type="text" name="id"
                                        value="${incident.id}">
+                                <div class="invalid-feedback">
+                                    Неправильный номер записи
+                                </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="date">Дата открытия заявки</label>
-                                <input class="form-control" id="date" type="text" name="date"
+                                <input class="form-control" id="date" type="search" name="date"
                                        value="${incident.date}" disabled>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -78,7 +83,7 @@
                                         name="department" required>
                                     <option value="${incident.requesterdepartment}">${incident.requesterdepartmentTitle}</option>
                                     <%
-                                        for (Department department : Objects.requireNonNull((List<Department>) request.getAttribute("departments"))) {
+                                        for (Department department : (List<Department>) request.getAttribute("departments")) {
                                             out.print("<option value=\"" + department.getId() + "\">" + department.getTitle() + "</option>");
                                         }
                                     %>
@@ -205,19 +210,15 @@
                             </div>
                         </div>
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg" type="submit" formaction="/manager/add">
-                            Сохранить
-                        </button>
-                        <button class="btn btn-primary btn-lg" type="button" onclick="location.href='/manager'">
-                            Очистить
-                        </button>
-                        <button class="btn btn-primary btn-lg" type="submit" formaction="/manager/${id}"
-                                formmethod="get">
-                            Поиск
-                        </button>
-                        <button class="btn btn-primary btn-lg" type="submit" formaction="/manager/done/${id}">
-                            Выполнено
-                        </button>
+                        <input class="btn btn-primary btn-lg" type="submit" formaction="/manager/add"
+                               value="Сохранить"/>
+                        <input class="btn btn-primary btn-lg" type="button" onclick="location.href='/manager'"
+                               value="Очистить"/>
+                        <input class="btn btn-primary btn-lg" type="submit" value="Поиск"
+                               formaction="/manager/"
+                               formmethod="get">
+                        <input class="btn btn-primary btn-lg" type="submit" formaction="/manager/done/${id}"
+                               value="Выполнено"/>
                     </form>
                 </div>
             </div>

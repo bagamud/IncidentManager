@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .realmName("Incident Manager")
                 .and()
                 .formLogin()
-                //                .loginPage("/auth")
+//                    .loginPage("/auth")
                 .permitAll().defaultSuccessUrl("/dashboard")
                 .and()
                 .logout()

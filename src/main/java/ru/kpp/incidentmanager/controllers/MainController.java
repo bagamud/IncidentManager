@@ -1,4 +1,4 @@
-package ru.kpp.incidentmanager;
+package ru.kpp.incidentmanager.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.kpp.incidentmanager.controllers.IncidentsController;
+import org.springframework.web.client.HttpClientErrorException;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.form.IncidentForm;
 import ru.kpp.incidentmanager.form.IncidentTransForm;
 import ru.kpp.incidentmanager.repositories.*;
 
-import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
@@ -48,17 +47,17 @@ public class MainController {
         this.incidentTransForm = incidentTransForm;
     }
 
-    /**
-     * Метод контроллера домашней страницы
-     *
-     * @param model интерфейс определяющий аттрибуты
-     * @return возвращяет путь к странице main
-     */
-
-    @GetMapping(path = "/")
-    public String index(Model model) {
-        return "main";
-    }
+//    /**
+//     * Метод контроллера домашней страницы
+//     *
+//     * @param model интерфейс определяющий аттрибуты
+//     * @return возвращяет путь к странице main
+//     */
+//
+//    @GetMapping(path = "/")
+//    public String index(Model model) {
+//        return "main";
+//    }
 
     /**
      * Метод контроллера страницы manager, в котором реализовано получение справочников в виде массивов классов сущностей
@@ -83,9 +82,18 @@ public class MainController {
      * @return возвращяет путь к странице
      */
     @GetMapping(path = "/manager/{id}")
-    public String getIncident(@PathVariable int id, Model model) {
+    public String getIncident(@PathVariable(name = "id") int id, Model model) {
         getVocabulary(model);
-        model.addAttribute("incident", incidentTransForm.convert(incidentsController.getIncident(id)));
+        try {
+            Incident incident = incidentsController.getIncident(id);
+
+            IncidentForm incidentForm = incidentTransForm.convert(incident);
+            model.addAttribute("incident", incidentForm);
+
+        } catch (NumberFormatException | NullPointerException error) {
+
+            model.addAttribute("error", error.getMessage());
+        }
         return "manager";
     }
 
@@ -99,7 +107,7 @@ public class MainController {
      */
 
     @GetMapping(path = "/manager/add")
-    public String addIncident(@Valid IncidentForm incidentForm, /*BindingResult bindingResult,*/ Model model) {
+    public String addIncident(@RequestBody IncidentForm incidentForm, /*BindingResult bindingResult,*/ Model model) {
         getVocabulary(model);
 //        if (bindingResult.hasErrors()) {
 //            model.addAttribute("errors", bindingResult.getFieldErrors());
@@ -119,8 +127,8 @@ public class MainController {
      * @return возвращяет путь к странице
      */
 
-    @PutMapping(path = "/manager/{id}")
-    public String updateIncident(@Valid @RequestBody IncidentForm incidentForm, @PathVariable int id, Model model) {
+    @GetMapping(path = "/manager/upd/{id}")
+    public String updateIncident(@RequestBody IncidentForm incidentForm, @PathVariable int id, Model model) {
         getVocabulary(model);
         Incident incident = incidentTransForm.convert(incidentForm);
         model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
@@ -139,11 +147,11 @@ public class MainController {
      */
 
     @GetMapping(path = "/manager/done/{id}")
-    public String fixIncident(@Valid IncidentForm incidentForm, @PathVariable int id, Model model) throws ParseException {
+    public String fixIncident(IncidentForm incidentForm, @PathVariable int id, Model model) throws ParseException {
         getVocabulary(model);
-        int influence = Integer.parseInt((String) Objects.requireNonNull(model.getAttribute("influence")));
-        int urgency = Integer.parseInt((String) Objects.requireNonNull(model.getAttribute("urgency")));
-        incidentForm.setPriority(urgency - 1 + influence);
+//        int influence = Integer.parseInt((String) Objects.requireNonNull(model.getAttribute("influence")));
+//        int urgency = Integer.parseInt((String) Objects.requireNonNull(model.getAttribute("urgency")));
+//        incidentForm.setPriority(urgency - 1 + influence);
         incidentForm.setStatus(3);
         incidentForm.setClosedate(new Timestamp(new Date().getTime()));
         Incident incident = incidentTransForm.convert(incidentForm);
@@ -161,7 +169,7 @@ public class MainController {
 
     @GetMapping(path = "/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("incidentsInService", incidentsController.getIncidentsInService((statusRepository.findAll()).get(3)));
+        model.addAttribute("incidentsInService", incidentsController.getIncidentsInService((statusRepository.findAll()).get(2)));
         return "dashboard";
     }
 

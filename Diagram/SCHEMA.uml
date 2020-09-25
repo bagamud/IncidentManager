@@ -12,6 +12,18 @@
   </nodes>
   <notes />
   <edges>
+    <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.priority">
+      <point x="-50.75" y="-181.5" />
+      <point x="398.75" y="217.0" />
+      <point x="225.5" y="217.0" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.category">
+      <point x="-84.58333333333337" y="-181.5" />
+      <point x="364.91666666666663" y="227.0" />
+      <point x="62.0" y="227.0" />
+      <point x="0.0" y="82.5" />
+    </edge>
     <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.department">
       <point x="84.58333333333337" y="-181.5" />
       <point x="534.0833333333334" y="227.0" />
@@ -29,18 +41,6 @@
       <point x="466.41666666666663" y="207.0" />
       <point x="510.0" y="207.0" />
       <point x="-39.0" y="93.5" />
-    </edge>
-    <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.priority">
-      <point x="-50.75" y="-181.5" />
-      <point x="398.75" y="217.0" />
-      <point x="225.5" y="217.0" />
-      <point x="0.0" y="71.5" />
-    </edge>
-    <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.category">
-      <point x="-84.58333333333337" y="-181.5" />
-      <point x="364.91666666666663" y="227.0" />
-      <point x="62.0" y="227.0" />
-      <point x="0.0" y="82.5" />
     </edge>
   </edges>
   <settings layout="Hierarchic Group" zoom="1.0" x="385.5" y="305.0" />

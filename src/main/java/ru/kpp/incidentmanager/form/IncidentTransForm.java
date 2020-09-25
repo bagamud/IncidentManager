@@ -4,8 +4,6 @@ import org.springframework.stereotype.Service;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.repositories.*;
 
-import java.text.ParseException;
-
 /**
  * Класс предназначен для конвертирования экземпляра класса {@link Incident} в экземпляр класса {@link IncidentForm}
  * для валидации и отображения пользователю в веб-форме manager.jsp и обратно, для взаимодействия введенной пользователем

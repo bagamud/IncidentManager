@@ -13,25 +13,25 @@ import java.util.Objects;
 public class IncidentForm {
     private int id;
     private Timestamp date;
-    @NotBlank
+//    @NotBlank
     private int category;
     private String categoryTitle;
     private int priority;
     private String priorityDescription;
-    @NotBlank
+    //    @NotBlank
     private int requesterdepartment;
     private String requesterdepartmentTitle;
-    @NotBlank
+    //    @NotBlank
     private String requester;
-    @NotBlank
+    //    @NotBlank
     private String requestercontacts;
     private String ipaddress;
     private int duration;
-    @NotBlank
+    //    @NotBlank
     private String description;
     private int engineer;
     private String engineerName;
-    @NotBlank
+    //    @NotBlank
     private int operator;
     private String operatorName;
     private int status;

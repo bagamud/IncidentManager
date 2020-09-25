@@ -1,14 +1,15 @@
 package ru.kpp.incidentmanager.controllers;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.entity.Status;
 import ru.kpp.incidentmanager.repositories.IncidentRepository;
-import ru.kpp.incidentmanager.repositories.StatusRepository;
 
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 /**
