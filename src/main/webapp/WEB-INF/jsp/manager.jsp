@@ -78,7 +78,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="department">Подразделение</label>
-                                <select class="form-control custom-select d-block w-100 <%--<%if ()%> is-invalid--%>"
+                                <select class="form-control custom-select d-block w-100"
                                         id="department"
                                         name="department" required>
                                     <option value="${incident.requesterdepartment}">${incident.requesterdepartmentTitle}</option>

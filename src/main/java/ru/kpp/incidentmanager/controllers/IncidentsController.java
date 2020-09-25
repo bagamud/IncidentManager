@@ -96,9 +96,32 @@ public class IncidentsController {
      * @return - возвращает коллекцию экземпляров класса Incident
      */
 
-    public @ResponseBody
-    Iterable<Incident> getIncidentsInService(Status status) {
-        return incidentRepository.findAllByStatusIsNot(status);
+    public String getIncidentsInService(Status status) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Incident incident : incidentRepository.findAllByStatusIsNot(status)) {
+            stringBuilder.append("<tr><td>")
+                    .append(incident.getId())
+                    .append("</td><td>")
+                    .append(incident.getRequesterdepartment().getTitle())
+                    .append("</td><td>")
+                    .append(incident.getDate())
+                    .append("</td><td>")
+                    .append(incident.getEngineer().getName())
+                    .append("</td><td>")
+                    .append(incident.getPriority().getDescription())
+                    .append("</td><td>")
+                    .append(incident.getCategory().getTitle())
+                    .append("</td><td>")
+                    .append(incident.getStatus().getTitle())
+                    .append("</td><td>")
+                    .append("<a href=\"/manager/")
+                    .append(incident.getId())
+                    .append("\">")
+                    .append("<svg width=\"1em\" height=\"1em\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-right\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n")
+                    .append("<path fill-rule=\"evenodd\" d=\"M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z\"/></path>\n")
+                    .append("</svg></a></td></tr>");
+        }
+        return stringBuilder.toString();
     }
 
 }

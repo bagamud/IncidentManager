@@ -149,9 +149,6 @@ public class MainController {
     @GetMapping(path = "/manager/done/{id}")
     public String fixIncident(IncidentForm incidentForm, @PathVariable int id, Model model) throws ParseException {
         getVocabulary(model);
-//        int influence = Integer.parseInt((String) Objects.requireNonNull(model.getAttribute("influence")));
-//        int urgency = Integer.parseInt((String) Objects.requireNonNull(model.getAttribute("urgency")));
-//        incidentForm.setPriority(urgency - 1 + influence);
         incidentForm.setStatus(3);
         incidentForm.setClosedate(new Timestamp(new Date().getTime()));
         Incident incident = incidentTransForm.convert(incidentForm);
