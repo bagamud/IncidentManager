@@ -113,14 +113,6 @@
                                        value="${incident.ipaddress}">
                             </div>
                         </div>
-                        <%--                        <div class="row">--%>
-
-                        <%--                                                        <div class="col-md-6 mb-3">--%>
-                        <%--                                                            <label for="duration">Продолжительность инцидента</label>--%>
-                        <%--                                                            <input class="form-control" id="duration" name="duration" placeholder="" required--%>
-                        <%--                                                                   type="text" value="${incidentForm.duration}">--%>
-                        <%--                                                        </div>--%>
-                        <%--                        </div>--%>
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label for="description">Описание</label>
@@ -132,24 +124,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <%--                            <div class="col-md-4 mb-3">--%>
-                            <%--                                <label for="influence">Влияние</label>--%>
-                            <%--                                <select class="form-control custom-select d-block w-100" id="influence"--%>
-                            <%--                                        name="influence" required>--%>
-                            <%--                                    <option value="1">Высокое</option>--%>
-                            <%--                                    <option value="2">Среднее</option>--%>
-                            <%--                                    <option value="3">Низкое</option>--%>
-                            <%--                                </select>--%>
-                            <%--                            </div>--%>
-                            <%--                            <div class="col-md-4 mb-3">--%>
-                            <%--                                <label for="urgency">Срочность</label>--%>
-                            <%--                                <select class="form-control custom-select d-block w-100" id="urgency" name="urgency"--%>
-                            <%--                                        required>--%>
-                            <%--                                    <option value="1">Высокая</option>--%>
-                            <%--                                    <option value="2">Средняя</option>--%>
-                            <%--                                    <option value="3">Низкая</option>--%>
-                            <%--                                </select>--%>
-                            <%--                            </div>--%>
                             <div class="col-md-2 mb-3">
                                 <label for="priority">Приоритет</label>
                                 <select class="form-control custom-select d-block w-100" id="priority" name="priority"
@@ -193,9 +167,6 @@
                                        formaction="/manager/add"/>
                                 <input class="btn btn-primary" type="button" onclick="location.href='/manager'"
                                        value="Очистить"/>
-                                <%--                                <input class="btn btn-primary btn-lg" type="submit" value="Поиск"--%>
-                                <%--                                       formaction="/manager/get"--%>
-                                <%--                                       formmethod="get">--%>
                                 <input class="btn btn-primary" type="submit" formaction="/manager/done"
                                        value="Выполнено"/>
                             </div>
