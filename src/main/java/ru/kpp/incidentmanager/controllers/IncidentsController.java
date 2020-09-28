@@ -1,16 +1,10 @@
 package ru.kpp.incidentmanager.controllers;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 import ru.kpp.incidentmanager.entity.Incident;
 import ru.kpp.incidentmanager.entity.Status;
 import ru.kpp.incidentmanager.repositories.IncidentRepository;
-
-import java.util.NoSuchElementException;
 
 /**
  * Класс отвечающий за основное взаимодействие с записями об инцидентах, построенные по принципу RESTful
@@ -48,12 +42,8 @@ public class IncidentsController {
      * @return - возвращается экземпляр класса Incident
      */
 
-    public Incident getIncident(@PathVariable int id) {
-        try {
-            return incidentRepository.findById(id);
-        } catch (NoSuchElementException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid incident number", e);
-        }
+    public Incident getIncident(int id) {
+        return incidentRepository.findById(id);
     }
 
     /**
@@ -74,7 +64,7 @@ public class IncidentsController {
      * @param id       - номер обновляемой записи
      */
 
-    public Incident updateIncident(@RequestBody Incident incident, @PathVariable int id) {
+    public Incident updateIncident(Incident incident, int id) {
         Incident incidentById = incidentRepository.findById(id);
         incidentById = incident;
         return incidentRepository.save(incidentById);
@@ -86,7 +76,7 @@ public class IncidentsController {
      * @param id номер записи об инциденте для удаления
      */
 
-    public void deleteIncident(@PathVariable int id) {
+    public void deleteIncident(int id) {
         incidentRepository.deleteById(id);
     }
 
@@ -98,13 +88,22 @@ public class IncidentsController {
 
     public String getIncidentsInService(Status status) {
         StringBuilder stringBuilder = new StringBuilder();
+        String alert;
         for (Incident incident : incidentRepository.findAllByStatusIsNot(status)) {
-            stringBuilder.append("<tr><td>")
+            if (incident.getPriority().getId() == 1) {
+                alert = " class=\"table-danger\"";
+            } else if (incident.getPriority().getId() == 2) {
+                alert = " class=\"table-warning\"";
+            } else alert = "";
+            stringBuilder.append("<tr onclick=\"location.href='/manager?id=")
+                    .append(incident.getId())
+                    .append("'\"")
+                    .append(alert).append("><td>")
                     .append(incident.getId())
                     .append("</td><td>")
                     .append(incident.getRequesterdepartment().getTitle())
                     .append("</td><td>")
-                    .append(incident.getDate())
+                    .append(incident.getOpendate())
                     .append("</td><td>")
                     .append(incident.getEngineer().getName())
                     .append("</td><td>")
@@ -113,13 +112,7 @@ public class IncidentsController {
                     .append(incident.getCategory().getTitle())
                     .append("</td><td>")
                     .append(incident.getStatus().getTitle())
-                    .append("</td><td>")
-                    .append("<a href=\"/manager/")
-                    .append(incident.getId())
-                    .append("\">")
-                    .append("<svg width=\"1em\" height=\"1em\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-right\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n")
-                    .append("<path fill-rule=\"evenodd\" d=\"M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z\"/></path>\n")
-                    .append("</svg></a></td></tr>");
+                    .append("</td></tr>");
         }
         return stringBuilder.toString();
     }

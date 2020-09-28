@@ -2,20 +2,18 @@ package ru.kpp.incidentmanager.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.client.HttpClientErrorException;
-import ru.kpp.incidentmanager.entity.Incident;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.kpp.incidentmanager.entity.*;
 import ru.kpp.incidentmanager.form.IncidentForm;
 import ru.kpp.incidentmanager.form.IncidentTransForm;
 import ru.kpp.incidentmanager.repositories.*;
 
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * В данном классе реализованы методы взаимодействия с сущностями проекта для взаимодействия с веб-формами интерфейса
@@ -30,21 +28,27 @@ public class MainController {
     final StatusRepository statusRepository;
     final UsersRepository usersRepository;
     final IncidentRepository incidentRepository;
+
     final IncidentsController incidentsController;
     final IncidentTransForm incidentTransForm;
+    final FaqController faqController;
+
 
     public MainController(CategoryRepository categoryRepository, DepartmentRepository departmentRepository,
                           PriorityRepository priorityRepository, StatusRepository statusRepository,
-                          UsersRepository usersRepository, IncidentRepository incidentRepository, IncidentsController incidentsController,
-                          IncidentTransForm incidentTransForm) {
+                          UsersRepository usersRepository, IncidentRepository incidentRepository,
+                          IncidentsController incidentsController, IncidentTransForm incidentTransForm,
+                          FaqController faqController) {
         this.categoryRepository = categoryRepository;
         this.departmentRepository = departmentRepository;
         this.priorityRepository = priorityRepository;
         this.statusRepository = statusRepository;
         this.usersRepository = usersRepository;
         this.incidentRepository = incidentRepository;
+
         this.incidentsController = incidentsController;
         this.incidentTransForm = incidentTransForm;
+        this.faqController = faqController;
     }
 
 //    /**
@@ -72,17 +76,18 @@ public class MainController {
         getVocabulary(model);
         return "manager";
     }
+//
+//    /**
+//     * Метод контроллера реализующие получение справочников и записи об инциденте по идентификационному номеру
+//     * и дальнейшая передача в аттрибуты страницы
+//     *
+//     * @param id    идентификационный номер записи об инциденте
+//     * @param model интерфейс определяющий аттрибуты
+//     * @return возвращяет путь к странице
+//     */
 
-    /**
-     * Метод контроллера реализующие получение справочников и записи об инциденте по идентификационному номеру
-     * и дальнейшая передача в аттрибуты страницы
-     *
-     * @param id    идентификационный номер записи об инциденте
-     * @param model интерфейс определяющий аттрибуты
-     * @return возвращяет путь к странице
-     */
-    @GetMapping(path = "/manager/{id}")
-    public String getIncident(@PathVariable(name = "id") int id, Model model) {
+    @GetMapping(path = "/manager/{search}")
+    public String getIncident(@PathVariable(name = "search") int id, Model model) {
         getVocabulary(model);
         try {
             Incident incident = incidentsController.getIncident(id);
@@ -106,52 +111,53 @@ public class MainController {
      * @return возвращяет путь к странице
      */
 
-    @GetMapping(path = "/manager/add")
-    public String addIncident(@RequestBody IncidentForm incidentForm, /*BindingResult bindingResult,*/ Model model) {
+    @PostMapping(path = "/manager/add")
+    public String addIncident(/*@Valid*/ IncidentForm incidentForm, BindingResult bindingResult, Model model) {
         getVocabulary(model);
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("errors", bindingResult.getFieldErrors());
-//        }
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("errors", bindingResult.hasErrors());
+        }
         Incident incident = incidentTransForm.convert(incidentForm);
         model.addAttribute("incident", incidentTransForm.convert(incidentsController.addIncident(incident)));
         return "manager";
     }
 
-    /**
-     * Метод контроллера реализующий обновление записи об инциденте из веб-формы в баз данных, возвращает обновленную
-     * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
-     *
-     * @param incidentForm сведения об инциденте переданные с веб-формы
-     * @param id           идентификатор записи об инциденте
-     * @param model        интерфейс определяющий аттрибуты
-     * @return возвращяет путь к странице
-     */
-
-    @GetMapping(path = "/manager/upd/{id}")
-    public String updateIncident(@RequestBody IncidentForm incidentForm, @PathVariable int id, Model model) {
-        getVocabulary(model);
-        Incident incident = incidentTransForm.convert(incidentForm);
-        model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
-        return "manager";
-    }
+//    /**
+//     * Метод контроллера реализующий обновление записи об инциденте из веб-формы в баз данных, возвращает обновленную
+//     * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
+//     *
+//     * @param incidentForm сведения об инциденте переданные с веб-формы
+//     * @param id           идентификатор записи об инциденте
+//     * @param model        интерфейс определяющий аттрибуты
+//     * @return возвращяет путь к странице
+//     */
+//
+//    @PostMapping(path = "/manager/upd")
+//    public String updateIncident(/*@Valid*/ IncidentForm incidentForm, @RequestParam int id, Model model) throws ParseException {
+//        getVocabulary(model);
+//        Incident incident = incidentTransForm.convert(incidentForm);
+//        model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
+//        return "manager";
+//    }
 
     /**
      * Метод контроллера реализующий обновление в баз данных статуса записи об инциденте на "Решен" и формирование даты
      * решения заявки, возвращает обновленную
      * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
      *
-     * @param incidentForm сведения об инциденте переданные с веб-формы
-     * @param id           идентификатор записи об инциденте
-     * @param model        интерфейс определяющий аттрибуты
+     * @param id    идентификатор записи об инциденте
+     * @param model интерфейс определяющий аттрибуты
      * @return возвращяет путь к странице
      */
 
-    @GetMapping(path = "/manager/done/{id}")
-    public String fixIncident(IncidentForm incidentForm, @PathVariable int id, Model model) throws ParseException {
+    @PostMapping(path = "/manager/done")
+    public String fixIncident(@RequestParam int id, Model model) {
         getVocabulary(model);
-        incidentForm.setStatus(3);
-        incidentForm.setClosedate(new Timestamp(new Date().getTime()));
-        Incident incident = incidentTransForm.convert(incidentForm);
+
+        Incident incident = incidentRepository.findById(id);
+        incident.setStatus(new Status(3, "Решен"));
+        if (incident.getClosedate() == null) incident.setClosedate(new Timestamp(new Date().getTime()));
+
         model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
         return "manager";
     }
@@ -177,10 +183,63 @@ public class MainController {
      */
 
     private void getVocabulary(Model model) {
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("departments", departmentRepository.findAll());
-        model.addAttribute("priority", priorityRepository.findAll());
-        model.addAttribute("status", statusRepository.findAll());
-        model.addAttribute("users", usersRepository.findAll());
+        StringBuilder sb = new StringBuilder();
+        for (Category category : categoryRepository.findAll()) {
+            sb.append("<option value=\"")
+                    .append(category.getId())
+                    .append("\">")
+                    .append(category.getTitle())
+                    .append("</option>");
+        }
+        String categories = sb.toString();
+        model.addAttribute("categories", categories);
+
+        sb = new StringBuilder();
+        for (Department department : departmentRepository.findAll()) {
+            sb.append("<option value=\"")
+                    .append(department.getId())
+                    .append("\">")
+                    .append(department.getTitle())
+                    .append("</option>");
+        }
+        String departments = sb.toString();
+        model.addAttribute("departments", departments);
+
+
+        sb = new StringBuilder();
+        for (Priority priority : priorityRepository.findAll()) {
+            sb.append("<option value=\"")
+                    .append(priority.getId())
+                    .append("\">")
+                    .append(priority.getDescription())
+                    .append("</option>");
+        }
+        String priority = sb.toString();
+        model.addAttribute("priority", priority);
+
+        sb = new StringBuilder();
+        for (Status status : statusRepository.findAll()) {
+            sb.append("<option value=\"")
+                    .append(status.getId())
+                    .append("\">")
+                    .append(status.getTitle())
+                    .append("</option>");
+        }
+        String status = sb.toString();
+        model.addAttribute("status", status);
+
+        sb = new StringBuilder();
+        for (Users users : usersRepository.findAll()) {
+            sb.append("<option value=\"")
+                    .append(users.getId())
+                    .append("\">")
+                    .append(users.getName())
+                    .append("</option>");
+        }
+        String users = sb.toString();
+        model.addAttribute("users", users);
+
+        model.addAttribute("faq", faqController.getFaq());
     }
+
 }

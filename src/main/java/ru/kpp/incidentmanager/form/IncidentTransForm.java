@@ -44,20 +44,20 @@ public class IncidentTransForm {
 
         Incident incident = new Incident();
 
-        incident.setId(incidentForm.getId());
-        incident.setDate(incidentForm.getDate());
+        if (!incidentForm.getId().isBlank()) incident.setId(Integer.parseInt(incidentForm.getId()));
+//        incident.setOpendate(incidentForm.getOpendate());
         incident.setCategory(categoryRepository.findById(incidentForm.getCategory()));
         incident.setPriority(priorityRepository.findById(incidentForm.getPriority()));
         incident.setRequesterdepartment(departmentRepository.findById(incidentForm.getRequesterdepartment()));
         incident.setRequester(incidentForm.getRequester());
         incident.setRequestercontacts(incidentForm.getRequestercontacts());
         incident.setIpaddress(incidentForm.getIpaddress());
-        incident.setDuration(incidentForm.getDuration());
+//        incident.setDuration(incidentForm.getDuration());
         incident.setDescription(incidentForm.getDescription());
         incident.setEngineer(usersRepository.findById(incidentForm.getEngineer()));
         incident.setOperator(usersRepository.findById(incidentForm.getOperator()));
         incident.setStatus(statusRepository.findById(incidentForm.getStatus()));
-        incident.setClosedate(incidentForm.getClosedate());
+//        incident.setClosedate(incidentForm.getClosedate());
         incident.setJournal(incidentForm.getJournal());
 
         return incident;
@@ -74,8 +74,8 @@ public class IncidentTransForm {
 
         IncidentForm incidentForm = new IncidentForm();
 
-        incidentForm.setId(incident.getId());
-        incidentForm.setDate(incident.getDate());
+        incidentForm.setId(String.valueOf(incident.getId()));
+        incidentForm.setOpendate(incident.getOpendate());
         incidentForm.setCategory(incident.getCategory().getId());
         incidentForm.setCategoryTitle(incident.getCategory().getTitle());
         if (incident.getPriority() != null) {
@@ -87,7 +87,7 @@ public class IncidentTransForm {
         incidentForm.setRequester(incident.getRequester());
         incidentForm.setRequestercontacts(incident.getRequestercontacts());
         incidentForm.setIpaddress(incident.getIpaddress());
-        if (incident.getDuration() != null) incidentForm.setDuration(incident.getDuration());
+//        if (incident.getDuration() != null) incidentForm.setDuration(incident.getDuration());
         incidentForm.setDescription(incident.getDescription());
         incidentForm.setEngineer(incident.getEngineer().getId());
         incidentForm.setEngineerName(incident.getEngineer().getName());

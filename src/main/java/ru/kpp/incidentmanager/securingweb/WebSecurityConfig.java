@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/dashboard", "/manager").authenticated()
                 .and()
@@ -46,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .realmName("Incident Manager")
                 .and()
                 .formLogin()
-//                    .loginPage("/auth")
+                .loginPage("/login")
                 .permitAll().defaultSuccessUrl("/dashboard")
                 .and()
                 .logout()

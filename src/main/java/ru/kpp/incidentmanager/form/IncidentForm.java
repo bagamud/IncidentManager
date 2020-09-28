@@ -1,6 +1,6 @@
 package ru.kpp.incidentmanager.form;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.AssertFalse;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -11,48 +11,51 @@ import java.util.Objects;
  */
 
 public class IncidentForm {
-    private int id;
-    private Timestamp date;
-//    @NotBlank
+
+    private String id;
+    //    @AssertFalse
+    private Timestamp opendate;
+    //    @NotNull
     private int category;
     private String categoryTitle;
     private int priority;
     private String priorityDescription;
-    //    @NotBlank
+    //    @NotNull
     private int requesterdepartment;
     private String requesterdepartmentTitle;
-    //    @NotBlank
+    //    @NotNull
     private String requester;
-    //    @NotBlank
+    //    @NotNull
     private String requestercontacts;
     private String ipaddress;
-    private int duration;
-    //    @NotBlank
+    //    private int duration;
+//    @NotNull
     private String description;
     private int engineer;
     private String engineerName;
-    //    @NotBlank
+    //    @NotNull
     private int operator;
     private String operatorName;
     private int status;
     private String statusTitle;
+    @AssertFalse
     private Timestamp closedate;
     private String journal;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getOpendate() {
+        return opendate;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setOpendate(Timestamp opendate) {
+        this.opendate = opendate;
     }
 
     public int getCategory() {
@@ -126,14 +129,14 @@ public class IncidentForm {
     public void setIpaddress(String ipaddress) {
         this.ipaddress = ipaddress;
     }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
+//
+//    public int getDuration() {
+//        return duration;
+//    }
+//
+//    public void setDuration(int duration) {
+//        this.duration = duration;
+//    }
 
     public String getDescription() {
         return description;
@@ -213,17 +216,17 @@ public class IncidentForm {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         IncidentForm incident = (IncidentForm) o;
-        return id == incident.id &&
+        return id.equals(incident.id) &&
                 category == incident.category &&
                 priority == incident.priority &&
                 requesterdepartment == incident.requesterdepartment &&
                 operator == incident.operator &&
                 status == incident.status &&
-                Objects.equals(date, incident.date) &&
+                Objects.equals(opendate, incident.opendate) &&
                 Objects.equals(requester, incident.requester) &&
                 Objects.equals(requestercontacts, incident.requestercontacts) &&
                 Objects.equals(ipaddress, incident.ipaddress) &&
-                Objects.equals(duration, incident.duration) &&
+//                Objects.equals(duration, incident.duration) &&
                 Objects.equals(description, incident.description) &&
                 Objects.equals(engineer, incident.engineer) &&
                 Objects.equals(closedate, incident.closedate) &&
@@ -232,6 +235,6 @@ public class IncidentForm {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, duration, description, engineer, operator, status, closedate, journal);
+        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress,/* duration, */description, engineer, operator, status, closedate, journal);
     }
 }

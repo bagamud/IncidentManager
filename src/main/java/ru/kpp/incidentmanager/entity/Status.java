@@ -15,6 +15,14 @@ public class Status {
     private int id;
     private String title;
 
+    public Status() {
+    }
+
+    public Status(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     @Id
     @Column(name = "ID")
     public int getId() {

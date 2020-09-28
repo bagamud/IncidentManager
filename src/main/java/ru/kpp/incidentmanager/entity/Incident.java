@@ -13,14 +13,14 @@ import java.util.Objects;
 @Table(schema = "inm")
 public class Incident {
     private int id;
-    private Timestamp date;
+    private Timestamp opendate;
     private Category category;
     private Priority priority;
     private Department requesterdepartment;
     private String requester;
     private String requestercontacts;
     private String ipaddress;
-    private Integer duration;
+    //    private Integer duration;
     private String description;
     private Users engineer;
     private Users operator;
@@ -29,8 +29,8 @@ public class Incident {
     private String journal;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -41,12 +41,12 @@ public class Incident {
 
     @Basic
     @Column(name = "DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getOpendate() {
+        return opendate;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setOpendate(Timestamp opendate) {
+        this.opendate = opendate;
     }
 
     @ManyToOne(targetEntity = Category.class, fetch = FetchType.EAGER)
@@ -60,7 +60,7 @@ public class Incident {
     }
 
     @ManyToOne(targetEntity = Priority.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "PRIORITY")
+    @JoinColumn(name = "PRIORITY", columnDefinition = "int default 1")
     public Priority getPriority() {
         return priority;
     }
@@ -109,15 +109,15 @@ public class Incident {
         this.ipaddress = ipaddress;
     }
 
-    @Basic
-    @Column(name = "DURATION")
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
+//    @Basic
+//    @Column(name = "DURATION")
+//    public Integer getDuration() {
+//        return duration;
+//    }
+//
+//    public void setDuration(Integer duration) {
+//        this.duration = duration;
+//    }
 
     @Basic
     @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
@@ -150,7 +150,7 @@ public class Incident {
     }
 
     @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "STATUS")
+    @JoinColumn(name = "STATUS", columnDefinition = "int default 1")
     public Status getStatus() {
         return status;
     }
@@ -190,11 +190,11 @@ public class Incident {
                 requesterdepartment == incident.requesterdepartment &&
                 operator == incident.operator &&
                 status == incident.status &&
-                Objects.equals(date, incident.date) &&
+                Objects.equals(opendate, incident.opendate) &&
                 Objects.equals(requester, incident.requester) &&
                 Objects.equals(requestercontacts, incident.requestercontacts) &&
                 Objects.equals(ipaddress, incident.ipaddress) &&
-                Objects.equals(duration, incident.duration) &&
+//                Objects.equals(duration, incident.duration) &&
                 Objects.equals(description, incident.description) &&
                 Objects.equals(engineer, incident.engineer) &&
                 Objects.equals(closedate, incident.closedate) &&
@@ -203,6 +203,6 @@ public class Incident {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, duration, description, engineer, operator, status, closedate, journal);
+        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, /*duration,*/ description, engineer, operator, status, closedate, journal);
     }
 }
