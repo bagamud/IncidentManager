@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img alt="Russian Federation" height="30" src="../img/mvd.png" style="margin-left: 10px" width="52"/>
@@ -13,7 +14,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="navbar-brand">${pageContext.request.userPrincipal.name}</a>
+                <a class="navbar-brand" id="principal"></a>
             </li>
             <li class="nav-item">
                 <button class="navbar-brand btn-lg btn-primary" onclick="location.href='/logout'">
@@ -28,3 +29,4 @@
         </ul>
     </div>
 </nav>
+

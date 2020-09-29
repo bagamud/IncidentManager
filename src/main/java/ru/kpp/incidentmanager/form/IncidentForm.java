@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class IncidentForm {
 
-    private String id;
+    private int id;
     //    @AssertFalse
     private Timestamp opendate;
     //    @NotNull
@@ -42,11 +42,11 @@ public class IncidentForm {
     private Timestamp closedate;
     private String journal;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -216,7 +216,7 @@ public class IncidentForm {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         IncidentForm incident = (IncidentForm) o;
-        return id.equals(incident.id) &&
+        return id == incident.id &&
                 category == incident.category &&
                 priority == incident.priority &&
                 requesterdepartment == incident.requesterdepartment &&

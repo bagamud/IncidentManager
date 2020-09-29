@@ -1,3 +1,5 @@
+<%@ page import="ru.kpp.incidentmanager.entity.Users" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="ru">
 <head>
@@ -14,12 +16,12 @@
                 <h1 class="h2">Инцидент</h1>
             </div>
             <div class="row">
-                <div class="col-md-5 order-md-2 mb-4">
+                <div class="col-md-5 order-md-2 mb-4 ">
                     <div id="carousel" class="carousel" data-interval="false">
                         <div class="carousel-inner">
-                            <div class="carousel-item">
+                            <div class="carousel-item active">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header bg-info text-center text-light text-uppercase">
                                         Справочник
                                     </div>
                                     <div class="card-body">
@@ -34,28 +36,36 @@
 
                 <div class="col-md-7 order-md-1">
                     <form class="needs-validation" action="${pageContext.request.contextPath}/manager" method="post"
-                          name="form" id="formId" novalidate>
+                          name="form" id="formId">
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class=" col-md-4 mb-3">
                                 <label for="id">Номер</label>
-                                <input class="form-control <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
-                                       id="id" type="text" name="id"
-                                       value="${incident.id}" disabled>
-                                <div class="invalid-feedback">
-                                    Неправильный номер записи
+                                <div class="input-group">
+                                    <input class="form-control <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
+                                           id="id" type="number" min="0" name="id"
+                                           value="${incident.id}">
+                                    <div class="invalid-feedback">
+                                        Неправильный номер записи
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn-light" type="submit" formaction="/manager/get"
+                                                formmethod="get" formnovalidate>Поиск
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="opendate">Дата открытия заявки</label>
-                                <input class="form-control" id="opendate" type="datetime-local" name="opendate"
-                                       value="${incident.opendate}" disabled required min="0">
+                                <input class="form-control" id="opendate" type="text" name="opendate"
+                                       value="${incident.opendate}" readonly required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="operator">Оператор</label>
                                 <select class="form-control custom-select d-block w-100 form-control" id="operator"
-                                        required onchange=""
+                                        required
                                         type="text" name="operator">
-                                    <option value="${incident.operator}">${incident.operatorName}</option>
+                                    <option id="defaultOperator"
+                                            value="${incident.operator}">${incident.operatorName}</option>
                                     ${users}
                                 </select>
                                 <div class="invalid-feedback">
@@ -126,8 +136,7 @@
                         <div class="row">
                             <div class="col-md-2 mb-3">
                                 <label for="priority">Приоритет</label>
-                                <select class="form-control custom-select d-block w-100" id="priority" name="priority"
-                                        required>
+                                <select class="form-control custom-select d-block w-100" id="priority" name="priority">
                                     <option value="${incident.priority}">${incident.priorityDescription}</option>
                                     ${priority}
                                 </select>
@@ -135,7 +144,6 @@
                             <div class="col-md-2 mb-3">
                                 <label for="status">Статус заявки</label>
                                 <select class="form-control custom-select d-block w-100" id="status" name="status"
-                                        required
                                         type="text">
                                     <option value="${incident.status}">${incident.statusTitle}</option>
                                     ${status}
@@ -144,10 +152,9 @@
                             <div class="col-md-4 mb-3">
                                 <label for="engineer">Инженер</label>
                                 <select class="form-control custom-select d-block w-100" id="engineer"
-                                        name="engineer" required
+                                        name="engineer"
                                         type="text">
-                                    <option value="${incident.engineer}"
-                                            label="${incident.engineerName}">${incident}</option>
+                                    <option value="${incident.engineer}">${incident.engineerName}</option>
                                     ${users}
                                 </select>
                                 <div class="invalid-feedback">
@@ -160,46 +167,47 @@
                                        value="${incident.closedate}" disabled>
                             </div>
                         </div>
-                        <hr class="mb-4">
+                        <hr class="mb-5">
                         <div class="row">
-                            <div class="btn-group-lg">
+                            <div class="col-auto btn-group-lg">
                                 <input class="btn btn-primary" type="submit" value="Сохранить"
                                        formaction="/manager/add"/>
                                 <input class="btn btn-primary" type="button" onclick="location.href='/manager'"
-                                       value="Очистить"/>
+                                       value="Новый"/>
                                 <input class="btn btn-primary" type="submit" formaction="/manager/done"
                                        value="Выполнено"/>
                             </div>
                         </div>
                     </form>
-                    <form action="${pageContext.request.contextPath}/manager/get" method="get">
-                        <div class="input-group col-md-3 mb-3">
-                            <label for="search"></label>
-                            <input class="form-control-lg <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
-                                   id="search" type="text" name="id">
-                            <div class="invalid-feedback">
-                                Неправильный номер записи
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-primary btn-lg" type="submit"
-                                        formaction="/manager/get"
-                                        formmethod="get">Поиск
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+
 
                 </div>
             </div>
         </main>
     </div>
 </div>
+<%
+    List<Users> users = (List<Users>) request.getAttribute("user");
+    if (users != null) {
+        for (Users user : users) {
+            if (user.getUsername().equals(request.getUserPrincipal().getName()))
+                out.print("<input type=\"text\" id=\"userId\" value=\"" + user.getId() + "\" hidden/>\n" +
+                        "<input type=\"text\" id=\"userName\" value=\"" + user.getName() + "\" hidden/>");
+        }
+    }
+%>
 <script>
     document.getElementById('category').onchange = function () {
         Array.from(document.getElementsByClassName('carousel-item active'))
             .forEach((carouselelement) => carouselelement.setAttribute('class', 'carousel-item'));
         document.getElementById(this.value).setAttribute('class', 'carousel-item active');
     }
+    // const userId = document.getElementById('userId').value;
+    const userName = document.getElementById('userName').value;
+    // document.getElementById('defaultOperator').setAttribute('value', userId);
+    // document.getElementById('defaultOperator').innerText = userName;
+    document.getElementById('principal').innerText = userName;
+
 </script>
 <jsp:include page="../template/_footer.jsp"/>
 </body>

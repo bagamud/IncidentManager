@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.kpp.incidentmanager.entity.*;
@@ -86,8 +85,8 @@ public class MainController {
 //     * @return возвращяет путь к странице
 //     */
 
-    @GetMapping(path = "/manager/{search}")
-    public String getIncident(@PathVariable(name = "search") int id, Model model) {
+    @GetMapping(path = "/manager/get")
+    public String getIncident(@RequestParam int id, Model model) {
         getVocabulary(model);
         try {
             Incident incident = incidentsController.getIncident(id);
@@ -115,10 +114,17 @@ public class MainController {
     public String addIncident(/*@Valid*/ IncidentForm incidentForm, BindingResult bindingResult, Model model) {
         getVocabulary(model);
         if (bindingResult.hasErrors()) {
-            model.addAttribute("errors", bindingResult.hasErrors());
+            model.addAttribute("errors", bindingResult.getAllErrors());
         }
-        Incident incident = incidentTransForm.convert(incidentForm);
-        model.addAttribute("incident", incidentTransForm.convert(incidentsController.addIncident(incident)));
+        try {
+            if (incidentForm.getOpendate() == null) incidentForm.setOpendate(new Timestamp(new Date().getTime()));
+            if (incidentForm.getPriority() == 0) incidentForm.setPriority(3);
+            if (incidentForm.getStatus() == 0) incidentForm.setStatus(1);
+            Incident incident = incidentTransForm.convert(incidentForm);
+            model.addAttribute("incident", incidentTransForm.convert(incidentsController.addIncident(incident)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "manager";
     }
 
@@ -172,6 +178,7 @@ public class MainController {
 
     @GetMapping(path = "/dashboard")
     public String dashboard(Model model) {
+        model.addAttribute("user", usersRepository.findAll());
         model.addAttribute("incidentsInService", incidentsController.getIncidentsInService((statusRepository.findAll()).get(2)));
         return "dashboard";
     }
@@ -238,6 +245,8 @@ public class MainController {
         }
         String users = sb.toString();
         model.addAttribute("users", users);
+
+        model.addAttribute("user", usersRepository.findAll());
 
         model.addAttribute("faq", faqController.getFaq());
     }

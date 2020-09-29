@@ -44,8 +44,8 @@ public class IncidentTransForm {
 
         Incident incident = new Incident();
 
-        if (!incidentForm.getId().isBlank()) incident.setId(Integer.parseInt(incidentForm.getId()));
-//        incident.setOpendate(incidentForm.getOpendate());
+        incident.setId(incidentForm.getId());
+        incident.setOpendate(incidentForm.getOpendate());
         incident.setCategory(categoryRepository.findById(incidentForm.getCategory()));
         incident.setPriority(priorityRepository.findById(incidentForm.getPriority()));
         incident.setRequesterdepartment(departmentRepository.findById(incidentForm.getRequesterdepartment()));
@@ -74,7 +74,7 @@ public class IncidentTransForm {
 
         IncidentForm incidentForm = new IncidentForm();
 
-        incidentForm.setId(String.valueOf(incident.getId()));
+        incidentForm.setId(incident.getId());
         incidentForm.setOpendate(incident.getOpendate());
         incidentForm.setCategory(incident.getCategory().getId());
         incidentForm.setCategoryTitle(incident.getCategory().getTitle());
@@ -89,8 +89,10 @@ public class IncidentTransForm {
         incidentForm.setIpaddress(incident.getIpaddress());
 //        if (incident.getDuration() != null) incidentForm.setDuration(incident.getDuration());
         incidentForm.setDescription(incident.getDescription());
-        incidentForm.setEngineer(incident.getEngineer().getId());
-        incidentForm.setEngineerName(incident.getEngineer().getName());
+        if (incident.getEngineer() != null) {
+            incidentForm.setEngineer(incident.getEngineer().getId());
+            incidentForm.setEngineerName(incident.getEngineer().getName());
+        }
         incidentForm.setOperator(incident.getOperator().getId());
         incidentForm.setOperatorName(incident.getOperator().getName());
         incidentForm.setStatus(incident.getStatus().getId());

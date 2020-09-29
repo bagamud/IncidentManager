@@ -89,13 +89,17 @@ public class IncidentsController {
     public String getIncidentsInService(Status status) {
         StringBuilder stringBuilder = new StringBuilder();
         String alert;
+        String userName = "";
         for (Incident incident : incidentRepository.findAllByStatusIsNot(status)) {
+            if (incident.getEngineer() == null) {
+                userName = "Заявка не назначена";
+            } else userName = incident.getEngineer().getName();
             if (incident.getPriority().getId() == 1) {
                 alert = " class=\"table-danger\"";
             } else if (incident.getPriority().getId() == 2) {
                 alert = " class=\"table-warning\"";
             } else alert = "";
-            stringBuilder.append("<tr onclick=\"location.href='/manager?id=")
+            stringBuilder.append("<tr onclick=\"location.href='/manager/get?id=")
                     .append(incident.getId())
                     .append("'\"")
                     .append(alert).append("><td>")
@@ -105,7 +109,7 @@ public class IncidentsController {
                     .append("</td><td>")
                     .append(incident.getOpendate())
                     .append("</td><td>")
-                    .append(incident.getEngineer().getName())
+                    .append(userName)
                     .append("</td><td>")
                     .append(incident.getPriority().getDescription())
                     .append("</td><td>")

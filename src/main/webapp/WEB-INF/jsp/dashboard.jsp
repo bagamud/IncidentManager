@@ -1,8 +1,6 @@
-<%@ page import="ru.kpp.incidentmanager.entity.Incident" %>
-<%@ page import="ru.kpp.incidentmanager.entity.Priority" %>
+<%@ page import="ru.kpp.incidentmanager.entity.Users" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib prefix="j" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
@@ -21,26 +19,43 @@
                 <h1 class="h2">Панель мониторинга</h1>
             </div>
             <div class="table-responsive">
-                <table class="table table-hover table-active">
+                <table class="table table-hover>
                     <thead>
-                    <tr onclick="location.href='/dashboard'">
-                        <th>#</th>
-                        <th>Подразделение</th>
-                        <th>Дата заявки</th>
-                        <th>Исполнитель</th>
-                        <th>Приоритет</th>
-                        <th>Категория</th>
-                        <th>Статус</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    ${incidentsInService}
-                    </tbody>
+                    <tr onclick=" location.href='/dashboard'
+                ">
+                <th>#</th>
+                <th>Подразделение</th>
+                <th>Дата заявки</th>
+                <th>Исполнитель</th>
+                <th>Приоритет</th>
+                <th>Категория</th>
+                <th>Статус</th>
+                </tr>
+                </thead>
+                <tbody>
+                ${incidentsInService}
+                </tbody>
                 </table>
             </div>
         </main>
     </div>
+
 </div>
+<%
+    List<Users> users = (List<Users>) request.getAttribute("user");
+    if (users != null) {
+        for (Users user : users) {
+            if (user.getUsername().equals(request.getUserPrincipal().getName()))
+                out.print("<input type=\"text\" id=\"userId\" value=\"" + user.getId() + "\" hidden/>\n" +
+                        "<input type=\"text\" id=\"userName\" value=\"" + user.getName() + "\" hidden/>");
+        }
+    }
+%>
+<script>
+    const userId = document.getElementById('userId').value;
+    const userName = document.getElementById('userName').value;
+    document.getElementById('principal').innerText = userName;
+</script>
 <jsp:include page="../template/_footer.jsp"/>
 </body>
 </html>
