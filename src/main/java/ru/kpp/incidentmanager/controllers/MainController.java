@@ -49,7 +49,7 @@ public class MainController {
         this.incidentTransForm = incidentTransForm;
         this.faqController = faqController;
     }
-
+//
 //    /**
 //     * Метод контроллера домашней страницы
 //     *
@@ -61,7 +61,6 @@ public class MainController {
 //    public String index(Model model) {
 //        return "main";
 //    }
-
     /**
      * Метод контроллера страницы manager, в котором реализовано получение справочников в виде массивов классов сущностей
      * для работы с записью об инциденте, и передача справочников в аттрибуты страницы
@@ -75,15 +74,15 @@ public class MainController {
         getVocabulary(model);
         return "manager";
     }
-//
-//    /**
-//     * Метод контроллера реализующие получение справочников и записи об инциденте по идентификационному номеру
-//     * и дальнейшая передача в аттрибуты страницы
-//     *
-//     * @param id    идентификационный номер записи об инциденте
-//     * @param model интерфейс определяющий аттрибуты
-//     * @return возвращяет путь к странице
-//     */
+
+    /**
+     * Метод контроллера реализующие получение справочников и записи об инциденте по идентификационному номеру
+     * и дальнейшая передача в аттрибуты страницы
+     *
+     * @param id    идентификационный номер записи об инциденте
+     * @param model интерфейс определяющий аттрибуты
+     * @return возвращяет путь к странице
+     */
 
     @GetMapping(path = "/manager/get")
     public String getIncident(@RequestParam int id, Model model) {
@@ -111,7 +110,7 @@ public class MainController {
      */
 
     @PostMapping(path = "/manager/add")
-    public String addIncident(/*@Valid*/ IncidentForm incidentForm, BindingResult bindingResult, Model model) {
+    public String addIncident(IncidentForm incidentForm, BindingResult bindingResult, Model model) {
         getVocabulary(model);
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
@@ -127,7 +126,7 @@ public class MainController {
         }
         return "manager";
     }
-
+//
 //    /**
 //     * Метод контроллера реализующий обновление записи об инциденте из веб-формы в баз данных, возвращает обновленную
 //     * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
@@ -145,7 +144,7 @@ public class MainController {
 //        model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
 //        return "manager";
 //    }
-
+//
     /**
      * Метод контроллера реализующий обновление в баз данных статуса записи об инциденте на "Решен" и формирование даты
      * решения заявки, возвращает обновленную

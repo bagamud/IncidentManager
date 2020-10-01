@@ -6,7 +6,7 @@
     <link href="../css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-<form class="form-signin" action="/login" method="POST">
+<form class="form-signin" action="${pageContext.request.contextPath}/login" method="POST">
     <img class="mb-4" src="../img/gibdd.png" alt="">
     <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
 

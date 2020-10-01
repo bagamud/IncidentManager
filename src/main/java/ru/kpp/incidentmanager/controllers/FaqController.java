@@ -25,7 +25,7 @@ public class FaqController {
             stringBuilder.append("<div class=\"carousel-item\" id=\"")
                     .append(faq.getId())
                     .append("\"><div class=\"card\">")
-                    .append("<div class=\"card-header\">")
+                    .append("<div class=\"card-header bg-info text-center text-light text-uppercase\">")
                     .append(faq.getCardTitle())
                     .append("</div><div class=\"card-body\">")
                     .append(faq.getCardText())

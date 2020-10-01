@@ -42,7 +42,7 @@
                                 <label for="id">Номер</label>
                                 <div class="input-group">
                                     <input class="form-control <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
-                                           id="id" type="number" min="0" name="id"
+                                           id="id" type="number" min="0" pattern="^[0-9]+$" name="id"
                                            value="${incident.id}">
                                     <div class="invalid-feedback">
                                         Неправильный номер записи
@@ -119,7 +119,7 @@
                             <div class="col-md-3 mb-3">
                                 <label for="ipaddress">IP-адрес</label>
                                 <input class="form-control" id="ipaddress" name="ipaddress" placeholder="0.0.0.0"
-                                       type="text"
+                                       type="text" pattern="\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}"
                                        value="${incident.ipaddress}">
                             </div>
                         </div>
@@ -202,10 +202,7 @@
             .forEach((carouselelement) => carouselelement.setAttribute('class', 'carousel-item'));
         document.getElementById(this.value).setAttribute('class', 'carousel-item active');
     }
-    // const userId = document.getElementById('userId').value;
     const userName = document.getElementById('userName').value;
-    // document.getElementById('defaultOperator').setAttribute('value', userId);
-    // document.getElementById('defaultOperator').innerText = userName;
     document.getElementById('principal').innerText = userName;
 
 </script>

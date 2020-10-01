@@ -46,15 +46,17 @@ public class IncidentsController {
         return incidentRepository.findById(id);
     }
 
-    /**
-     * Веб-метод получения всех записей об инцидентах из базы данных
-     *
-     * @return - возвращается массив экземпляров класса Incident
-     */
-
-    public Iterable<Incident> getAllIncidents() {
-        return incidentRepository.findAll();
-    }
+// --Commented out by Inspection START (01.10.2020 12:34):
+//    /**
+//     * Веб-метод получения всех записей об инцидентах из базы данных
+//     *
+//     * @return - возвращается массив экземпляров класса Incident
+//     */
+//
+//    public Iterable<Incident> getAllIncidents() {
+//        return incidentRepository.findAll();
+//    }
+// --Commented out by Inspection STOP (01.10.2020 12:34)
 
 
     /**
@@ -70,15 +72,17 @@ public class IncidentsController {
         return incidentRepository.save(incidentById);
     }
 
-    /**
-     * Веб-метод удаления записи об инциденте в базе даннх
-     *
-     * @param id номер записи об инциденте для удаления
-     */
-
-    public void deleteIncident(int id) {
-        incidentRepository.deleteById(id);
-    }
+// --Commented out by Inspection START (01.10.2020 12:36):
+//    /**
+//     * Веб-метод удаления записи об инциденте в базе даннх
+//     *
+//     * @param id номер записи об инциденте для удаления
+//     */
+//
+//    public void deleteIncident(int id) {
+//        incidentRepository.deleteById(id);
+//    }
+// --Commented out by Inspection STOP (01.10.2020 12:36)
 
     /**
      * Веб-метод получения всех записей об инцидентах из базы данных со статусом, отличным от статуса "Решен"
@@ -89,7 +93,7 @@ public class IncidentsController {
     public String getIncidentsInService(Status status) {
         StringBuilder stringBuilder = new StringBuilder();
         String alert;
-        String userName = "";
+        String userName;
         for (Incident incident : incidentRepository.findAllByStatusIsNot(status)) {
             if (incident.getEngineer() == null) {
                 userName = "Заявка не назначена";

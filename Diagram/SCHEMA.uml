@@ -3,55 +3,48 @@
   <ID>DATABASE</ID>
   <OriginalElement>e29d2465-84b4-47a7-8e76-68c358339593.SCHEMA:inm</OriginalElement>
   <nodes>
-    <node x="0.0" y="11.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.category</node>
-    <node x="144.0" y="22.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.priority</node>
-    <node x="647.0" y="55.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.department</node>
-    <node x="471.0" y="0.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.users</node>
-    <node x="327.0" y="55.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.status</node>
-    <node x="348.0" y="247.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident</node>
+    <node x="503.0" y="55.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.department</node>
+    <node x="320.0" y="22.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.priority</node>
+    <node x="647.0" y="11.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.category</node>
+    <node x="143.99999999999997" y="0.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.users</node>
+    <node x="0.0" y="55.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.status</node>
+    <node x="229.75" y="247.0">e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident</node>
   </nodes>
   <notes />
   <edges>
     <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.priority">
-      <point x="-50.75" y="-181.5" />
-      <point x="398.75" y="217.0" />
-      <point x="225.5" y="217.0" />
+      <point x="16.916666666666686" y="-181.5" />
+      <point x="348.1666666666667" y="207.0" />
+      <point x="401.5" y="207.0" />
       <point x="0.0" y="71.5" />
     </edge>
     <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.category">
-      <point x="-84.58333333333337" y="-181.5" />
-      <point x="364.91666666666663" y="227.0" />
-      <point x="62.0" y="227.0" />
+      <point x="84.58333333333331" y="-181.5" />
+      <point x="415.8333333333333" y="227.0" />
+      <point x="709.0" y="227.0" />
       <point x="0.0" y="82.5" />
     </edge>
     <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.department">
-      <point x="84.58333333333337" y="-181.5" />
-      <point x="534.0833333333334" y="227.0" />
-      <point x="709.0" y="227.0" />
+      <point x="50.75" y="-181.5" />
+      <point x="382.0" y="217.0" />
+      <point x="565.0" y="217.0" />
       <point x="0.0" y="38.5" />
     </edge>
     <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.status">
-      <point x="-16.91666666666663" y="-181.5" />
-      <point x="432.58333333333337" y="207.0" />
-      <point x="389.0" y="207.0" />
+      <point x="-84.58333333333334" y="-181.5" />
+      <point x="246.66666666666666" y="227.0" />
+      <point x="62.0" y="227.0" />
       <point x="0.0" y="38.5" />
     </edge>
     <edge source="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident" target="e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.users">
-      <point x="16.916666666666686" y="-181.5" />
-      <point x="466.41666666666663" y="207.0" />
-      <point x="510.0" y="207.0" />
+      <point x="-50.75" y="-181.5" />
+      <point x="280.5" y="217.0" />
+      <point x="182.99999999999997" y="217.0" />
       <point x="-39.0" y="93.5" />
     </edge>
   </edges>
   <settings layout="Hierarchic Group" zoom="1.0" x="385.5" y="305.0" />
-  <SelectedNodes>
-    <node>e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.department</node>
-    <node>e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.incident</node>
-    <node>e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.users</node>
-    <node>e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.priority</node>
-    <node>e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.category</node>
-    <node>e29d2465-84b4-47a7-8e76-68c358339593.TABLE:inm.status</node>
-  </SelectedNodes>
+  <SelectedNodes />
   <Categories>
     <Category>Key columns</Category>
     <Category>Columns</Category>

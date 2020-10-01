@@ -10,7 +10,7 @@
     <img class="mb-4" src="../img/gibdd.png" alt="">
     <p>Выпускная квалификационная работа</p>
     <h1>Тема: Разработка серверного приложения, автоматизирующего процесс управления инцидентами в ИТ-подразделении</h1>
-    <button class="btn btn-lg btn-primary <%--btn-block--%>" type="submit">Войти</button>
+    <button class="btn btn-lg btn-primary" type="submit">Войти</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020-2020</p>
 </form>
 </body>

@@ -19,21 +19,20 @@
                 <h1 class="h2">Панель мониторинга</h1>
             </div>
             <div class="table-responsive">
-                <table class="table table-hover>
+                <table class="table table-hover">
                     <thead>
-                    <tr onclick=" location.href='/dashboard'
-                ">
-                <th>#</th>
-                <th>Подразделение</th>
-                <th>Дата заявки</th>
-                <th>Исполнитель</th>
-                <th>Приоритет</th>
-                <th>Категория</th>
-                <th>Статус</th>
-                </tr>
-                </thead>
-                <tbody>
-                ${incidentsInService}
+                    <tr onclick=" location.href='/dashboard'">
+                        <th>#</th>
+                        <th>Подразделение</th>
+                        <th>Дата заявки</th>
+                        <th>Исполнитель</th>
+                        <th>Приоритет</th>
+                        <th>Категория</th>
+                        <th>Статус</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    ${incidentsInService}
                 </tbody>
                 </table>
             </div>
