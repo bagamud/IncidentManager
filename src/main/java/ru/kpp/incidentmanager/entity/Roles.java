@@ -1,18 +1,23 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности ролей пользователей, используется
+ * при формировании сведений о пользователе используемых при аутентификации доступа пользователя
+ * к ресурсам
+ */
+
 @Entity
+@Table(schema = "inm")
 public class Roles {
     private int id;
     private String name;
 
     @Id
-    @Column(name = "ID")
+    @Column
     public int getId() {
         return id;
     }
@@ -22,7 +27,7 @@ public class Roles {
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column
     public String getName() {
         return name;
     }

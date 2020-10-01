@@ -1,32 +1,36 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности записи об инциденте
+ */
+
 @Entity
+@Table(schema = "inm")
 public class Incident {
     private int id;
-    private Timestamp date;
-    private int category;
-    private int priority;
-    private int requesterdepartment;
+    private Timestamp opendate;
+    private Category category;
+    private Priority priority;
+    private Department requesterdepartment;
     private String requester;
     private String requestercontacts;
     private String ipaddress;
-    private Integer duration;
+    //    private Integer duration;
     private String description;
-    private Integer engineer;
-    private int operator;
-    private int status;
+    private Users engineer;
+    private Users operator;
+    private Status status;
     private Timestamp closedate;
     private String journal;
 
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -36,42 +40,42 @@ public class Incident {
     }
 
     @Basic
-    @Column(name = "DATE")
-    public Timestamp getDate() {
-        return date;
+    @Column(name = "DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    public Timestamp getOpendate() {
+        return opendate;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setOpendate(Timestamp opendate) {
+        this.opendate = opendate;
     }
 
-    @Basic
-    @Column(name = "CATEGORY")
-    public int getCategory() {
+    @ManyToOne(targetEntity = Category.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CATEGORY")
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    @Basic
-    @Column(name = "PRIORITY")
-    public int getPriority() {
+    @ManyToOne(targetEntity = Priority.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "PRIORITY", columnDefinition = "int default 1")
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
-    @Basic
-    @Column(name = "REQUESTERDEPARTMENT")
-    public int getRequesterdepartment() {
+    @ManyToOne(targetEntity = Department.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "REQUESTERDEPARTMENT")
+    public Department getRequesterdepartment() {
         return requesterdepartment;
     }
 
-    public void setRequesterdepartment(int requesterdepartment) {
+    public void setRequesterdepartment(Department requesterdepartment) {
         this.requesterdepartment = requesterdepartment;
     }
 
@@ -105,18 +109,18 @@ public class Incident {
         this.ipaddress = ipaddress;
     }
 
-    @Basic
-    @Column(name = "DURATION")
-    public Integer getDuration() {
-        return duration;
-    }
+//    @Basic
+//    @Column(name = "DURATION")
+//    public Integer getDuration() {
+//        return duration;
+//    }
+//
+//    public void setDuration(Integer duration) {
+//        this.duration = duration;
+//    }
 
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     public String getDescription() {
         return description;
     }
@@ -125,38 +129,38 @@ public class Incident {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "ENGINEER")
-    public Integer getEngineer() {
+    @ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ENGINEER")
+    public Users getEngineer() {
         return engineer;
     }
 
-    public void setEngineer(Integer engineer) {
+    public void setEngineer(Users engineer) {
         this.engineer = engineer;
     }
 
-    @Basic
-    @Column(name = "OPERATOR")
-    public int getOperator() {
+    @ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "OPERATOR")
+    public Users getOperator() {
         return operator;
     }
 
-    public void setOperator(int operator) {
+    public void setOperator(Users operator) {
         this.operator = operator;
     }
 
-    @Basic
-    @Column(name = "STATUS")
-    public int getStatus() {
+    @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "STATUS", columnDefinition = "int default 1")
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
     @Basic
-    @Column(name = "CLOSEDATE")
+    @Column(name = "CLOSEDATE", columnDefinition = "TIMESTAMP")
     public Timestamp getClosedate() {
         return closedate;
     }
@@ -186,11 +190,11 @@ public class Incident {
                 requesterdepartment == incident.requesterdepartment &&
                 operator == incident.operator &&
                 status == incident.status &&
-                Objects.equals(date, incident.date) &&
+                Objects.equals(opendate, incident.opendate) &&
                 Objects.equals(requester, incident.requester) &&
                 Objects.equals(requestercontacts, incident.requestercontacts) &&
                 Objects.equals(ipaddress, incident.ipaddress) &&
-                Objects.equals(duration, incident.duration) &&
+//                Objects.equals(duration, incident.duration) &&
                 Objects.equals(description, incident.description) &&
                 Objects.equals(engineer, incident.engineer) &&
                 Objects.equals(closedate, incident.closedate) &&
@@ -199,6 +203,6 @@ public class Incident {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, duration, description, engineer, operator, status, closedate, journal);
+        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, /*duration,*/ description, engineer, operator, status, closedate, journal);
     }
 }

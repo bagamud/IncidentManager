@@ -1,15 +1,26 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности статуся заявки об инциденте, используется при формировании справочника, используемого веб-формами
+ */
+
 @Entity
+@Table(schema = "inm")
 public class Status {
     private int id;
     private String title;
+
+    public Status() {
+    }
+
+    public Status(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 
     @Id
     @Column(name = "ID")

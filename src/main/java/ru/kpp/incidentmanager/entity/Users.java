@@ -1,21 +1,23 @@
 package ru.kpp.incidentmanager.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности пользователей, используется для формирования сведений о пользователе для аутентификации
+ * запросов к ресурсам, а также при формировании справочника, используемого
+ * веб-формами
+ */
+
 @Entity
+@Table(schema = "inm")
 public class Users {
     private int id;
     private String username;
-    @JsonIgnore
     private String password;
     private String name;
-    private int role;
+    private Roles role;
     private String contacts;
     private String email;
 
@@ -59,13 +61,13 @@ public class Users {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "role")
-    public int getRole() {
+    @ManyToOne(targetEntity = Roles.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "role")
+    public Roles getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 

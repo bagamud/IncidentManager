@@ -1,12 +1,17 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+
+/**
+ * Класс сущности, содержащий переменные элемента вложенного множества категорий инцидентов
+ * В настоящем клиенте представлен в классе {@link ru.kpp.incidentmanager.entity.Incident Incident},
+ * а также в справочнике используемом для веб-форм
+ */
+
 @Entity
+@Table(schema = "inm")
 public class Category {
     private int id;
     private int level;
@@ -16,7 +21,7 @@ public class Category {
     private int parentId;
 
     @Id
-    @Column(name = "ID")
+    @Column
     public int getId() {
         return id;
     }
@@ -26,7 +31,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "LEVEL")
+    @Column
     public int getLevel() {
         return level;
     }
@@ -36,7 +41,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "LEFTKEY")
+    @Column
     public int getLeftkey() {
         return leftkey;
     }
@@ -46,7 +51,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "RIGHTKEY")
+    @Column
     public int getRightkey() {
         return rightkey;
     }
@@ -56,7 +61,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "TITLE")
+    @Column
     public String getTitle() {
         return title;
     }
@@ -66,7 +71,7 @@ public class Category {
     }
 
     @Basic
-    @Column(name = "PARENT_ID")
+    @Column
     public int getParentId() {
         return parentId;
     }

@@ -6,8 +6,10 @@ import ru.kpp.incidentmanager.entity.Users;
 import java.util.List;
 
 public interface UsersRepository extends CrudRepository<Users, Integer> {
+    List<Users> findAll();
+
     Users findByUsername(String username);
 
-//    List<Users> findAllByRoleIsNot(int role);
+    Users findById(int id);
 
 }

@@ -1,3 +1,1233 @@
+GET http://localhost:8080/manager
+Content-Type: application/json
+
+{
+
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-24T054703.401.json
+
+###
+
+POST http://localhost:8080/manager
+Content-Type: application/json
+
+{
+
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-24T054655.403.json
+
+###
+
+POST http://localhost:8080/inm/incident
+Content-Type: application/json
+
+{
+
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111212.200.json
+
+###
+
+POST http://localhost:8080/inm/incident
+Content-Type: application/json
+
+{
+
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111210.200.json
+
+###
+
+POST http://localhost:8080/inm/incident
+Content-Type: application/json
+
+{
+
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111207.200.json
+
+###
+
+POST http://localhost:8080/inm/incident
+Content-Type: application/json
+
+{
+
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111202.200.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 2,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111116.200.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111111.200.json
+
+###
+
+PUT http://localhost:8080/inm/incident/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111021.200.json
+
+###
+
+PUT http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.123",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T111003.405.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": null,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110922.500.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 6,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110907.500.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 5,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110901.200.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 7,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110856.500.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": fe348a99-027f-4b80-9112-a4e57fc9efbc,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110845.400.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110813.200.json
+
+###
+
+GET http://localhost:8080/inm/incident/1
+
+<> 2020-09-21T110747.200.json
+
+###
+
+GET http://localhost:8080/incident/1
+
+<> 2020-09-21T110731.404.html
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": 3,
+  "priority": null,
+  "requesterdepartment": 1,
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": 3,
+  "operator": 2,
+  "status": 1,
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110641.400.json
+
+###
+
+PUT http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110359.405.json
+
+###
+
+POST http://localhost:8080/inm/incident/
+Content-Type: application/json
+
+{
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110338.500.json
+
+###
+
+POST http://localhost:8080/inm/incident/add
+Content-Type: application/json
+
+{
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+<> 2020-09-21T110253.405.json
+
+###
+
+POST http://localhost:8090/inm/incident/add
+Content-Type: application/json
+
+{
+  "date": "2020-09-14T22:34:20.000+00:00",
+  "category": {
+    "id": 3,
+    "level": 2,
+    "leftkey": 8,
+    "rightkey": 13,
+    "title": "NETWORK",
+    "parentId": 1
+  },
+  "priority": null,
+  "requesterdepartment": {
+    "id": 1,
+    "title": "1 отдел УГИБДД"
+  },
+  "requester": "Filippov D.V.",
+  "requestercontacts": "182",
+  "ipaddress": "10.89.100.23",
+  "duration": null,
+  "description": "need to repair printer",
+  "engineer": {
+    "id": 3,
+    "username": "iefremov10",
+    "password": "$2a$10$2qav1OsfMgk2CoCONY5OOeTtoRwItgL7Kmdj7L32yjQePWkDgO6sC",
+    "name": "Ефремов Иван",
+    "role": {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    "contacts": "178",
+    "email": "iefremov10@"
+  },
+  "operator": {
+    "id": 2,
+    "username": "ashevelev12",
+    "password": "$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq",
+    "name": "Шевелев Анатолий",
+    "role": {
+      "id": 2,
+      "name": "USER"
+    },
+    "contacts": "179",
+    "email": "ashevelev12@"
+  },
+  "status": {
+    "id": 1,
+    "title": "В работе"
+  },
+  "closedate": null,
+  "journal": null
+}
+
+###
+
 GET http://localhost:8080/incident/all
 Authorization: Basic a3BvbmtyYXRvdjo2NTMtOXg=
 
