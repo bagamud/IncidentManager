@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                     ${incidentsInService}
-                </tbody>
+                    </tbody>
                 </table>
             </div>
         </main>

@@ -61,9 +61,11 @@ public class MainController {
 //    public String index(Model model) {
 //        return "main";
 //    }
+
     /**
-     * Метод контроллера страницы manager, в котором реализовано получение справочников в виде массивов классов сущностей
-     * для работы с записью об инциденте, и передача справочников в аттрибуты страницы
+     * Метод контроллера страницы manager, в котором реализовано получение справочников
+     * в виде массивов классов сущностей для работы с записью об инциденте, и передача
+     * справочников в аттрибуты страницы
      *
      * @param model интерфейс определяющий аттрибуты
      * @return возвращяет путь к странице
@@ -76,8 +78,8 @@ public class MainController {
     }
 
     /**
-     * Метод контроллера реализующие получение справочников и записи об инциденте по идентификационному номеру
-     * и дальнейшая передача в аттрибуты страницы
+     * Метод контроллера реализующие получение справочников и записи об инциденте
+     * по идентификационному номеру и дальнейшая передача в аттрибуты страницы
      *
      * @param id    идентификационный номер записи об инциденте
      * @param model интерфейс определяющий аттрибуты
@@ -101,8 +103,9 @@ public class MainController {
     }
 
     /**
-     * Метод контроллера реализующий добавление записи об инциденте из веб-формы в базу данных, возвращает сформированную
-     * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
+     * Метод контроллера реализующий добавление записи об инциденте из веб-формы
+     * в базу данных, возвращает сформированную запись из базы данных и записывает
+     * в аттрибуты для отображения в веб-форме
      *
      * @param incidentForm сведения об инциденте переданные с веб-формы
      * @param model        интерфейс определяющий аттрибуты
@@ -120,7 +123,10 @@ public class MainController {
             if (incidentForm.getPriority() == 0) incidentForm.setPriority(3);
             if (incidentForm.getStatus() == 0) incidentForm.setStatus(1);
             Incident incident = incidentTransForm.convert(incidentForm);
-            model.addAttribute("incident", incidentTransForm.convert(incidentsController.addIncident(incident)));
+            model.addAttribute(
+                    "incident",
+                    incidentTransForm.convert(incidentsController.addIncident(incident))
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -145,9 +151,10 @@ public class MainController {
 //        return "manager";
 //    }
 //
+
     /**
-     * Метод контроллера реализующий обновление в баз данных статуса записи об инциденте на "Решен" и формирование даты
-     * решения заявки, возвращает обновленную
+     * Метод контроллера реализующий обновление в баз данных статуса записи об инциденте
+     * на "Решен" и формирование даты решения заявки, возвращает обновленную
      * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
      *
      * @param id    идентификатор записи об инциденте
@@ -163,13 +170,16 @@ public class MainController {
         incident.setStatus(new Status(3, "Решен"));
         if (incident.getClosedate() == null) incident.setClosedate(new Timestamp(new Date().getTime()));
 
-        model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
+        model.addAttribute(
+                "incident",
+                incidentTransForm.convert(incidentsController.updateIncident(incident, id))
+        );
         return "manager";
     }
 
     /**
-     * Метод контроллера страницы dashboard, в котором реализовано получение записей об инциденте, имеющих статус отличающийся
-     * от статуса "Решен", и их передача в аттрибуты страницы
+     * Метод контроллера страницы dashboard, в котором реализовано получение записей об инциденте,
+     * имеющих статус отличающийся от статуса "Решен", и их передача в аттрибуты страницы
      *
      * @param model интерфейс определяющий аттрибуты
      * @return возвращяет путь к странице
@@ -178,7 +188,10 @@ public class MainController {
     @GetMapping(path = "/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("user", usersRepository.findAll());
-        model.addAttribute("incidentsInService", incidentsController.getIncidentsInService((statusRepository.findAll()).get(2)));
+        model.addAttribute(
+                "incidentsInService",
+                incidentsController.getIncidentsInService((statusRepository.findAll()).get(2))
+        );
         return "dashboard";
     }
 

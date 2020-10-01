@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img alt="Russian Federation" height="30" src="../img/mvd.png" style="margin-left: 10px" width="52"/>
