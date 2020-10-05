@@ -41,7 +41,8 @@
                             <div class=" col-md-4 mb-3">
                                 <label for="id">Номер</label>
                                 <div class="input-group">
-                                    <input class="form-control <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
+                                    <input class="form-control <%if (request.getAttribute("error") != null)
+                                        out.print("is-invalid");%>"
                                            id="id" type="number" min="0" pattern="^[0-9]+$" name="id"
                                            value="${incident.id}">
                                     <div class="invalid-feedback">
