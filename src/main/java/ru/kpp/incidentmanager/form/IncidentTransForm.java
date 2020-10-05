@@ -52,12 +52,10 @@ public class IncidentTransForm {
         incident.setRequester(incidentForm.getRequester());
         incident.setRequestercontacts(incidentForm.getRequestercontacts());
         incident.setIpaddress(incidentForm.getIpaddress());
-//        incident.setDuration(incidentForm.getDuration());
         incident.setDescription(incidentForm.getDescription());
         incident.setEngineer(usersRepository.findById(incidentForm.getEngineer()));
         incident.setOperator(usersRepository.findById(incidentForm.getOperator()));
         incident.setStatus(statusRepository.findById(incidentForm.getStatus()));
-//        incident.setClosedate(incidentForm.getClosedate());
         incident.setJournal(incidentForm.getJournal());
 
         return incident;
@@ -87,7 +85,6 @@ public class IncidentTransForm {
         incidentForm.setRequester(incident.getRequester());
         incidentForm.setRequestercontacts(incident.getRequestercontacts());
         incidentForm.setIpaddress(incident.getIpaddress());
-//        if (incident.getDuration() != null) incidentForm.setDuration(incident.getDuration());
         incidentForm.setDescription(incident.getDescription());
         if (incident.getEngineer() != null) {
             incidentForm.setEngineer(incident.getEngineer().getId());

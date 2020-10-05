@@ -20,7 +20,6 @@ public class Incident {
     private String requester;
     private String requestercontacts;
     private String ipaddress;
-    //    private Integer duration;
     private String description;
     private Users engineer;
     private Users operator;
@@ -109,16 +108,6 @@ public class Incident {
         this.ipaddress = ipaddress;
     }
 
-//    @Basic
-//    @Column(name = "DURATION")
-//    public Integer getDuration() {
-//        return duration;
-//    }
-//
-//    public void setDuration(Integer duration) {
-//        this.duration = duration;
-//    }
-
     @Basic
     @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     public String getDescription() {
@@ -194,7 +183,6 @@ public class Incident {
                 Objects.equals(requester, incident.requester) &&
                 Objects.equals(requestercontacts, incident.requestercontacts) &&
                 Objects.equals(ipaddress, incident.ipaddress) &&
-//                Objects.equals(duration, incident.duration) &&
                 Objects.equals(description, incident.description) &&
                 Objects.equals(engineer, incident.engineer) &&
                 Objects.equals(closedate, incident.closedate) &&
@@ -203,6 +191,6 @@ public class Incident {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, /*duration,*/ description, engineer, operator, status, closedate, journal);
+        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, description, engineer, operator, status, closedate, journal);
     }
 }

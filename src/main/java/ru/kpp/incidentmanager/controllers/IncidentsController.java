@@ -46,19 +46,6 @@ public class IncidentsController {
         return incidentRepository.findById(id);
     }
 
-// --Commented out by Inspection START (01.10.2020 12:34):
-//    /**
-//     * Веб-метод получения всех записей об инцидентах из базы данных
-//     *
-//     * @return - возвращается массив экземпляров класса Incident
-//     */
-//
-//    public Iterable<Incident> getAllIncidents() {
-//        return incidentRepository.findAll();
-//    }
-// --Commented out by Inspection STOP (01.10.2020 12:34)
-
-
     /**
      * Веб-метод обновления записи об инциденте в базе данных
      *
@@ -71,18 +58,6 @@ public class IncidentsController {
         incidentById = incident;
         return incidentRepository.save(incidentById);
     }
-
-// --Commented out by Inspection START (01.10.2020 12:36):
-//    /**
-//     * Веб-метод удаления записи об инциденте в базе даннх
-//     *
-//     * @param id номер записи об инциденте для удаления
-//     */
-//
-//    public void deleteIncident(int id) {
-//        incidentRepository.deleteById(id);
-//    }
-// --Commented out by Inspection STOP (01.10.2020 12:36)
 
     /**
      * Веб-метод получения всех записей об инцидентах из базы данных со статусом, отличным от статуса "Решен"

@@ -13,27 +13,19 @@ import java.util.Objects;
 public class IncidentForm {
 
     private int id;
-    //    @AssertFalse
     private Timestamp opendate;
-    //    @NotNull
     private int category;
     private String categoryTitle;
     private int priority;
     private String priorityDescription;
-    //    @NotNull
     private int requesterdepartment;
     private String requesterdepartmentTitle;
-    //    @NotNull
     private String requester;
-    //    @NotNull
     private String requestercontacts;
     private String ipaddress;
-    //    private int duration;
-//    @NotNull
     private String description;
     private int engineer;
     private String engineerName;
-    //    @NotNull
     private int operator;
     private String operatorName;
     private int status;
@@ -129,14 +121,6 @@ public class IncidentForm {
     public void setIpaddress(String ipaddress) {
         this.ipaddress = ipaddress;
     }
-//
-//    public int getDuration() {
-//        return duration;
-//    }
-//
-//    public void setDuration(int duration) {
-//        this.duration = duration;
-//    }
 
     public String getDescription() {
         return description;
@@ -226,7 +210,6 @@ public class IncidentForm {
                 Objects.equals(requester, incident.requester) &&
                 Objects.equals(requestercontacts, incident.requestercontacts) &&
                 Objects.equals(ipaddress, incident.ipaddress) &&
-//                Objects.equals(duration, incident.duration) &&
                 Objects.equals(description, incident.description) &&
                 Objects.equals(engineer, incident.engineer) &&
                 Objects.equals(closedate, incident.closedate) &&
@@ -235,6 +218,6 @@ public class IncidentForm {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress,/* duration, */description, engineer, operator, status, closedate, journal);
+        return Objects.hash(id, opendate, category, priority, requesterdepartment, requester, requestercontacts, ipaddress, description, engineer, operator, status, closedate, journal);
     }
 }

@@ -49,18 +49,6 @@ public class MainController {
         this.incidentTransForm = incidentTransForm;
         this.faqController = faqController;
     }
-//
-//    /**
-//     * Метод контроллера домашней страницы
-//     *
-//     * @param model интерфейс определяющий аттрибуты
-//     * @return возвращяет путь к странице main
-//     */
-//
-//    @GetMapping(path = "/")
-//    public String index(Model model) {
-//        return "main";
-//    }
 
     /**
      * Метод контроллера страницы manager, в котором реализовано получение справочников
@@ -132,25 +120,6 @@ public class MainController {
         }
         return "manager";
     }
-//
-//    /**
-//     * Метод контроллера реализующий обновление записи об инциденте из веб-формы в баз данных, возвращает обновленную
-//     * запись из базы данных и записывает в аттрибуты для отображения в веб-форме
-//     *
-//     * @param incidentForm сведения об инциденте переданные с веб-формы
-//     * @param id           идентификатор записи об инциденте
-//     * @param model        интерфейс определяющий аттрибуты
-//     * @return возвращяет путь к странице
-//     */
-//
-//    @PostMapping(path = "/manager/upd")
-//    public String updateIncident(/*@Valid*/ IncidentForm incidentForm, @RequestParam int id, Model model) throws ParseException {
-//        getVocabulary(model);
-//        Incident incident = incidentTransForm.convert(incidentForm);
-//        model.addAttribute("incident", incidentTransForm.convert(incidentsController.updateIncident(incident, id)));
-//        return "manager";
-//    }
-//
 
     /**
      * Метод контроллера реализующий обновление в баз данных статуса записи об инциденте
