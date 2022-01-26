@@ -7,7 +7,7 @@
 </head>
 <body class="text-center">
 <form class="form-signin" action="${pageContext.request.contextPath}/login" method="POST">
-    <img class="mb-4" src="../img/gibdd.png" alt="">
+    <img alt="Russian Federation" height="155px" src="../img/gerb_mvdi-300x174.png"/>
     <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
 
     <label for="username" class="sr-only">Логин</label>
@@ -17,7 +17,6 @@
     <input type="password" name="password" id="password" class="form-control" placeholder="Пароль" required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2020-2020</p>
 </form>
 </body>
 </html>

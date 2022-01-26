@@ -1,6 +1,8 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 
@@ -13,6 +15,7 @@ import java.util.Objects;
 public class Status {
     private int id;
     private String title;
+    private boolean done;
 
     public Status() {
     }
@@ -23,7 +26,6 @@ public class Status {
     }
 
     @Id
-    @Column(name = "ID")
     public int getId() {
         return id;
     }
@@ -32,14 +34,20 @@ public class Status {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "TITLE")
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     @Override

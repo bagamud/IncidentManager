@@ -1,33 +1,22 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.*;
-import java.util.Objects;
-
-
-/**
- * Класс сущности, содержащий сведения об отделах и подразделениях, являющихся инициаторами заявки об инциденте,
- * в настоящем клиенте используется в классе {@link ru.kpp.incidentmanager.entity.Incident Incident},
- * а также для формирования справочников используемых в веб-формах
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-@Table(schema = "inm")
 public class Department {
-    private int id;
-    private String title;
 
     @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
+    private int code;
+    private String title;
+    private String shortTitle;
+    private int parentCode;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Column(nullable = true)
+    private boolean active;
 
-    @Basic
-    @Column(name = "TITLE")
+
     public String getTitle() {
         return title;
     }
@@ -36,17 +25,36 @@ public class Department {
         this.title = title;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Department that = (Department) o;
-        return id == that.id &&
-                Objects.equals(title, that.title);
+    public String getShortTitle() {
+        return shortTitle;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title);
+    public void setShortTitle(String shortTitle) {
+        this.shortTitle = shortTitle;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public int getParentCode() {
+        return parentCode;
+    }
+
+    public void setParentCode(int parentCode) {
+        this.parentCode = parentCode;
+    }
+
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

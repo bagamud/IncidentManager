@@ -1,12 +1,10 @@
-<%@ page import="ru.kpp.incidentmanager.entity.Users" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
 
     <jsp:include page="../template/_metaStyle.jsp"/>
     <title>Incident Manager</title>
-
 </head>
 <body class="bg-light">
 
@@ -17,11 +15,13 @@
         <main class="col-md-9 m-auto px-md-4" role="main">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Панель мониторинга</h1>
+                <input class="btn btn-primary" type="button" name="switchFilter" id="filterAll" value="In service/All"
+                       onclick="location.href='${pageContext.request.contextPath}/dashboard?status=${switchfilter}'">
             </div>
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover text-center">
                     <thead>
-                    <tr onclick=" location.href='/dashboard'">
+                    <tr>
                         <th>#</th>
                         <th>Подразделение</th>
                         <th>Дата заявки</th>
@@ -32,30 +32,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    ${incidentsInService}
+                    <core:forEach items="${incidents}" var="incident">
+                        <tr onclick="location.href='${pageContext.request.contextPath}/manager/get?id=${incident.id}'" cl>
+                            <td>${incident.id}</td>
+                            <td>${incident.requesterdepartment.shortTitle}</td>
+                            <td>${incident.opendate}</td>
+                            <td>${incident.engineer.name}</td>
+                            <td>${incident.priority.description}</td>
+                            <td>${incident.category.title}</td>
+                            <td>${incident.status.title}</td>
+                        </tr>
+                    </core:forEach>
                     </tbody>
                 </table>
             </div>
         </main>
     </div>
-
 </div>
-<%
-    List<Users> users = (List<Users>) request.getAttribute("user");
-    if (users != null) {
-        for (Users user : users) {
-            if (user.getUsername().equals(request.getUserPrincipal().getName()))
-                out.print("<input type=\"text\" id=\"userId\" value=\"" + user.getId() + "\" hidden/>\n" +
-                        "<input type=\"text\" id=\"userName\" value=\"" + user.getName() + "\" hidden/>");
-        }
-    }
-%>
-<script>
-    const userId = document.getElementById('userId').value;
-    const userName = document.getElementById('userName').value;
-    document.getElementById('principal').innerText = userName;
-</script>
 <jsp:include page="../template/_footer.jsp"/>
 </body>
 </html>
-

@@ -17,55 +17,23 @@ VALUES (1, 'ADMIN'),
        (2, 'USER'),
        (3, 'OPERATOR');
 
-INSERT INTO inm.department (ID, TITLE)
-VALUES (1, '1 отдел УГИБДД'),
-       (2, '2 отдел УГИБДД'),
-       (3, '3 отдел УГИБДД'),
-       (4, '4 отдел УГИБДД'),
-       (5, '5 отдел УГИБДД'),
-       (6, '6 отдел УГИБДД'),
-       (7, '7 отдел УГИБДД'),
-       (8, '8 отдел УГИБДД'),
-       (9, '9 отдел УГИБДД'),
-       (10, '10 отдел УГИБДД'),
-       (11, '11 отдел УГИБДД'),
-       (12, 'ЦАФАП ГИБДД'),
-       (13, 'РОИО ГИБДД'),
-       (14, 'ЦТУДТ ГИБДД'),
-       (15, 'МРЭО ГИБДД'),
-       (16, 'МРЭО ГИБДД № 1'),
-       (17, 'МРЭО ГИБДД № 2'),
-       (18, 'МРЭО ГИБДД № 3'),
-       (19, 'МРЭО ГИБДД № 4'),
-       (20, 'МРЭО ГИБДД № 5'),
-       (21, 'МРЭО ГИБДД № 6'),
-       (22, 'МОТНиРАС ГИБДД'),
-       (23, 'МРЭО ГИБДД № 8'),
-       (24, 'МРЭО ГИБДД № 9'),
-       (25, 'МРЭО ГИБДД № 10'),
-       (26, 'МРЭО ГИБДД № 11'),
-       (27, 'МРЭО ГИБДД № 12'),
-       (28, 'МРЭО ГИБДД № 13'),
-       (29, 'МРЭО ГИБДД № 15'),
-       (30, 'МРЭО ГИБДД № 16'),
-       (31, 'МРЭО ГИБДД № 17'),
-       (32, 'МРЭО ГИБДД № 18'),
-       (33, 'ОСБ ДПС №1 ГИБДД'),
-       (34, 'ОCБ ДПС №2 ГИБДД'),
-       (35, 'ОБ ДПС ГИБДД № 1'),
-       (36, 'ОБ ДПС ГИБДД № 2'),
-       (37, 'ОБ ДПС ГИБДД № 4'),
-       (38, 'ОБ ДПС ГИБДД № 5'),
-       (39, 'ОР ДПС ГИБДД № 1'),
-       (40, 'ОР ДПС ГИБДД № 2');
+insert into inm.department (code, active, parent_code, short_title, title)
+values (1, true, 160, 'ИЦ ГУ МВД России', null),
+       (2, true, 160, 'Тыл ГУ МВД России', null),
+       (3, true, 160, 'ГСУ ГУ МВД России', null);
 
-INSERT INTO inm.status (ID, TITLE)
-VALUES (1, 'В работе'),
-       (2, 'Отложен'),
-       (3, 'Решен');
 
-INSERT INTO inm.users (ID, username, PASSWORD, NAME, role, CONTACTS, EMAIL)
-VALUES (1, 'kponkratov', '$2a$10$iFC/FRdWQ0TV6/mDGe6dsODhRcB3agjpOTCQNc3rir8FMIk.TkvdO', 'Понкратов Кирилл', 1, '308',
+insert into inm.post (id, title)
+values (1, 'Заместитель начальника центра (вычислительного)');
+
+
+INSERT INTO inm.status (ID, TITLE, DONE)
+VALUES (1, 'В работе', false),
+       (2, 'Отложен', false),
+       (3, 'Решен', true);
+
+INSERT INTO inm.users (ID, username, PASSWORD, NAME, role_id, CONTACTS, EMAIL)
+VALUES (1, 'kponkratov', '$2a$10$atqierEGsn7HR01qW0jMkebgOiTbirlWv/udHUZlrWZbEs8hgM86G', 'Понкратов Кирилл', 1, '308',
         'kponkratov@'),
        (2, 'ashevelev12', '$2a$10$K5e6OPjkWp4YLWQzWigTXuXNVnwSvPVUfS030vpf3GQeoU07zLqkq', 'Шевелев Анатолий', 2, '179',
         'ashevelev12@'),

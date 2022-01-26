@@ -1,5 +1,4 @@
-<%@ page import="ru.kpp.incidentmanager.entity.Users" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="ru">
 <head>
@@ -41,32 +40,31 @@
                             <div class=" col-md-4 mb-3">
                                 <label for="id">Номер</label>
                                 <div class="input-group">
-                                    <input class="form-control <%if (request.getAttribute("error") != null) out.print("is-invalid");%>"
+                                    <input class="form-control"
                                            id="id" type="number" min="0" pattern="^[0-9]+$" name="id"
                                            value="${incident.id}">
                                     <div class="invalid-feedback">
                                         Неправильный номер записи
                                     </div>
-                                    <div class="input-group-append">
-                                        <button class="btn-light" type="submit" formaction="/manager/get"
-                                                formmethod="get" formnovalidate>Поиск
-                                        </button>
-                                    </div>
+                                    <button class="btn-light" type="submit" formaction="/manager/get"
+                                            formmethod="get" formnovalidate>Поиск
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="opendate">Дата открытия заявки</label>
                                 <input class="form-control" id="opendate" type="text" name="opendate"
-                                       value="${incident.opendate}" readonly required>
+                                       value="${incident.opendate}" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="operator">Оператор</label>
                                 <select class="form-control custom-select d-block w-100 form-control" id="operator"
                                         required
                                         type="text" name="operator">
-                                    <option id="defaultOperator"
-                                            value="${incident.operator}">${incident.operatorName}</option>
-                                    ${users}
+                                    <option value="${incident.operator.id}">${incident.operator.name}</option>
+                                    <core:forEach items="${users}" var="user">
+                                        <option value="${user.id}">${user.name}</option>
+                                    </core:forEach>
                                 </select>
                                 <div class="invalid-feedback">
                                     Неккоректное имя пользователя
@@ -80,8 +78,10 @@
                                 <select class="form-control custom-select d-block w-100"
                                         id="requesterdepartment"
                                         name="requesterdepartment" required>
-                                    <option value="${incident.requesterdepartment}">${incident.requesterdepartmentTitle}</option>
-                                    ${departments}
+                                    <option value="${incident.requesterdepartment.code}">${incident.requesterdepartment.shortTitle}</option>
+                                    <core:forEach items="${departments}" var="department">
+                                        <option value="${department.code}">${department.shortTitle}</option>
+                                    </core:forEach>
                                 </select>
                                 <div class="invalid-feedback">
                                     Пожалуйста выберите подразделение
@@ -89,12 +89,13 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="category">Категория инцидента</label>
-                                <select class="form-control custom-select d-block w-100<%-- is-invalid--%>"
+                                <select class="form-control custom-select d-block w-100"
                                         id="category"
                                         name="category" required onchange="">
-                                    <option value="${incident.category}">${incident.categoryTitle}</option>
-                                    ${categories}
-                                </select>
+                                    <option value="${incident.category.id}">${incident.category.title}</option>
+                                    <core:forEach items="${category}" var="category">
+                                        <option value="${category.id}">${category.title}</option>
+                                    </core:forEach> </select>
                                 <div class="invalid-feedback">
                                     Пожалуйста выберите категорию
                                 </div>
@@ -137,26 +138,29 @@
                             <div class="col-md-2 mb-3">
                                 <label for="priority">Приоритет</label>
                                 <select class="form-control custom-select d-block w-100" id="priority" name="priority">
-                                    <option value="${incident.priority}">${incident.priorityDescription}</option>
-                                    ${priority}
-                                </select>
+                                    <option value="${incident.priority.id}">${incident.priority.description}</option>
+                                    <core:forEach items="${priority}" var="priority">
+                                        <option value="${priority.id}">${priority.description}</option>
+                                    </core:forEach> </select>
                             </div>
                             <div class="col-md-2 mb-3">
                                 <label for="status">Статус заявки</label>
                                 <select class="form-control custom-select d-block w-100" id="status" name="status"
                                         type="text">
-                                    <option value="${incident.status}">${incident.statusTitle}</option>
-                                    ${status}
-                                </select>
+                                    <option value="${incident.status.id}">${incident.status.title}</option>
+                                    <core:forEach items="${status}" var="status">
+                                        <option value="${status.id}">${status.title}</option>
+                                    </core:forEach> </select>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="engineer">Инженер</label>
                                 <select class="form-control custom-select d-block w-100" id="engineer"
                                         name="engineer"
                                         type="text">
-                                    <option value="${incident.engineer}">${incident.engineerName}</option>
-                                    ${users}
-                                </select>
+                                    <option value="${incident.engineer.id}">${incident.engineer.name}</option>
+                                    <core:forEach items="${users}" var="users">
+                                        <option value="${users.id}">${users.name}</option>
+                                    </core:forEach> </select>
                                 <div class="invalid-feedback">
                                     Неккоректное имя пользователя
                                 </div>
@@ -186,16 +190,7 @@
         </main>
     </div>
 </div>
-<%
-    List<Users> users = (List<Users>) request.getAttribute("user");
-    if (users != null) {
-        for (Users user : users) {
-            if (user.getUsername().equals(request.getUserPrincipal().getName()))
-                out.print("<input type=\"text\" id=\"userId\" value=\"" + user.getId() + "\" hidden/>\n" +
-                        "<input type=\"text\" id=\"userName\" value=\"" + user.getName() + "\" hidden/>");
-        }
-    }
-%>
+
 <script>
     document.getElementById('category').onchange = function () {
         Array.from(document.getElementsByClassName('carousel-item active'))

@@ -39,8 +39,6 @@ public class Incident {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     public Timestamp getOpendate() {
         return opendate;
     }
@@ -50,7 +48,6 @@ public class Incident {
     }
 
     @ManyToOne(targetEntity = Category.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CATEGORY")
     public Category getCategory() {
         return category;
     }

@@ -1,6 +1,8 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 
@@ -17,7 +19,6 @@ public class Roles {
     private String name;
 
     @Id
-    @Column
     public int getId() {
         return id;
     }
@@ -26,8 +27,6 @@ public class Roles {
         this.id = id;
     }
 
-    @Basic
-    @Column
     public String getName() {
         return name;
     }

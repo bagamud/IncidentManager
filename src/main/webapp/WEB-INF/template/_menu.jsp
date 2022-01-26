@@ -1,19 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img alt="Russian Federation" height="30" src="../img/mvd.png" style="margin-left: 10px" width="52"/>
-    <a class="navbar-brand nav-link mr-lg-auto" href="${pageContext.request.contextPath}/">РОИО ГИБДД</a>
+    <div class="nav-item px-2 mr-lg-auto text-white">ИЦ ГУ МВД России</div>
     <div class="navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/dashboard">Панель мониторинга</a>
+        <ul class="nav me-lg-auto">
+            <li>
+                <a class="nav-link px-2 text-white" href="${pageContext.request.contextPath}/dashboard">Панель
+                    заявок</a>
             </li>
-            <li class="nav-item active">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/manager">Инциденты</a>
+            <li>
+                <a class="nav-link px-2 text-white" href="${pageContext.request.contextPath}/manager">Карточка
+                    заявки</a>
             </li>
+            <%--            <li>--%>
+            <%--                <a class="nav-link px-2 text-white" href="${pageContext.request.contextPath}/reports">Отчеты</a>--%>
+            <%--            </li>--%>
         </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="navbar-brand" id="principal"></a>
+        <ul class="nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link px-2 text-white" id="principal">${user.name}</a>
             </li>
             <li class="nav-item">
                 <button class="navbar-brand btn-lg btn-primary" onclick="location.href='/logout'">

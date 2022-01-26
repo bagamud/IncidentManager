@@ -13,16 +13,21 @@ import java.util.Objects;
 @Entity
 @Table(schema = "inm")
 public class Users {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
     private String username;
     private String password;
     private String name;
+
+    @ManyToOne(targetEntity = Roles.class, fetch = FetchType.EAGER)
     private Roles role;
     private String contacts;
     private String email;
 
-    @Id
-    @Column(name = "ID")
     public int getId() {
         return id;
     }
@@ -31,8 +36,6 @@ public class Users {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -41,8 +44,6 @@ public class Users {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "PASSWORD")
     public String getPassword() {
         return password;
     }
@@ -51,8 +52,6 @@ public class Users {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "NAME")
     public String getName() {
         return name;
     }
@@ -61,8 +60,6 @@ public class Users {
         this.name = name;
     }
 
-    @ManyToOne(targetEntity = Roles.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "role")
     public Roles getRole() {
         return role;
     }
@@ -71,8 +68,6 @@ public class Users {
         this.role = role;
     }
 
-    @Basic
-    @Column(name = "CONTACTS")
     public String getContacts() {
         return contacts;
     }
@@ -81,8 +76,6 @@ public class Users {
         this.contacts = contacts;
     }
 
-    @Basic
-    @Column(name = "EMAIL")
     public String getEmail() {
         return email;
     }

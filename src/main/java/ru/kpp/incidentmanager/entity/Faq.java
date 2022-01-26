@@ -1,6 +1,9 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Класс сущности, содержащий переменные справочника базы знаний
@@ -15,7 +18,6 @@ public class Faq {
     String cardText;
 
     @Id
-    @Column
     public int getId() {
         return id;
     }
@@ -24,8 +26,6 @@ public class Faq {
         this.id = id;
     }
 
-    @Basic
-    @Column
     public String getCardTitle() {
         return cardTitle;
     }
@@ -34,7 +34,6 @@ public class Faq {
         this.cardTitle = cardTitle;
     }
 
-    @Basic
     @Column(columnDefinition = "TEXT")
     public String getCardText() {
         return cardText;

@@ -1,6 +1,8 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 
@@ -13,6 +15,8 @@ import java.util.Objects;
 @Entity
 @Table(schema = "inm")
 public class Category {
+
+    @Id
     private int id;
     private int level;
     private int leftkey;
@@ -20,8 +24,6 @@ public class Category {
     private String title;
     private int parentId;
 
-    @Id
-    @Column
     public int getId() {
         return id;
     }
@@ -30,8 +32,6 @@ public class Category {
         this.id = id;
     }
 
-    @Basic
-    @Column
     public int getLevel() {
         return level;
     }
@@ -40,8 +40,6 @@ public class Category {
         this.level = level;
     }
 
-    @Basic
-    @Column
     public int getLeftkey() {
         return leftkey;
     }
@@ -50,8 +48,6 @@ public class Category {
         this.leftkey = leftkey;
     }
 
-    @Basic
-    @Column
     public int getRightkey() {
         return rightkey;
     }
@@ -60,8 +56,6 @@ public class Category {
         this.rightkey = rightkey;
     }
 
-    @Basic
-    @Column
     public String getTitle() {
         return title;
     }
@@ -70,8 +64,6 @@ public class Category {
         this.title = title;
     }
 
-    @Basic
-    @Column
     public int getParentId() {
         return parentId;
     }

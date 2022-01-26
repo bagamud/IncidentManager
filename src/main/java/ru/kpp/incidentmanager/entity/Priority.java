@@ -1,6 +1,8 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 
@@ -19,7 +21,6 @@ public class Priority {
     private int term;
 
     @Id
-    @Column(name = "ID")
     public int getId() {
         return id;
     }
@@ -48,8 +49,6 @@ public class Priority {
 //        this.urgency = urgency;
 //    }
 
-    @Basic
-    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
@@ -58,8 +57,6 @@ public class Priority {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "TERM")
     public int getTerm() {
         return term;
     }

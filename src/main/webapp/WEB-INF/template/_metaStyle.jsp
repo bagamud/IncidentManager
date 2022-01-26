@@ -3,7 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap core CSS -->
-<link href="../webjars/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Favicons -->
-<link rel="icon" href="../img/favicons/favicon.ico">
+<link rel="icon" href="${pageContext.request.contextPath}/img/favicon/favicon.ico">
+
+<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
