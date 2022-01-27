@@ -3,11 +3,11 @@
 <head>
     <jsp:include page="../template/_metaStyle.jsp"/>
     <title>Incident Manager</title>
-    <link href="../css/signin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
 <form class="form-signin" action="${pageContext.request.contextPath}/login" method="POST">
-    <img alt="Russian Federation" height="155px" src="../img/gerb_mvdi-300x174.png"/>
+    <img alt="Russian Federation" height="155px" src="${pageContext.request.contextPath}/img/gerb_mvdi-300x174.png"/>
     <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
 
     <label for="username" class="sr-only">Логин</label>

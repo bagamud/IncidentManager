@@ -1,9 +1,6 @@
 package ru.kpp.incidentmanager.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Класс сущности, содержащий переменные справочника базы знаний
@@ -13,9 +10,12 @@ import javax.persistence.Table;
 @Entity
 @Table(schema = "inm")
 public class Faq {
-    int id;
-    String cardTitle;
-    String cardText;
+    private int id;
+
+    private Category category;
+
+    private String cardTitle;
+    private String cardText;
 
     @Id
     public int getId() {
@@ -24,6 +24,15 @@ public class Faq {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @ManyToOne(targetEntity = Category.class, fetch = FetchType.EAGER)
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getCardTitle() {

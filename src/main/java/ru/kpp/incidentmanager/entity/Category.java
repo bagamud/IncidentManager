@@ -18,9 +18,6 @@ public class Category {
 
     @Id
     private int id;
-    private int level;
-    private int leftkey;
-    private int rightkey;
     private String title;
     private int parentId;
 
@@ -32,29 +29,6 @@ public class Category {
         this.id = id;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public int getLeftkey() {
-        return leftkey;
-    }
-
-    public void setLeftkey(int leftkey) {
-        this.leftkey = leftkey;
-    }
-
-    public int getRightkey() {
-        return rightkey;
-    }
-
-    public void setRightkey(int rightkey) {
-        this.rightkey = rightkey;
-    }
 
     public String getTitle() {
         return title;
@@ -78,15 +52,12 @@ public class Category {
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
         return id == category.id &&
-                level == category.level &&
-                leftkey == category.leftkey &&
-                rightkey == category.rightkey &&
                 parentId == category.parentId &&
                 Objects.equals(title, category.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, level, leftkey, rightkey, title, parentId);
+        return Objects.hash(id, title, parentId);
     }
 }

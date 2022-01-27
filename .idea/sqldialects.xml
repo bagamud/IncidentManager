@@ -2,6 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/SQL/INM_DATA.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/SQL/incidentManagerDB.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

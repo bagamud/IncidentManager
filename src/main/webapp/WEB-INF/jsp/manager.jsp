@@ -16,19 +16,24 @@
             </div>
             <div class="row">
                 <div class="col-md-5 order-md-2 mb-4 ">
+<%--                    <div class="card">--%>
+<%--                        <div class="card-header bg-transparent text-center text-light text-uppercase"></div>--%>
+<%--                        <div class="card-body"></div>--%>
+<%--                    </div>--%>
                     <div id="carousel" class="carousel" data-interval="false">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <core:forEach items="${faq}" var="card">
+                            <div class="carousel-item" id="categoryId${card.category.id}">
                                 <div class="card">
                                     <div class="card-header bg-info text-center text-light text-uppercase">
-                                        Справочник
+                                        ${card.cardTitle}
                                     </div>
                                     <div class="card-body">
-                                        Здесь будет краткое описание темы категории для подсказки
+                                        ${card.cardText}
                                     </div>
                                 </div>
                             </div>
-                            ${faq}
+                            </core:forEach>
                         </div>
                     </div>
                 </div>
@@ -126,9 +131,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label for="description">Описание</label>
-                                <textarea class="form-control<%-- is-invalid--%>" id="description" name="description"
-                                          required>${incident.description}</textarea>
+                                <label for="descriptionArea">Описание</label>
+                                <textarea class="form-control<%-- is-invalid--%>" id="descriptionArea" name="descriptionrea"
+                                          readonly>${incident.description}</textarea>
+                                <div class="invalid-feedback">
+                                    Введите описание заявки
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <input class="form-control" id="description" name="description">
                                 <div class="invalid-feedback">
                                     Введите описание заявки
                                 </div>
@@ -184,7 +197,6 @@
                         </div>
                     </form>
 
-
                 </div>
             </div>
         </main>
@@ -193,12 +205,12 @@
 
 <script>
     document.getElementById('category').onchange = function () {
-        Array.from(document.getElementsByClassName('carousel-item active'))
-            .forEach((carouselelement) => carouselelement.setAttribute('class', 'carousel-item'));
-        document.getElementById(this.value).setAttribute('class', 'carousel-item active');
+        if ('${faq}' !== '') {
+            Array.from(document.getElementsByClassName('carousel-item'))
+                .forEach((carouselelement) => carouselelement.setAttribute('class', 'carousel-item'));
+            document.getElementById('categoryId' + this.value).setAttribute('class', 'carousel-item active');
+        }
     }
-    const userName = document.getElementById('userName').value;
-    document.getElementById('principal').innerText = userName;
 
 </script>
 <jsp:include page="../template/_footer.jsp"/>

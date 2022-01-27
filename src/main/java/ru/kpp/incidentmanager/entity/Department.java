@@ -3,8 +3,10 @@ package ru.kpp.incidentmanager.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(schema = "inm")
 public class Department {
 
     @Id

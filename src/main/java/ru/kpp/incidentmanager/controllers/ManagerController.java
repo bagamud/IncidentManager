@@ -57,6 +57,7 @@ public class ManagerController {
     public String manager(Model model) {
         User userAuth = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Users user = usersRepository.findByUsername(userAuth.getUsername());
+        model.addAttribute("faq", faqRepository.findAll());
         model.addAttribute("user", user);
         dictionariesService.connect(model);
         return "manager";
@@ -72,12 +73,13 @@ public class ManagerController {
      */
 
     @GetMapping(path = "/get")
-    public String getIncident(@RequestParam int id, Model model) {
+    public String getIncident(@RequestParam(defaultValue = "0") int id, Model model) {
         User userAuth = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Users user = usersRepository.findByUsername(userAuth.getUsername());
         model.addAttribute("user", user);
-        dictionariesService.connect(model);
         model.addAttribute("faq", faqRepository.findAll());
+
+        dictionariesService.connect(model);
 
         try {
             model.addAttribute("incident", incidentRepository.findById(id));
@@ -115,7 +117,13 @@ public class ManagerController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
         }
-
+        if (incident.getId() != 0) {
+            if (incident.getDescription().equals("")) {
+                incident.setDescription(incidentRepository.findById(incident.getId()).getDescription());
+            } else {
+                incident.setDescription(incidentRepository.findById(incident.getId()).getDescription() + incident.getDescription() + " (" + user.getName() + ", " + new Date() + ")\n");
+            }
+        }
         try {
             model.addAttribute("incident", incidentRepository.save(incident));
         } catch (Exception e) {
